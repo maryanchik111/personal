@@ -94,31 +94,31 @@ export default function PricingPage() {
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Що входить:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('whatIncludes')}</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">До 5 сторінок</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Сучасний адаптивний дизайн</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Повна SEO оптимізація</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Базова система авторизації</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Декілька контактних форм</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Блог або новини</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Інтеграція з соц. мережами</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">Google Analytics</span></li>
-                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">2 місяці безкоштовної підтримки</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('upTo5PagesDetails')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('modernResponsiveDesign')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('fullSeoOptimizationDetails')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('basicAuthSystem')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('multipleContactForms')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('blogOrNews')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('socialNetworksIntegration')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('googleAnalytics')}</span></li>
+                    <li className="flex items-start"><span className="text-blue-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('twoMonthsFreeSupport')}</span></li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Ідеально для:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('idealForTitle')}</h3>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• MVP проекти</li>
-                    <li>• Стартапи</li>
-                    <li>• Функціональні сайти</li>
-                    <li>• Середній бізнес</li>
+                    <li>• {t('mvpProjects')}</li>
+                    <li>• {t('startups')}</li>
+                    <li>• {t('functionalSites')}</li>
+                    <li>• {t('mediumBusiness')}</li>
                   </ul>
                   
                   <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                    <div className="font-semibold text-blue-800">Терміни виконання:</div>
-                    <div className="text-blue-700">1-2 тижні</div>
+                    <div className="font-semibold text-blue-800">{t('executionTimeTitle')}</div>
+                    <div className="text-blue-700">{t('weeks1to2')}</div>
                   </div>
                 </div>
               </div>
@@ -127,47 +127,47 @@ export default function PricingPage() {
             {/* Бізнес тариф */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-indigo-500 relative">
               <div className="absolute -top-4 left-8 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                НАЙПОПУЛЯРНІШИЙ
+                {t('mostPopular')}
               </div>
               <div className="flex items-center mb-6 mt-2">
                 <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-6">
                   <span className="text-white text-2xl">💼</span>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold font-display text-gray-900">Бізнес</h2>
+                  <h2 className="text-3xl font-bold font-display text-gray-900">{t('businessTariff')}</h2>
                   <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">$999</div>
                 </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Що входить:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('whatIncludes')}</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">До 15 сторінок</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">Повна система авторизації</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">База даних та бекенд</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">Панель адміністратора</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">API інтеграції</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">Користувацькі ролі</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">Email повідомлення</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">Аналітика та звіти</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">Мобільний додаток (PWA)</span></li>
-                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">3 місяці безкоштовної підтримки</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('upTo15PagesDetails')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('fullAuthSystem')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('databaseAndBackend')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('adminPanel')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('apiIntegrationsDetails')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('userRoles')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('emailNotifications')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('analyticsAndReports')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('mobilePWA')}</span></li>
+                    <li className="flex items-start"><span className="text-indigo-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('threeMonthsFreeSupport')}</span></li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Ідеально для:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('idealForTitle')}</h3>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• SaaS додатки</li>
-                    <li>• E-commerce</li>
-                    <li>• CRM системи</li>
-                    <li>• Платформи навчання</li>
-                    <li>• Соціальні мережі</li>
+                    <li>• {t('saasAppsIdeal')}</li>
+                    <li>• {t('ecommerce')}</li>
+                    <li>• {t('crmSystems')}</li>
+                    <li>• {t('learningPlatforms')}</li>
+                    <li>• {t('socialNetworksIdeal')}</li>
                   </ul>
                   
                   <div className="mt-6 p-4 bg-indigo-50 rounded-lg">
-                    <div className="font-semibold text-indigo-800">Терміни виконання:</div>
-                    <div className="text-indigo-700">2-3 тижні</div>
+                    <div className="font-semibold text-indigo-800">{t('executionTimeTitle')}</div>
+                    <div className="text-indigo-700">{t('weeks2to3')}</div>
                   </div>
                 </div>
               </div>
@@ -180,40 +180,40 @@ export default function PricingPage() {
                   <span className="text-white text-2xl">🏢</span>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold font-display text-gray-900">Ентерпрайз</h2>
+                  <h2 className="text-3xl font-bold font-display text-gray-900">{t('enterpriseTariff')}</h2>
                   <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">$1699+</div>
                 </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Що входить:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('whatIncludes')}</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Необмежена кількість сторінок</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Повні API інтеграції</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Платіжні системи</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Мікросервісна архітектура</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Розширена аналітика</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Автоматичне масштабування</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Інтеграція з CRM/ERP</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">Багатомовність</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">DevOps та CI/CD</span></li>
-                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">6 місяців безкоштовної підтримки</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('unlimitedPages')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('fullApiIntegrationsDetails')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('paymentSystemsDetails')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('microserviceArchitecture')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('advancedAnalytics')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('autoScaling')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('crmErpIntegration')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('multiLanguage')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('devOpsCiCd')}</span></li>
+                    <li className="flex items-start"><span className="text-purple-500 mr-3 mt-1">✓</span><span className="text-gray-800">{t('sixMonthsFreeSupport')}</span></li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Ідеально для:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('idealForTitle')}</h3>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Великі корпорації</li>
-                    <li>• Складні платформи</li>
-                    <li>• Фінтех проекти</li>
-                    <li>• Маркетплейси</li>
-                    <li>• Банківські системи</li>
+                    <li>• {t('largeCorporations')}</li>
+                    <li>• {t('complexPlatforms')}</li>
+                    <li>• {t('internationalProjects')}</li>
+                    <li>• {t('bankingSystems')}</li>
+                    <li>• {t('governmentProjects')}</li>
                   </ul>
                   
                   <div className="mt-6 p-4 bg-purple-50 rounded-lg">
-                    <div className="font-semibold text-purple-800">Терміни виконання:</div>
-                    <div className="text-purple-700">3-4 тижні (до місяця)</div>
+                    <div className="font-semibold text-purple-800">{t('executionTimeTitle')}</div>
+                    <div className="text-purple-700">{t('monthsIndividual')}</div>
                   </div>
                 </div>
               </div>
@@ -222,106 +222,106 @@ export default function PricingPage() {
 
           {/* Додаткові послуги */}
           <div className="mt-16 bg-gradient-to-br from-gray-50 to-indigo-50 rounded-2xl p-8">
-            <h2 className="text-3xl font-bold font-display text-gray-900 mb-8 text-center">🚀 Додаткові послуги</h2>
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-8 text-center">🚀 {t('additionalServices')}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               
               {/* Швидкий аудит */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">🔍</span>
-                  <h3 className="font-bold text-gray-900">Аудит сайту</h3>
+                  <h3 className="font-bold text-gray-900">{t('siteAudit')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Детальний аналіз продуктивності, SEO та UX вашого сайту з рекомендаціями</p>
+                <p className="text-gray-600 text-sm mb-4">{t('siteAuditDescription')}</p>
                 <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">$45</div>
-                <div className="text-xs text-green-600 mt-1">⚡ Готово за 2 дні</div>
+                <div className="text-xs text-green-600 mt-1">⚡ {t('readyIn2Days')}</div>
               </div>
 
               {/* Редизайн */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">✨</span>
-                  <h3 className="font-bold text-gray-900">Редизайн</h3>
+                  <h3 className="font-bold text-gray-900">{t('redesign')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Сучасне оновлення дизайну з покращенням UX/UI та конверсії</p>
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">від $250</div>
-                <div className="text-xs text-blue-600 mt-1">🎨 + Мобільна адаптація</div>
+                <p className="text-gray-600 text-sm mb-4">{t('redesignDescription')}</p>
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{t('from')} $250</div>
+                <div className="text-xs text-blue-600 mt-1">🎨 {t('mobileAdaptation')}</div>
               </div>
 
               {/* Швидкість сайту */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">⚡</span>
-                  <h3 className="font-bold text-gray-900">Прискорення</h3>
+                  <h3 className="font-bold text-gray-900">{t('speedOptimization')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Оптимізація швидкості завантаження до 95+ балів в Google PageSpeed</p>
+                <p className="text-gray-600 text-sm mb-4">{t('speedOptimizationDescription')}</p>
                 <div className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">$89</div>
-                <div className="text-xs text-orange-600 mt-1">🚀 Гарантія результату</div>
+                <div className="text-xs text-orange-600 mt-1">🚀 {t('resultGuarantee')}</div>
               </div>
 
               {/* SEO Boost */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-yellow-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">📈</span>
-                  <h3 className="font-bold text-gray-900">SEO Boost</h3>
+                  <h3 className="font-bold text-gray-900">{t('seoBoost')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Комплексне SEO: технічна оптимізація + контент + структуровані дані</p>
+                <p className="text-gray-600 text-sm mb-4">{t('seoBoostDescription')}</p>
                 <div className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">$180</div>
-                <div className="text-xs text-purple-600 mt-1">📊 + Google Analytics настройка</div>
+                <div className="text-xs text-purple-600 mt-1">📊 {t('googleAnalyticsSetup')}</div>
               </div>
 
               {/* Чат-бот */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-cyan-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">🤖</span>
-                  <h3 className="font-bold text-gray-900">AI Чат-бот</h3>
+                  <h3 className="font-bold text-gray-900">{t('aiChatbot')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Інтелектуальний чат-бот для автоматизації клієнтської підтримки 24/7</p>
+                <p className="text-gray-600 text-sm mb-4">{t('aiChatbotDescription')}</p>
                 <div className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">$199</div>
-                <div className="text-xs text-green-600 mt-1">🧠 Навчання на ваших даних</div>
+                <div className="text-xs text-green-600 mt-1">🧠 {t('trainingOnYourData')}</div>
               </div>
 
               {/* Безпека */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-red-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">🛡️</span>
-                  <h3 className="font-bold text-gray-900">Безпека Pro</h3>
+                  <h3 className="font-bold text-gray-900">{t('securityPro')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">SSL, захист від DDoS, бекапи, моніторинг безпеки та відновлення</p>
+                <p className="text-gray-600 text-sm mb-4">{t('securityProDescription')}</p>
                 <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">$79</div>
-                <div className="text-xs text-indigo-600 mt-1">🔒 Автоматичні бекапи</div>
+                <div className="text-xs text-indigo-600 mt-1">🔒 {t('automaticBackups')}</div>
               </div>
 
               {/* Аналітика */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-indigo-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">📊</span>
-                  <h3 className="font-bold text-gray-900">Аналітика+</h3>
+                  <h3 className="font-bold text-gray-900">{t('analyticsPlus')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Розширена аналітика, heat maps, A/B тести та звіти конверсій</p>
+                <p className="text-gray-600 text-sm mb-4">{t('analyticsPlusDescription')}</p>
                 <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">$120</div>
-                <div className="text-xs text-cyan-600 mt-1">📈 Місячні звіти включені</div>
+                <div className="text-xs text-cyan-600 mt-1">📈 {t('monthlyReportsIncluded')}</div>
               </div>
 
               {/* API Integration */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-teal-500">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">🔌</span>
-                  <h3 className="font-bold text-gray-900">API Magic</h3>
+                  <h3 className="font-bold text-gray-900">{t('apiMagic')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Інтеграція з CRM, платіжними системами, соц.мережами та іншими сервісами</p>
-                <div className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">від $50</div>
-                <div className="text-xs text-orange-600 mt-1">🎯 Під ваші потреби</div>
+                <p className="text-gray-600 text-sm mb-4">{t('apiMagicDescription')}</p>
+                <div className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">{t('from')} $50</div>
+                <div className="text-xs text-orange-600 mt-1">🎯 {t('forYourNeeds')}</div>
               </div>
 
               {/* Підтримка VIP */}
               <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-yellow-400">
                 <div className="flex items-center mb-3">
                   <span className="text-3xl mr-3">👑</span>
-                  <h3 className="font-bold text-gray-900">VIP Підтримка</h3>
+                  <h3 className="font-bold text-gray-900">{t('vipSupport')}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">Пріоритетна підтримка, безлімітні правки, оновлення контенту</p>
-                <div className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">$69/міс</div>
-                <div className="text-xs text-green-600 mt-1">⚡ Відповідь протягом 2 год</div>
+                <p className="text-gray-600 text-sm mb-4">{t('vipSupportDescription')}</p>
+                <div className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">$69{t('perMonth')}</div>
+                <div className="text-xs text-green-600 mt-1">⚡ {t('responseIn2Hours')}</div>
               </div>
 
             </div>
@@ -329,12 +329,12 @@ export default function PricingPage() {
             {/* Додатковий блок з інформацією */}
             <div className="mt-8 bg-white rounded-xl p-6 border-2 border-dashed border-indigo-200">
               <div className="text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">🎁 Спеціальні пропозиції</h3>
-                <p className="text-gray-600 mb-4">При замовленні основного тарифу отримуєте знижки на додаткові послуги</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">🎁 {t('specialOffers')}</h3>
+                <p className="text-gray-600 mb-4">{t('specialOffersDescription')}</p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">💚 Аудит + SEO = -20%</span>
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">💙 Редизайн + Прискорення = -15%</span>
-                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">💜 Любі 3 послуги = -25%</span>
+                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full">💚 {t('auditSeoDiscount')}</span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">💙 {t('redesignSpeedDiscount')}</span>
+                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">💜 {t('any3ServicesDiscount')}</span>
                 </div>
               </div>
             </div>
@@ -343,14 +343,14 @@ export default function PricingPage() {
           {/* CTA Section */}
           <div className="mt-16 text-center">
             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
-              <h2 className="text-3xl font-bold font-display mb-4">Готові почати проект?</h2>
-              <p className="text-xl mb-6 text-indigo-100">Зв'яжіться зі мною для обговорення деталей та отримання персональної пропозиції</p>
+              <h2 className="text-3xl font-bold font-display mb-4">{t('readyToStart')}</h2>
+              <p className="text-xl mb-6 text-indigo-100">{t('readyToStartDescription')}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/#contact" className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                  Замовити консультацію
+                  {t('orderConsultation')}
                 </Link>
                 <Link href="/" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
-                  Назад на головну
+                  {t('backToHome')}
                 </Link>
               </div>
             </div>
