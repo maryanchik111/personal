@@ -71,7 +71,7 @@ export default function HomePage() {
             <div className="text-center bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
               <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
               <div className="text-gray-700 font-medium">{t('satisfiedClients2')}</div>
-              <div className="text-sm text-gray-500">Рейтинг 5/5.0</div>
+              <div className="text-sm text-gray-500">Рейтинг 5/5</div>
             </div>
             <div className="text-center bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
               <div className="text-3xl font-bold text-purple-600 mb-2">5 хв</div>
