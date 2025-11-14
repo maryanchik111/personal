@@ -7,7 +7,7 @@ import ScrollProgress from "./components/ScrollProgress";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useTranslations } from '@/app/hooks/useTranslations';
 
-export default function Home() {
+export default function HomePage() {
   const { t } = useTranslations();
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
@@ -43,13 +43,45 @@ export default function Home() {
               <span className="text-gray-900">{t('websites')}</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">{t('heroDescription')}</p>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 {t('getFreeConsultation')}
               </a>
               <Link href="/pricing" className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-all duration-300 hover:shadow-lg">
-                {t('viewDetailedPricing')}
+                {t('viewPricing')}
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Соціальне підтвердження */}
+      <section className="py-12 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">💼 {t('whyChooseMe')}</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-3xl font-bold text-indigo-600 mb-2">4+</div>
+              <div className="text-gray-700 font-medium">{t('completedProjects')}</div>
+              <div className="text-sm text-gray-500">За останній рік</div>
+            </div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
+              <div className="text-gray-700 font-medium">{t('satisfiedClients2')}</div>
+              <div className="text-sm text-gray-500">Рейтинг 5/5.0</div>
+            </div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-3xl font-bold text-purple-600 mb-2">5 хв</div>
+              <div className="text-gray-700 font-medium">{t('responseTime')}</div>
+              <div className="text-sm text-gray-500">{t('usually')} &lt; 5хв</div>
+            </div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-3xl font-bold text-orange-600 mb-2">6+</div>
+              <div className="text-gray-700 font-medium">{t('experience')}</div>
+              <div className="text-sm text-gray-500">{t('months')} {t('commercialDev')}</div>
             </div>
           </div>
         </div>
@@ -129,7 +161,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">{t('myWorks')}</h2>
             <p className="text-gray-600">{t('portfolioExamplesSuccess')}</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="h-48 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
                 <div className="text-white text-center">
@@ -174,6 +206,27 @@ export default function Home() {
               </div>
             </div>
             
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🐴</div>
+                  <div className="text-lg font-semibold">Pony Sales</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('ponySalesWebsite')}</h3>
+                <p className="text-gray-600 mb-4">{t('ponySalesDescription')}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">React</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Node.js</span>
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">MongoDB</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="text-sm text-gray-500">{t('duration')}: {t('oneDay')}</div>
+                  <a href="https://mlp-gray.vercel.app" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 font-medium text-sm">{t('viewProject')} →</a>
+                </div>
+              </div>
+            </div>
 
             
 
@@ -184,6 +237,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
 
       {/* Services Section */}
       <section id="services" className="py-16 px-4 bg-white">
@@ -388,6 +443,118 @@ export default function Home() {
                 <p className="text-gray-600 text-sm">{t('deployDesc')}</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-indigo-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">❓ {t('faqTitle')}</h2>
+            <p className="text-gray-600">{t('faqSubtitle')}</p>
+          </div>
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="p-6">
+                <div className="flex items-start">
+                  <span className="text-2xl mr-4">🚀</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Як швидко ви можете розпочати роботу над проектом?</h3>
+                    <p className="text-gray-700">
+                      Зазвичай розпочинаю роботу в перший день після погодження технічного завдання та внесення передоплати. 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="p-6">
+                <div className="flex items-start">
+                  <span className="text-2xl mr-4">💰</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Яка схема оплати?</h3>
+                    <p className="text-gray-700">
+                      50% передоплата при підписанні договору, 50% при здачі проекту. 
+                      Для великих проектів (Enterprise) можлива поетапна оплата по 25% за кожний milestone.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="p-6">
+                <div className="flex items-start">
+                  <span className="text-2xl mr-4">🛠️</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Що входить в підтримку сайту?</h3>
+                    <p className="text-gray-700">
+                      Технічні правки, оновлення контенту, резервні копії, моніторинг роботи сайту, 
+                      дрібні доопрацювання дизайну та функціоналу. Великі зміни обговорюються окремо.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="p-6">
+                <div className="flex items-start">
+                  <span className="text-2xl mr-4">📱</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Чи буде сайт адаптований під мобільні пристрої?</h3>
+                    <p className="text-gray-700">
+                      Так, всі сайти обов'язково адаптуються під мобільні пристрої та планшети. 
+                      Використовую mobile-first підхід для найкращої продуктивності на всіх пристроях.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="p-6">
+                <div className="flex items-start">
+                  <span className="text-2xl mr-4">🔍</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Чи оптимізуєте сайт для пошукових систем?</h3>
+                    <p className="text-gray-700">
+                      Базове SEO входить у всі тарифи: мета-теги, структуровані дані, швидкість завантаження. 
+                      Повна SEO-оптимізація доступна як додаткова послуга за $180.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="p-6">
+                <div className="flex items-start">
+                  <span className="text-2xl mr-4">📊</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Чи надаєте доступ до адміністрування сайту?</h3>
+                    <p className="text-gray-700">
+                      Так, після здачі проекту передаю всі паролі та навчаю користуванню адмін-панеллю. 
+                      Також надаю детальну документацію та відеоінструкції.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA в кінці FAQ */}
+          <div className="mt-12 text-center bg-white rounded-xl p-8 shadow-lg">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">{t('noAnswer')} 🤔</h3>
+            <p className="text-gray-600 mb-6">
+              {t('telegramResponse')}
+            </p>
+            <a href="https://t.me/ms5e60" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <span className="mr-2">💬</span>
+              {t('writeToTelegram')}
+            </a>
           </div>
         </div>
       </section>

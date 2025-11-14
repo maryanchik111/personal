@@ -78,6 +78,7 @@ export const useTranslations = () => {
       modern: 'сучасні',
       websites: 'веб-сайти',
       heroDescription: 'Я створюю сучасні веб-сайти та додатки, які допомагають бізнесу рости та залучати більше клієнтів',
+      viewPricing: 'Переглянути ціни',
 
       // Skills
       mySkills: 'Мої навички',
@@ -109,7 +110,28 @@ export const useTranslations = () => {
       mobileAdaptation: 'Мобільна адаптація',
       seoOptimization: 'SEO оптимізація',
       constantCommunication: 'Постійний звязок',
-      projectSupport: 'Підтримка проектів',
+      projectSupport: 'Підтримка проєктів',
+
+      // Marketing Section
+      specialOffer: 'СПЕЦІАЛЬНА ПРОПОЗИЦІЯ',
+      freeAuditOffer: 'Безкоштовний аудит сайту при замовленні будь-якого тарифу до кінця місяця!',
+      placesLeft: 'Залишилось місць',
+      savings: 'Економія',
+      whyChooseMe: 'Чому обирають мене',
+      lastYear: 'За останній рік',
+      satisfiedClients2: 'Задоволених клієнтів',
+      responseTime: 'Середній час відповіді',
+      usually: 'Зазвичай',
+      experience: 'Досвід',
+      commercialDev: 'Комерційної розробки',
+      months: 'Місяців',
+      faqTitle: 'Часті запитання',
+      faqSubtitle: 'Відповіді на популярні питання про співпрацю',
+      noAnswer: 'Не знайшли відповідь на своє запитання?',
+      telegramResponse: 'Напишіть мені в Telegram або заповніть форму нижче - відповім протягом 1 хвилини!',
+      writeToTelegram: 'Написати в Telegram',
+      freeConsultation: 'Безкоштовна консультація',
+      quickResponse: 'Відповідаю протягом 1 хвилини',
 
       // Portfolio Section
       myPortfolio: 'Моє портфоліо',
@@ -140,6 +162,8 @@ export const useTranslations = () => {
       biblicalSchoolDescription: 'Освітня платформа для вивчення Біблії з інтерактивними курсами',
       churchSite: 'Сайт церкви',
       churchSiteDescription: 'Сучасний сайт церкви з управлінням подіями та спільнотою',
+      ponySalesWebsite: 'Сайт продажу поні',
+      ponySalesDescription: 'Онлайн магазин для продажу поні з каталогом, фільтрами та системою замовлень',
       duration: 'Тривалість',
       oneDay: '1 день',
 
@@ -279,6 +303,7 @@ export const useTranslations = () => {
       modern: 'modern',
       websites: 'websites',
       heroDescription: 'I create modern websites and applications that help businesses grow and attract more clients',
+      viewPricing: 'View Pricing',
 
       // Skills
       mySkills: 'My Skills',
@@ -297,7 +322,6 @@ export const useTranslations = () => {
       aboutP1: 'I am a web developer with active experience creating modern, fast and user-friendly web applications.',
       aboutP2: 'I specialize in React, Next.js, TypeScript and creating full-featured solutions from idea to launch.',
       yearsExperience: 'Experience',
-      completedProjects: 'Completed Projects',
       satisfiedClients: 'Satisfied Clients',
       linesOfCode: 'Lines of Code',
       superFastMVP: 'Super fast MVP development',
@@ -311,6 +335,28 @@ export const useTranslations = () => {
       seoOptimization: 'SEO Optimization',
       constantCommunication: 'Constant communication',
       projectSupport: 'Project support',
+
+      // Marketing Section
+      specialOffer: 'SPECIAL OFFER',
+      freeAuditOffer: 'Free website audit when ordering any plan until the end of the month!',
+      placesLeft: 'Places left',
+      savings: 'Savings',
+      whyChooseMe: 'Why choose me',
+      completedProjects: 'Completed projects',
+      lastYear: 'Last year',
+      satisfiedClients2: 'Satisfied clients',
+      responseTime: 'Average response time',
+      usually: 'Usually',
+      experience: 'Experience',
+      commercialDev: 'Of commercial development',
+      months: 'Months',
+      faqTitle: 'Frequently Asked Questions',
+      faqSubtitle: 'Answers to popular questions about cooperation',
+      noAnswer: "Didn't find an answer to your question?",
+      telegramResponse: 'Write to me on Telegram or fill out the form below - I will respond within 1 minute!',
+      writeToTelegram: 'Write to Telegram',
+      freeConsultation: 'Free consultation',
+      quickResponse: 'I respond within 1 minute',
 
       // Portfolio Section
       myPortfolio: 'My Portfolio',
@@ -341,6 +387,8 @@ export const useTranslations = () => {
       biblicalSchoolDescription: 'Educational platform for Bible study with interactive courses',
       churchSite: 'Church Site',
       churchSiteDescription: 'Modern church website with event management and community',
+      ponySalesWebsite: 'Pony Sales Website',
+      ponySalesDescription: 'Online store for pony sales with catalog, filters and order system',
       duration: 'Duration',
       oneDay: '1 day',
 
