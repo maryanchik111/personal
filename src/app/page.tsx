@@ -39,8 +39,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold font-display text-gray-900 mb-6 leading-tight">
-              {t('createModern')} <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">{t('modern')}</span><br />
-              {t('websites')}
+              <span className="text-gray-900">{t('createModern')}</span> <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">{t('modern')}</span><br />
+              <span className="text-gray-900">{t('websites')}</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">{t('heroDescription')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -91,31 +91,31 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>{t('superFastMVP')}</span>
+                  <span className="text-gray-800">{t('superFastMVP')}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>{t('responsiveDesignAll')}</span>
+                  <span className="text-gray-800">{t('responsiveDesignAll')}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>{t('seoOptimizationBox')}</span>
+                  <span className="text-gray-800">{t('seoOptimizationBox')}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>{t('supportAfterLaunch')}</span>
+                  <span className="text-gray-800">{t('supportAfterLaunch')}</span>
                 </div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 rounded-xl p-8 text-white shadow-xl">
               <h3 className="text-2xl font-bold mb-6">{t('whyChooseMeAbout')}</h3>
               <ul className="space-y-4">
-                <li className="flex items-center"><span className="text-2xl mr-3">🚀</span>{t('fastDevelopmentDeploy')}</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">💡</span>{t('modernTechnologies')}</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">📱</span>{t('mobileAdaptation')}</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">🔍</span>{t('seoOptimization')}</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">💬</span>{t('constantCommunication')}</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">🛠️</span>{t('projectSupport')}</li>
+                <li className="flex items-center text-white"><span className="text-2xl mr-3">🚀</span>{t('fastDevelopmentDeploy')}</li>
+                <li className="flex items-center text-white"><span className="text-2xl mr-3">💡</span>{t('modernTechnologies')}</li>
+                <li className="flex items-center text-white"><span className="text-2xl mr-3">📱</span>{t('mobileAdaptation')}</li>
+                <li className="flex items-center text-white"><span className="text-2xl mr-3">🔍</span>{t('seoOptimization')}</li>
+                <li className="flex items-center text-white"><span className="text-2xl mr-3">💬</span>{t('constantCommunication')}</li>
+                <li className="flex items-center text-white"><span className="text-2xl mr-3">🛠️</span>{t('projectSupport')}</li>
               </ul>
             </div>
           </div>
