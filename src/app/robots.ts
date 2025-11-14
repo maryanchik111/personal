@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://maryan-sobchuk.dev/sitemap.xml',
+    sitemap: 'https://devs-plus.com/sitemap.xml',
   }
 }

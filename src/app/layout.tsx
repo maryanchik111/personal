@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
 
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "uk_UA",
-    url: "https://maryan-sobchuk.dev",
+    url: "https://devs-plus.com",
     title: "Мар'ян Собчук - Професійний Веб Розробник",
     description: "Створюю сучасні веб-додатки та сайти. MVP, SaaS, корпоративні рішення на Next.js та React.",
     siteName: "Мар'ян Собчук - Веб Розробник",
@@ -62,10 +64,10 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   alternates: {
-    canonical: "https://maryan-sobchuk.dev",
+    canonical: "https://devs-plus.com",
     languages: {
-      'uk': 'https://maryan-sobchuk.dev',
-      'en': 'https://maryan-sobchuk.dev',
+      'uk': 'https://devs-plus.com',
+      'en': 'https://devs-plus.com',
     },
   },
 };
@@ -92,6 +94,8 @@ export default function RootLayout({
       >
         <JsonLd />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

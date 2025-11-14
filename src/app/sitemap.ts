@@ -3,31 +3,31 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://maryan-sobchuk.dev',
+      url: 'https://devs-plus.com',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://maryan-sobchuk.dev/#about',
+      url: 'https://devs-plus.com/#about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://maryan-sobchuk.dev/#services',
+      url: 'https://devs-plus.com/#services',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://maryan-sobchuk.dev/#pricing',
+      url: 'https://devs-plus.com/#pricing',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://maryan-sobchuk.dev/#contact',
+      url: 'https://devs-plus.com/#contact',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,

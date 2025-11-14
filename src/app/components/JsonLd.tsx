@@ -5,8 +5,8 @@ export default function JsonLd() {
     "name": "Мар'ян Собчук",
     "jobTitle": "Веб-розробник",
     "description": "Професійний веб-розробник з досвідом 6+ місяців. Спеціалізуюся на Next.js, React, Tailwind CSS.",
-    "image": "https://maryan-sobchuk.dev/profile.jpg",
-    "url": "https://maryan-sobchuk.dev",
+    "image": "https://devs-plus.com/profile.jpg",
+    "url": "https://devs-plus.com",
     "email": "maryan.sobchuk@gmail.com",
     "telephone": "+380-XX-XXX-XXXX",
     "address": {

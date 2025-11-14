@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maryan-sobchuk.dev/sitemap.xml
+Sitemap: https://devs-plus.com/sitemap.xml
 
 # Disallow admin or private areas (if any in future)
 # Disallow: /admin/

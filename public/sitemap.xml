@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://maryan-sobchuk.dev/</loc>
+    <loc>https://devs-plus.com/</loc>
     <lastmod>2025-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://maryan-sobchuk.dev/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://maryan-sobchuk.dev/" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://devs-plus.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://devs-plus.com/" />
   </url>
   <url>
-    <loc>https://maryan-sobchuk.dev/pricing</loc>
+    <loc>https://devs-plus.com/pricing</loc>
     <lastmod>2025-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://maryan-sobchuk.dev/pricing" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://maryan-sobchuk.dev/pricing" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://devs-plus.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://devs-plus.com/pricing" />
   </url>
 </urlset>
