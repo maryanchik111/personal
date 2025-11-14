@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Мар'ян Собчук - Сайт-візитка веб-розробника
 
-## Getting Started
+Професійний сайт-візитка з продажу послуг веб-розробки. Створений на Next.js 16 з Tailwind CSS.
 
-First, run the development server:
+## 🚀 Особливості
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Сучасний дизайн** - Мінімалістичний та професійний дизайн
+- **SEO-оптимізація** - Повний набір meta-тегів та структурованих даних
+- **Responsive дизайн** - Адаптивний під всі пристрої
+- **Швидкість** - Next.js 16 забезпечує високу продуктивність
+- **Тарифні плани** - Чіткі пакети послуг з цінами
+- **Форма зворотного зв'язку** - Для зручного контакту з клієнтами
+
+## 🛠️ Технології
+
+- **Next.js 16** - React фреймворк нового покоління
+- **React 19** - Найновіша версія React
+- **TypeScript** - Типізована JavaScript для надійності
+- **Tailwind CSS 4** - Utility-first CSS фреймворк 
+- **ESLint** - Лінтер для якості коду
+
+## 📦 Структура проекту
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   └── MobileMenu.tsx      # Мобільне меню
+│   ├── globals.css             # Глобальні стилі
+│   ├── layout.tsx              # Основний layout з SEO
+│   └── page.tsx                # Головна сторінка
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Секції сайту
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Hero секція** - Головний заголовок з описом послуг
+2. **Технології** - Список основних навичок
+3. **Про мене** - Детальна інформація про досвід
+4. **Послуги** - Три основні напрямки роботи:
+   - MVP розробка
+   - SaaS додатки  
+   - Корпоративні сайти
+5. **Тарифи** - Три пакети з цінами:
+   - Стартап ($800)
+   - Бізнес ($1500) 
+   - Ентерпрайз ($2500+)
+6. **Контакти** - Форма зв'язку та контактна інформація
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💰 Тарифні плани
 
-## Learn More
+### Стартап - $800
+- До 5 сторінок
+- Responsive дизайн
+- Базова SEO оптимізація
+- Форма зворотного зв'язку
+- 1 місяць підтримки
 
-To learn more about Next.js, take a look at the following resources:
+### Бізнес - $1500 (Популярний)
+- До 15 сторінок
+- Авторизація користувачів
+- База даних
+- Панель адміністратора
+- 3 місяці підтримки
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Ентерпрайз - $2500+
+- Необмежено сторінок
+- Інтеграція з API
+- Платіжні системи
+- Аналітика
+- 6 місяців підтримки
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Запуск проекту
 
-## Deploy on Vercel
+### Встановлення залежностей
+```bash
+npm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Запуск в режимі розробки
+```bash
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Відкрийте [http://localhost:3000](http://localhost:3000) у браузері.
+
+### Збірка для продакшену
+```bash
+npm run build
+npm start
+```
+
+## 📧 Контакти
+
+- **Email**: maryan.sobchuk@gmail.com
+- **Telegram**: @maryan_sobchuk
+- **GitHub**: github.com/maryanchik111
+
+## 🌐 Деплой
+
+Рекомендується деплоїти на Vercel для найкращої продуктивності:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/maryanchik111/personal)
+
+Альтернативні платформи:
+- Netlify
+- Railway
+- AWS Amplify
+
+## 📝 Ліцензія
+
+Цей проект створений для особистого використання Мар'яном Собчуком.
+
+---
+
+**Створено з ❤️ використовуючи Next.js, React та Tailwind CSS**

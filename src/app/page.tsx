@@ -1,65 +1,575 @@
 import Image from "next/image";
+import Link from "next/link";
+import MobileMenu from "./components/MobileMenu";
+import ScrollProgress from "./components/ScrollProgress";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
+      <ScrollProgress />
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-indigo-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="text-2xl font-bold font-display bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Мар'ян Собчук
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Про мене</a>
+              <a href="#services" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Послуги</a>
+              <a href="#portfolio" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Портфоліо</a>
+              <a href="#pricing" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Тарифи</a>
+              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Контакти</a>
+            </div>
+            <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+              Замовити проект
+            </a>
+            <MobileMenu />
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold font-display text-gray-900 mb-6 leading-tight">
+              Створюю <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">сучасні</span><br />
+              веб-додатки та сайти
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Професійний веб-розробник з досвідом 6+ місяців. Спеціалізуюся на Next.js, React, 
+              Tailwind CSS. Швидко створюю MVP, SaaS-додатки та корпоративні сайти з сучасним дизайном.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                Почати проект
+              </a>
+              <a href="#pricing" className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-all duration-300 hover:shadow-lg">
+                Переглянути тарифи
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Технології</h2>
+            <p className="text-gray-600">Використовую найсучасніші інструменти для розробки</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[
+              { name: "Next.js", icon: "⚡" },
+              { name: "React", icon: "⚛️" },
+              { name: "TypeScript", icon: "📘" },
+              { name: "Tailwind CSS", icon: "🎨" },
+              { name: "JavaScript", icon: "💛" },
+              { name: "Figma", icon: "🎯" },
+            ].map((skill) => (
+              <div key={skill.name} className="text-center p-6 rounded-xl bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-100 hover:border-indigo-200">
+                <div className="text-4xl mb-3">{skill.icon}</div>
+                <h3 className="font-semibold text-gray-900">{skill.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold font-display text-gray-900 mb-6">Про мене</h2>
+              <p className="text-gray-600 mb-4">
+                Привіт! Мене звати Мар'ян Собчук, я веб-розробник з досвідом 6+ місяців. 
+                Спеціалізуюся на створенні сучасних веб-додатків та сайтів.
+              </p>
+              <p className="text-gray-600 mb-4">
+                Моя головна перевага — швидкість розробки без втрати якості. Використовую 
+                найновіші технології: Next.js, React, TypeScript, Tailwind CSS.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>Швидка розробка MVP (1-2 тижні)</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>Responsive дизайн для всіх пристроїв</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>SEO-оптимізація з коробки</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span>Підтримка після запуску</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 rounded-xl p-8 text-white shadow-xl">
+              <h3 className="text-2xl font-bold mb-6">Чому обирають мене?</h3>
+              <ul className="space-y-4">
+                <li className="flex items-center"><span className="text-2xl mr-3">🚀</span>Швидка розробка і деплой</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">💡</span>Сучасні технології</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">📱</span>Мобільна адаптація</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">🔍</span>SEO-оптимізація</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">💬</span>Постійний зв'язок</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">🛠️</span>Підтримка проекту</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-16 px-4 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Мої роботи</h2>
+            <p className="text-gray-600">Приклади успішно реалізованих проектів</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🚀</div>
+                  <div className="text-lg font-semibold">SaaS Dashboard</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">TaskFlow Pro</h3>
+                <p className="text-gray-600 mb-4">Система управління проектами з користувацькими панелями, аналітикою та інтеграцією з платіжними системами.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Next.js</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">React</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">TypeScript</span>
+                </div>
+                <div className="text-sm text-gray-500">Тривалість: 3 тижні</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🏪</div>
+                  <div className="text-lg font-semibold">E-commerce</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">EcoShop Ukraine</h3>
+                <p className="text-gray-600 mb-4">Інтернет-магазин екологічних товарів з кошиком, оплатою, особистим кабінетом та адмін-панеллю.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Next.js</span>
+                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">Stripe</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Prisma</span>
+                </div>
+                <div className="text-sm text-gray-500">Тривалість: 4 тижні</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🎨</div>
+                  <div className="text-lg font-semibold">Portfolio</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Design Studio</h3>
+                <p className="text-gray-600 mb-4">Портфоліо дизайн-студії з галереєю робіт, анімаціями та формою замовлення послуг.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">React</span>
+                  <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Framer Motion</span>
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Tailwind</span>
+                </div>
+                <div className="text-sm text-gray-500">Тривалість: 2 тижні</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">📱</div>
+                  <div className="text-lg font-semibold">Landing Page</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">FitTracker App</h3>
+                <p className="text-gray-600 mb-4">Лендінг для мобільного додатку фітнес-трекера з анімаціями, відгуками та інтеграцією з App Store.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Next.js</span>
+                  <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">GSAP</span>
+                  <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Tailwind</span>
+                </div>
+                <div className="text-sm text-gray-500">Тривалість: 1 тиждень</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🏢</div>
+                  <div className="text-lg font-semibold">Corporate</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">IT Консалтинг</h3>
+                <p className="text-gray-600 mb-4">Корпоративний сайт IT-компанії з блогом, кейсами, командою та формою заявок на консультацію.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">Next.js</span>
+                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">Contentful</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">TypeScript</span>
+                </div>
+                <div className="text-sm text-gray-500">Тривалість: 3 тижні</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">⚡</div>
+                  <div className="text-lg font-semibold">MVP</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">CryptoTracker</h3>
+                <p className="text-gray-600 mb-4">MVP для відстеження криптовалют з реального часу, портфоліо користувача та push-повідомленнями.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm">React</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">API</span>
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Charts.js</span>
+                </div>
+                <div className="text-sm text-gray-500">Тривалість: 2 тижні</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Мої послуги</h2>
+            <p className="text-gray-600">Повний цикл розробки веб-рішень</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-indigo-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="text-4xl mb-4">🚀</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">MVP розробка</h3>
+              <p className="text-gray-600 mb-4">
+                Швидко створюю мінімально життєздатний продукт для тестування вашої ідеї на ринку.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>• Розробка за 1-2 тижні</li>
+                <li>• Основний функціонал</li>
+                <li>• Responsive дизайн</li>
+                <li>• Готовність до масштабування</li>
+              </ul>
+            </div>
+            <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-purple-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="text-4xl mb-4">💼</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">SaaS додатки</h3>
+              <p className="text-gray-600 mb-4">
+                Повнофункціональні SaaS-платформи з системами авторизації, платежів та аналітики.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>• Користувацькі панелі</li>
+                <li>• Інтеграція платежів</li>
+                <li>• База даних</li>
+                <li>• API розробка</li>
+              </ul>
+            </div>
+            <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-cyan-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="text-4xl mb-4">🌐</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Корпоративні сайти</h3>
+              <p className="text-gray-600 mb-4">
+                Професійні сайти для бізнесу з фокусом на конверсію та SEO-оптимізацію.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>• Лендінг пейджи</li>
+                <li>• Каталоги товарів</li>
+                <li>• CMS інтеграція</li>
+                <li>• SEO оптимізація</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Тарифні плани</h2>
+            <p className="text-gray-600">Прозорі ціни без прихованих платежів</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Мінімальний тариф */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">🌱</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Базовий</h3>
+                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$300</div>
+                <p className="text-gray-600 text-sm">Лендінг або сайт-візитка</p>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>1-3 сторінки</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Responsive дизайн</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Базова SEO</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Форма зв'язку</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Швидка розробка (3-5 днів)</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>1 місяць підтримки</li>
+              </ul>
+              <a href="#contact" className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 rounded-lg font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 block text-center text-sm">
+                Замовити
+              </a>
+            </div>
+
+            {/* Стартап тариф */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">🚀</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Стартап</h3>
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">$600</div>
+                <p className="text-gray-600 text-sm">MVP та функціональні сайти</p>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>До 5 сторінок</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Responsive дизайн</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Повна SEO оптимізація</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Базова авторизація</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Контактні форми</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>2 місяці підтримки</li>
+              </ul>
+              <a href="#contact" className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 block text-center text-sm">
+                Замовити
+              </a>
+            </div>
+
+            {/* Популярний тариф */}
+            <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-indigo-500 relative hover:shadow-2xl transition-all duration-300">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-1 rounded-full text-xs font-semibold">
+                ПОПУЛЯРНИЙ
+              </div>
+              <div className="text-center mb-4 mt-2">
+                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">💼</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Бізнес</h3>
+                <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">$1200</div>
+                <p className="text-gray-600 text-sm">SaaS додатки та е-комерс</p>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>До 15 сторінок</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Повна авторизація</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>База даних</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Панель адміністратора</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>API інтеграції</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>3 місяці підтримки</li>
+              </ul>
+              <a href="#contact" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 block text-center text-sm">
+                Замовити
+              </a>
+            </div>
+
+            {/* Ентерпрайз тариф */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">🏢</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Ентерпрайз</h3>
+                <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">$2000+</div>
+                <p className="text-gray-600 text-sm">Складні корпоративні рішення</p>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Необмежено сторінок</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Повні API інтеграції</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Платіжні системи</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Аналітика та звіти</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Масштабування</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>6 місяців підтримки</li>
+              </ul>
+              <a href="#contact" className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 block text-center text-sm">
+                Обговорити
+              </a>
+            </div>
+          </div>
+          
+          {/* Додаткова інформація про тарифи */}
+          <div className="mt-12 bg-white rounded-xl p-8 shadow-lg">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Що входить у всі тарифи?</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">⚡</span>
+                </div>
+                <h4 className="font-semibold mb-2">Швидка розробка</h4>
+                <p className="text-gray-600 text-sm">Від 3 днів до 4 тижнів залежно від складності</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">📱</span>
+                </div>
+                <h4 className="font-semibold mb-2">Мобільна адаптація</h4>
+                <p className="text-gray-600 text-sm">Ідеальний вигляд на всіх пристроях</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">🔍</span>
+                </div>
+                <h4 className="font-semibold mb-2">SEO оптимізація</h4>
+                <p className="text-gray-600 text-sm">Налаштування для пошукових систем</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">🛠️</span>
+                </div>
+                <h4 className="font-semibold mb-2">Підтримка</h4>
+                <p className="text-gray-600 text-sm">Безкоштовні правки та технічна підтримка</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">💬</span>
+                </div>
+                <h4 className="font-semibold mb-2">Постійний зв'язок</h4>
+                <p className="text-gray-600 text-sm">Регулярні звіти про прогрес</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">🚀</span>
+                </div>
+                <h4 className="font-semibold mb-2">Деплой</h4>
+                <p className="text-gray-600 text-sm">Запуск на високошвидкісному хостингу</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Зв'яжіться зі мною</h2>
+            <p className="text-gray-600">Готовий обговорити ваш проект та почати роботу</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Контактна інформація</h3>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-blue-600">📧</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Email</p>
+                    <p className="text-gray-600">maryan.sobchuk@gmail.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-blue-600">💬</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Telegram</p>
+                    <p className="text-gray-600">@maryan_sobchuk</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-blue-600">🔗</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">GitHub</p>
+                    <p className="text-gray-600">github.com/maryanchik111</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <form className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Ім'я
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Ваше ім'я"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="project" className="block text-sm font-medium text-gray-700 mb-2">
+                    Тип проекту
+                  </label>
+                  <select
+                    id="project"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option>MVP розробка</option>
+                    <option>SaaS додаток</option>
+                    <option>Корпоративний сайт</option>
+                    <option>Лендінг пейдж</option>
+                    <option>Інше</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Опис проекту
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Розкажіть про ваш проект..."
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Надіслати запит
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-400">
+            © 2024 Мар'ян Собчук. Всі права захищені. 
+          </p>
+          <p className="text-gray-400 mt-2">
+            Веб-розробник | Next.js | React | TypeScript
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }
