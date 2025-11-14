@@ -252,7 +252,7 @@ export default function Home() {
                   <span className="text-white text-xl">🌱</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t('basic')}</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$150</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$99</div>
                 <p className="text-gray-600 text-sm">{t('landingOrBusinessCard')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
@@ -275,10 +275,10 @@ export default function Home() {
                   <span className="text-white text-xl">🚀</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t('startupTariff')}</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">$600</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">$499</div>
                 <p className="text-gray-600 text-sm">{t('mvpFunctionalSites')}</p>
               </div>
-              <ul className="space-y-2 mb-6 text-sm">
+              <ul className="space-y-2 mb-6 text-sm text-gray-800">
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('upTo5Pages')}</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('responsiveDesign')}</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('fullSeoOptimization')}</li>
@@ -301,10 +301,10 @@ export default function Home() {
                   <span className="text-white text-xl">⭐</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t('businessPlan')}</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">$1200</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">$999</div>
                 <p className="text-gray-600 text-sm">{t('saasAndEcommerce')}</p>
               </div>
-              <ul className="space-y-2 mb-6 text-sm">
+              <ul className="space-y-2 mb-6 text-sm text-gray-800">
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('upTo15Pages')}</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('fullAuth')}</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('database')}</li>
@@ -324,10 +324,10 @@ export default function Home() {
                   <span className="text-white text-xl">🏢</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t('enterprisePlan')}</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">$2000+</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">$1699+</div>
                 <p className="text-gray-600 text-sm">{t('complexCorporateSolutions')}</p>
               </div>
-              <ul className="space-y-2 mb-6 text-sm">
+              <ul className="space-y-2 mb-6 text-sm text-gray-800">
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('unlimitedPagesText')}</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('fullApiIntegrations')}</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('paymentSystems')}</li>
@@ -349,42 +349,42 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">⚡</span>
                 </div>
-                <h4 className="font-semibold mb-2">{t('fastDevelopmentTitle')}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('fastDevelopmentTitle')}</h4>
                 <p className="text-gray-600 text-sm">{t('fastDevelopmentDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">📱</span>
                 </div>
-                <h4 className="font-semibold mb-2">{t('mobileAdaptationTitle')}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('mobileAdaptationTitle')}</h4>
                 <p className="text-gray-600 text-sm">{t('mobileAdaptationDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">🔍</span>
                 </div>
-                <h4 className="font-semibold mb-2">{t('seoOptimizationTitle')}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('seoOptimizationTitle')}</h4>
                 <p className="text-gray-600 text-sm">{t('seoOptimizationDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">🛠️</span>
                 </div>
-                <h4 className="font-semibold mb-2">{t('supportTitle')}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('supportTitle')}</h4>
                 <p className="text-gray-600 text-sm">{t('supportDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">💬</span>
                 </div>
-                <h4 className="font-semibold mb-2">{t('constantContactTitle')}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('constantContactTitle')}</h4>
                 <p className="text-gray-600 text-sm">{t('constantContactDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">🚀</span>
                 </div>
-                <h4 className="font-semibold mb-2">{t('deployTitle')}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('deployTitle')}</h4>
                 <p className="text-gray-600 text-sm">{t('deployDesc')}</p>
               </div>
             </div>
@@ -433,7 +433,7 @@ export default function Home() {
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                     placeholder={t('yourName')}
                   />
                 </div>
@@ -444,7 +444,7 @@ export default function Home() {
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -454,7 +454,7 @@ export default function Home() {
                   </label>
                   <select
                     id="project"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   >
                     <option>{t('mvpDevelopmentOption')}</option>
                     <option>{t('saasAppOption')}</option>
@@ -470,7 +470,7 @@ export default function Home() {
                   <textarea
                     id="message"
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                     placeholder={t('tellAboutProject')}
                   ></textarea>
                 </div>
