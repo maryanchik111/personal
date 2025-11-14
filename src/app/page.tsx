@@ -292,16 +292,16 @@ export default function Home() {
             </div>
 
 
-            <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-indigo-500 relative hover:shadow-2xl transition-all duration-300">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-1 rounded-full text-xs font-semibold">
+            <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-green-500 relative hover:shadow-2xl transition-all duration-300">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-xs font-semibold">
                 {t('popularBadge')}
               </div>
               <div className="text-center mb-4 mt-2">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white text-xl">💼</span>
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">⭐</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t('businessPlan')}</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">$1200</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">$1200</div>
                 <p className="text-gray-600 text-sm">{t('saasAndEcommerce')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
@@ -409,7 +409,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">Email</p>
-                    <p className="text-gray-600">maryan.sobchuk@gmail.com</p>
+                    <p className="text-gray-600">maryanlikesyou@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -418,7 +418,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">Telegram</p>
-                    <p className="text-gray-600">@maryan_sobchuk</p>
+                    <p className="text-gray-600">@ms5e60</p>
                   </div>
                 </div>
 

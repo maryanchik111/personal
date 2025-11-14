@@ -23,6 +23,17 @@ export const metadata: Metadata = {
   authors: [{ name: "Мар'ян Собчук" }],
   creator: "Мар'ян Собчук",
   publisher: "Мар'ян Собчук",
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", sizes: "32x32", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: [
+      { url: "/icon-192.svg", sizes: "180x180", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "uk_UA",
@@ -66,6 +77,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/icon-192.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#4f46e5" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Мар'ян Собчук" />
+      </head>
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
       >
