@@ -39,15 +39,15 @@ export default function Home() {
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Професійний веб-розробник з досвідом 6+ місяців. Спеціалізуюся на Next.js, React, 
-              Tailwind CSS. Швидко створюю MVP, SaaS-додатки та корпоративні сайти з сучасним дизайном.
+              Tailwind CSS. <strong>MVP за 1 день</strong>, розробка від 1 дня до місяця залежно від складності.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Почати проект
               </a>
-              <a href="#pricing" className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-all duration-300 hover:shadow-lg">
-                Переглянути тарифи
-              </a>
+              <Link href="/pricing" className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-all duration-300 hover:shadow-lg">
+                Детальні тарифи
+              </Link>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Швидка розробка MVP (1-2 тижні)</span>
+                  <span>Надшвидка розробка MVP (1 день!)</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
@@ -133,120 +133,58 @@ export default function Home() {
             <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Мої роботи</h2>
             <p className="text-gray-600">Приклади успішно реалізованих проектів</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="h-48 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">📖</div>
+                  <div className="text-lg font-semibold">Biblical Site</div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Біблійна школа</h3>
+                <p className="text-gray-600 mb-4">Освітній сайт для вивчення Біблії з курсами, відео-уроками, тестами та системою прогресу студентів.</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">Next.js</span>
+                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">React</span>
+                  <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Tailwind</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="text-sm text-gray-500">Тривалість: 1 день</div>
+                  <a href="https://uebs.com.ua" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-medium text-sm">Переглянути →</a>
+                </div>
+              </div>
+            </div>
+            
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
                 <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🚀</div>
-                  <div className="text-lg font-semibold">SaaS Dashboard</div>
+                  <div className="text-4xl mb-2">⛪</div>
+                  <div className="text-lg font-semibold">Church Site</div>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">TaskFlow Pro</h3>
-                <p className="text-gray-600 mb-4">Система управління проектами з користувацькими панелями, аналітикою та інтеграцією з платіжними системами.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Церковний сайт</h3>
+                <p className="text-gray-600 mb-4">Сайт для церковної громади з розкладом служб, проповідями, подіями та можливістю онлайн пожертв.</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">TypeScript</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Next.js</span>
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">React</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">TypeScript</span>
                 </div>
-                <div className="text-sm text-gray-500">Тривалість: 3 тижні</div>
+                <div className="flex justify-between items-center">
+                  <div className="text-sm text-gray-500">Тривалість: 1 день</div>
+                  <a href="https://slti-church.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-medium text-sm">Переглянути →</a>
+                </div>
               </div>
             </div>
             
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🏪</div>
-                  <div className="text-lg font-semibold">E-commerce</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">EcoShop Ukraine</h3>
-                <p className="text-gray-600 mb-4">Інтернет-магазин екологічних товарів з кошиком, оплатою, особистим кабінетом та адмін-панеллю.</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">Stripe</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Prisma</span>
-                </div>
-                <div className="text-sm text-gray-500">Тривалість: 4 тижні</div>
-              </div>
-            </div>
+
             
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🎨</div>
-                  <div className="text-lg font-semibold">Portfolio</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Design Studio</h3>
-                <p className="text-gray-600 mb-4">Портфоліо дизайн-студії з галереєю робіт, анімаціями та формою замовлення послуг.</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Framer Motion</span>
-                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Tailwind</span>
-                </div>
-                <div className="text-sm text-gray-500">Тривалість: 2 тижні</div>
-              </div>
-            </div>
+
             
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">📱</div>
-                  <div className="text-lg font-semibold">Landing Page</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">FitTracker App</h3>
-                <p className="text-gray-600 mb-4">Лендінг для мобільного додатку фітнес-трекера з анімаціями, відгуками та інтеграцією з App Store.</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">GSAP</span>
-                  <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Tailwind</span>
-                </div>
-                <div className="text-sm text-gray-500">Тривалість: 1 тиждень</div>
-              </div>
-            </div>
+
             
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🏢</div>
-                  <div className="text-lg font-semibold">Corporate</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">IT Консалтинг</h3>
-                <p className="text-gray-600 mb-4">Корпоративний сайт IT-компанії з блогом, кейсами, командою та формою заявок на консультацію.</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">Contentful</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">TypeScript</span>
-                </div>
-                <div className="text-sm text-gray-500">Тривалість: 3 тижні</div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-4xl mb-2">⚡</div>
-                  <div className="text-lg font-semibold">MVP</div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">CryptoTracker</h3>
-                <p className="text-gray-600 mb-4">MVP для відстеження криптовалют з реального часу, портфоліо користувача та push-повідомленнями.</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">API</span>
-                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Charts.js</span>
-                </div>
-                <div className="text-sm text-gray-500">Тривалість: 2 тижні</div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -263,10 +201,10 @@ export default function Home() {
               <div className="text-4xl mb-4">🚀</div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">MVP розробка</h3>
               <p className="text-gray-600 mb-4">
-                Швидко створюю мінімально життєздатний продукт для тестування вашої ідеї на ринку.
+                <strong>MVP за 1 день!</strong> Мінімально життєздатний продукт для швидкого тестування вашої ідеї.
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Розробка за 1-2 тижні</li>
+                <li>• Надшвидка розробка (1 день)</li>
                 <li>• Основний функціонал</li>
                 <li>• Responsive дизайн</li>
                 <li>• Готовність до масштабування</li>
@@ -306,8 +244,11 @@ export default function Home() {
       <section id="pricing" className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Тарифні плани</h2>
-            <p className="text-gray-600">Прозорі ціни без прихованих платежів</p>
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Тарифні плани</h2>
+            <p className="text-gray-600 mb-4">Прозорі ціни без прихованих платежів</p>
+            <Link href="/pricing" className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-indigo-700 hover:to-purple-700 transition-all">
+              Переглянути повний опис тарифів →
+            </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Мінімальний тариф */}
@@ -317,7 +258,7 @@ export default function Home() {
                   <span className="text-white text-xl">🌱</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Базовий</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$300</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$150</div>
                 <p className="text-gray-600 text-sm">Лендінг або сайт-візитка</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
@@ -325,7 +266,7 @@ export default function Home() {
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Responsive дизайн</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Базова SEO</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Форма зв'язку</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Швидка розробка (3-5 днів)</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Надшвидка розробка (1-3 дні)</li>
                 <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>1 місяць підтримки</li>
               </ul>
               <a href="#contact" className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 rounded-lg font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 block text-center text-sm">
@@ -486,15 +427,7 @@ export default function Home() {
                     <p className="text-gray-600">@maryan_sobchuk</p>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                    <span className="text-blue-600">🔗</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">GitHub</p>
-                    <p className="text-gray-600">github.com/maryanchik111</p>
-                  </div>
-                </div>
+
               </div>
             </div>
             <div>
