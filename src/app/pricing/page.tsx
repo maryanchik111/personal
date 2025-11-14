@@ -1,13 +1,10 @@
-import Link from "next/link";
-import { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Тарифи та Послуги - Мар'ян Собчук | Детальні пакети веб-розробки",
-  description: "Повний опис тарифів та послуг веб-розробки від Мар'яна Собчука. Від базового лендінгу за $150 до корпоративних рішень. Прозорі ціни, чіткі терміни.",
-  keywords: "тарифи веб розробка, ціни на сайти, MVP розробка, SaaS додатки, корпоративні сайти, Next.js розробник ціни",
-};
+import Link from "next/link";
+import { useTranslations } from "@/app/hooks/useTranslations";
 
 export default function PricingPage() {
+  const { t } = useTranslations();
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
       {/* Navigation */}
@@ -18,7 +15,7 @@ export default function PricingPage() {
               Мар'ян Собчук
             </Link>
             <Link href="/" className="text-gray-600 hover:text-indigo-600 transition-colors">
-              ← Назад на головну
+              {t('backToHomepage')}
             </Link>
           </div>
         </div>
@@ -28,10 +25,10 @@ export default function PricingPage() {
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold font-display text-gray-900 mb-6">
-            Тарифи та <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Послуги</span>
+            {t('pricingServicesTitle')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Детальний опис всіх пакетів послуг веб-розробки. Від швидких MVP до складних корпоративних рішень.
+            {t('detailedDescription')}
           </p>
         </div>
       </section>
@@ -48,36 +45,36 @@ export default function PricingPage() {
                   <span className="text-white text-2xl">🌱</span>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold font-display text-gray-900">Базовий</h2>
+                  <h2 className="text-3xl font-bold font-display text-gray-900">{t('basic')}</h2>
                   <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">$150</div>
                 </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Що входить:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('includesText')}</h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>1-3 сторінки (головна, про нас, контакти)</span></li>
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>Повністю responsive дизайн</span></li>
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>Базова SEO оптимізація</span></li>
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>Контактна форма з валідацією</span></li>
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>Інтеграція з Google Maps</span></li>
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>Соціальні мережі</span></li>
-                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>1 місяць безкоштовної підтримки</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('pages1to3Details')}</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('fullResponsive')}</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('basicSeoOptimization')}</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('contactFormValidation')}</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('googleMapsIntegration')}</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('socialNetworks')}</span></li>
+                    <li className="flex items-start"><span className="text-green-500 mr-3 mt-1">✓</span><span>{t('oneMonthFreeSupport')}</span></li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Ідеально для:</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{t('idealFor')}</h3>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Сайти-візитки</li>
-                    <li>• Прості лендінги</li>
-                    <li>• Особисті портфоліо</li>
-                    <li>• Малий бізнес</li>
+                    <li>• {t('businessCards')}</li>
+                    <li>• {t('simpleLandings')}</li>
+                    <li>• {t('personalPortfolio')}</li>
+                    <li>• {t('smallBusiness')}</li>
                   </ul>
                   
                   <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                    <div className="font-semibold text-green-800">Терміни виконання:</div>
-                    <div className="text-green-700">1-3 дні</div>
+                    <div className="font-semibold text-green-800">{t('executionTime')}</div>
+                    <div className="text-green-700">{t('days1to3')}</div>
                   </div>
                 </div>
               </div>
@@ -90,7 +87,7 @@ export default function PricingPage() {
                   <span className="text-white text-2xl">🚀</span>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold font-display text-gray-900">Стартап</h2>
+                  <h2 className="text-3xl font-bold font-display text-gray-900">{t('startupTariff')}</h2>
                   <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">$600</div>
                 </div>
               </div>

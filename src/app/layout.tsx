@@ -17,9 +17,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Мар'ян Собчук - Веб Розробник | Next.js, React, Tailwind CSS",
-  description: "Професійна веб-розробка від Мар'яна Собчука. Створюю MVP, SaaS додатки, корпоративні сайти на Next.js, React. Швидка розробка, сучасні технології. Досвід 6+ місяців.",
-  keywords: "веб розробник, Next.js розробник, React розробник, фронтенд розробник, MVP розробка, SaaS розробка, Україна, Мар'ян Собчук, веб сайти, додатки",
+  title: "Мар'ян Собчук - Веб Розробник | React & Next.js Expert | Professional Websites from $150",
+  description: "Професійна веб-розробка від Мар'яна Собчука. Створюю MVP, SaaS додатки, корпоративні сайти на Next.js, React. Швидка розробка, сучасні технології. Досвід 5+ років.",
+  keywords: "веб розробник, Next.js розробник, React розробник, фронтенд розробник, MVP розробка, SaaS розробка, Україна, Мар'ян Собчук, веб сайти, додатки, web developer, React developer, Next.js expert, Ukraine developer, professional websites, web development services",
   authors: [{ name: "Мар'ян Собчук" }],
   creator: "Мар'ян Собчук",
   publisher: "Мар'ян Собчук",
@@ -52,6 +52,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://maryan-sobchuk.dev",
+    languages: {
+      'uk': 'https://maryan-sobchuk.dev',
+      'en': 'https://maryan-sobchuk.dev',
+    },
   },
 };
 

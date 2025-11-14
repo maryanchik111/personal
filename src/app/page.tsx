@@ -1,9 +1,14 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import MobileMenu from "./components/MobileMenu";
 import ScrollProgress from "./components/ScrollProgress";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import { useTranslations } from '@/app/hooks/useTranslations';
 
 export default function Home() {
+  const { t } = useTranslations();
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
       <ScrollProgress />
@@ -14,39 +19,36 @@ export default function Home() {
             <div className="text-2xl font-bold font-display bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Мар'ян Собчук
             </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Про мене</a>
-              <a href="#services" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Послуги</a>
-              <a href="#portfolio" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Портфоліо</a>
-              <a href="#pricing" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Тарифи</a>
-              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">Контакти</a>
+            <div className="hidden md:flex space-x-8 items-center">
+              <a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">{t('aboutMe')}</a>
+              <a href="#services" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">{t('services')}</a>
+              <a href="#portfolio" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">{t('portfolio')}</a>
+              <a href="#pricing" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">{t('pricing')}</a>
+              <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors font-medium">{t('contact')}</a>
+              <LanguageSwitcher />
+              <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                {t('getFreeConsultation')}
+              </a>
             </div>
-            <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-              Замовити проект
-            </a>
             <MobileMenu />
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold font-display text-gray-900 mb-6 leading-tight">
-              Створюю <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">сучасні</span><br />
-              веб-додатки та сайти
+              {t('createModern')} <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">{t('modern')}</span><br />
+              {t('websites')}
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Професійний веб-розробник з досвідом 6+ місяців. Спеціалізуюся на Next.js, React, 
-              Tailwind CSS. <strong>MVP за 1 день</strong>, розробка від 1 дня до місяця залежно від складності.
-            </p>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">{t('heroDescription')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#contact" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                Почати проект
+                {t('getFreeConsultation')}
               </a>
               <Link href="/pricing" className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-all duration-300 hover:shadow-lg">
-                Детальні тарифи
+                {t('viewDetailedPricing')}
               </Link>
             </div>
           </div>
@@ -57,8 +59,8 @@ export default function Home() {
       <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Технології</h2>
-            <p className="text-gray-600">Використовую найсучасніші інструменти для розробки</p>
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">{t('technologiesIUse')}</h2>
+            <p className="text-gray-600">{t('modernProvenTools')}</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {[
@@ -83,43 +85,37 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold font-display text-gray-900 mb-6">Про мене</h2>
-              <p className="text-gray-600 mb-4">
-                Привіт! Мене звати Мар'ян Собчук, я веб-розробник з досвідом 6+ місяців. 
-                Спеціалізуюся на створенні сучасних веб-додатків та сайтів.
-              </p>
-              <p className="text-gray-600 mb-4">
-                Моя головна перевага — швидкість розробки без втрати якості. Використовую 
-                найновіші технології: Next.js, React, TypeScript, Tailwind CSS.
-              </p>
+              <h2 className="text-3xl font-bold font-display text-gray-900 mb-6">{t('aboutTitle')}</h2>
+              <p className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: t('aboutP1') }} />
+              <p className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: t('aboutP2') }} />
               <div className="space-y-2">
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Надшвидка розробка MVP (1 день!)</span>
+                  <span>{t('superFastMVP')}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Responsive дизайн для всіх пристроїв</span>
+                  <span>{t('responsiveDesignAll')}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>SEO-оптимізація з коробки</span>
+                  <span>{t('seoOptimizationBox')}</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-500 mr-2">✓</span>
-                  <span>Підтримка після запуску</span>
+                  <span>{t('supportAfterLaunch')}</span>
                 </div>
               </div>
             </div>
             <div className="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 rounded-xl p-8 text-white shadow-xl">
-              <h3 className="text-2xl font-bold mb-6">Чому обирають мене?</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('whyChooseMeAbout')}</h3>
               <ul className="space-y-4">
-                <li className="flex items-center"><span className="text-2xl mr-3">🚀</span>Швидка розробка і деплой</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">💡</span>Сучасні технології</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">📱</span>Мобільна адаптація</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">🔍</span>SEO-оптимізація</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">💬</span>Постійний зв'язок</li>
-                <li className="flex items-center"><span className="text-2xl mr-3">🛠️</span>Підтримка проекту</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">🚀</span>{t('fastDevelopmentDeploy')}</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">💡</span>{t('modernTechnologies')}</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">📱</span>{t('mobileAdaptation')}</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">🔍</span>{t('seoOptimization')}</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">💬</span>{t('constantCommunication')}</li>
+                <li className="flex items-center"><span className="text-2xl mr-3">🛠️</span>{t('projectSupport')}</li>
               </ul>
             </div>
           </div>
@@ -130,8 +126,8 @@ export default function Home() {
       <section id="portfolio" className="py-16 px-4 bg-gradient-to-br from-indigo-50 to-purple-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Мої роботи</h2>
-            <p className="text-gray-600">Приклади успішно реалізованих проектів</p>
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">{t('myWorks')}</h2>
+            <p className="text-gray-600">{t('portfolioExamplesSuccess')}</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
@@ -142,16 +138,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Біблійна школа</h3>
-                <p className="text-gray-600 mb-4">Освітній сайт для вивчення Біблії з курсами, відео-уроками, тестами та системою прогресу студентів.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('biblicalSchool')}</h3>
+                <p className="text-gray-600 mb-4">{t('biblicalSchoolDescription')}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">Next.js</span>
                   <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">React</span>
                   <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Tailwind</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <div className="text-sm text-gray-500">Тривалість: 1 день</div>
-                  <a href="https://uebs.com.ua" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-medium text-sm">Переглянути →</a>
+                  <div className="text-sm text-gray-500">{t('duration')}: {t('oneDay')}</div>
+                  <a href="https://uebs.com.ua" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-medium text-sm">{t('viewProject')} →</a>
                 </div>
               </div>
             </div>
@@ -164,16 +160,16 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Церковний сайт</h3>
-                <p className="text-gray-600 mb-4">Сайт для церковної громади з розкладом служб, проповідями, подіями та можливістю онлайн пожертв.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('churchSite')}</h3>
+                <p className="text-gray-600 mb-4">{t('churchSiteDescription')}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Next.js</span>
                   <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">React</span>
                   <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">TypeScript</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <div className="text-sm text-gray-500">Тривалість: 1 день</div>
-                  <a href="https://slti-church.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-medium text-sm">Переглянути →</a>
+                  <div className="text-sm text-gray-500">{t('duration')}: {t('oneDay')}</div>
+                  <a href="https://slti-church.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-medium text-sm">{t('viewProject')} →</a>
                 </div>
               </div>
             </div>
@@ -193,47 +189,45 @@ export default function Home() {
       <section id="services" className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Мої послуги</h2>
-            <p className="text-gray-600">Повний цикл розробки веб-рішень</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('myServices')}</h2>
+            <p className="text-gray-600">{t('fullCycleWebDevelopment')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-indigo-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">MVP розробка</h3>
-              <p className="text-gray-600 mb-4">
-                <strong>MVP за 1 день!</strong> Мінімально життєздатний продукт для швидкого тестування вашої ідеї.
-              </p>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('mvpDevelopment')}</h3>
+              <p className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: t('mvpDevelopmentDescription') }} />
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Надшвидка розробка (1 день)</li>
-                <li>• Основний функціонал</li>
-                <li>• Responsive дизайн</li>
-                <li>• Готовність до масштабування</li>
+                <li>• {t('superFastDevelopmentOneDay')}</li>
+                <li>• {t('basicFunctionality')}</li>
+                <li>• {t('responsiveDesign')}</li>
+                <li>• {t('readyForScaling')}</li>
               </ul>
             </div>
             <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-purple-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="text-4xl mb-4">💼</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">SaaS додатки</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('saasApps')}</h3>
               <p className="text-gray-600 mb-4">
-                Повнофункціональні SaaS-платформи з системами авторизації, платежів та аналітики.
+                {t('saasAppsDescription')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Користувацькі панелі</li>
-                <li>• Інтеграція платежів</li>
-                <li>• База даних</li>
-                <li>• API розробка</li>
+                <li>• {t('userDashboards')}</li>
+                <li>• {t('paymentIntegration')}</li>
+                <li>• {t('database')}</li>
+                <li>• {t('apiDevelopment')}</li>
               </ul>
             </div>
             <div className="bg-white border-2 border-gray-100 rounded-xl p-8 hover:border-cyan-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="text-4xl mb-4">🌐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Корпоративні сайти</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('corporateSites')}</h3>
               <p className="text-gray-600 mb-4">
-                Професійні сайти для бізнесу з фокусом на конверсію та SEO-оптимізацію.
+                {t('corporateSitesDescription')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Лендінг пейджи</li>
-                <li>• Каталоги товарів</li>
-                <li>• CMS інтеграція</li>
-                <li>• SEO оптимізація</li>
+                <li>• {t('landingPagesServices')}</li>
+                <li>• {t('productCatalogs')}</li>
+                <li>• {t('cmsIntegration')}</li>
+                <li>• {t('seoOptimization')}</li>
               </ul>
             </div>
           </div>
@@ -244,154 +238,154 @@ export default function Home() {
       <section id="pricing" className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">Тарифні плани</h2>
-            <p className="text-gray-600 mb-4">Прозорі ціни без прихованих платежів</p>
+            <h2 className="text-3xl font-bold font-display text-gray-900 mb-4">{t('pricingPlans')}</h2>
+            <p className="text-gray-600 mb-4">{t('transparentPricesNoHidden')}</p>
             <Link href="/pricing" className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-indigo-700 hover:to-purple-700 transition-all">
-              Переглянути повний опис тарифів →
+              {t('viewFullPricingDescription')}
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Мінімальний тариф */}
+
             <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-white text-xl">🌱</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Базовий</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('basic')}</h3>
                 <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$150</div>
-                <p className="text-gray-600 text-sm">Лендінг або сайт-візитка</p>
+                <p className="text-gray-600 text-sm">{t('landingOrBusinessCard')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>1-3 сторінки</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Responsive дизайн</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Базова SEO</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Форма зв'язку</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Надшвидка розробка (1-3 дні)</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>1 місяць підтримки</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('pages1to3')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('responsiveDesign')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('basicSeoShort')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('contactFormShort')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('ultraFastDev1to3Days')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('oneMonthSupport')}</li>
               </ul>
               <a href="#contact" className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 rounded-lg font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 block text-center text-sm">
-                Замовити
+                {t('orderNow')}
               </a>
             </div>
 
-            {/* Стартап тариф */}
+
             <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-white text-xl">🚀</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Стартап</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('startupTariff')}</h3>
                 <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">$600</div>
-                <p className="text-gray-600 text-sm">MVP та функціональні сайти</p>
+                <p className="text-gray-600 text-sm">{t('mvpFunctionalSites')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>До 5 сторінок</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Responsive дизайн</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Повна SEO оптимізація</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Базова авторизація</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Контактні форми</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>2 місяці підтримки</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('upTo5Pages')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('responsiveDesign')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('fullSeoOptimization')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('basicAuth')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('contactForms')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('twoMonthsSupport')}</li>
               </ul>
               <a href="#contact" className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 block text-center text-sm">
-                Замовити
+                {t('orderNow')}
               </a>
             </div>
 
-            {/* Популярний тариф */}
+
             <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-indigo-500 relative hover:shadow-2xl transition-all duration-300">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-1 rounded-full text-xs font-semibold">
-                ПОПУЛЯРНИЙ
+                {t('popularBadge')}
               </div>
               <div className="text-center mb-4 mt-2">
                 <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-white text-xl">💼</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Бізнес</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('businessPlan')}</h3>
                 <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">$1200</div>
-                <p className="text-gray-600 text-sm">SaaS додатки та е-комерс</p>
+                <p className="text-gray-600 text-sm">{t('saasAndEcommerce')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>До 15 сторінок</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Повна авторизація</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>База даних</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Панель адміністратора</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>API інтеграції</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>3 місяці підтримки</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('upTo15Pages')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('fullAuth')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('database')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('adminPanel')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('apiIntegrations')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('threeMonthsSupport')}</li>
               </ul>
               <a href="#contact" className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 block text-center text-sm">
-                Замовити
+                {t('orderNow')}
               </a>
             </div>
 
-            {/* Ентерпрайз тариф */}
+
             <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="text-white text-xl">🏢</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Ентерпрайз</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('enterprisePlan')}</h3>
                 <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">$2000+</div>
-                <p className="text-gray-600 text-sm">Складні корпоративні рішення</p>
+                <p className="text-gray-600 text-sm">{t('complexCorporateSolutions')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Необмежено сторінок</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Повні API інтеграції</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Платіжні системи</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Аналітика та звіти</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>Масштабування</li>
-                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>6 місяців підтримки</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('unlimitedPagesText')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('fullApiIntegrations')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('paymentSystems')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('analyticsReports')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('scaling')}</li>
+                <li className="flex items-center"><span className="text-green-500 mr-2 text-lg">✓</span>{t('sixMonthsSupport')}</li>
               </ul>
               <a href="#contact" className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 block text-center text-sm">
-                Обговорити
+                {t('discuss')}
               </a>
             </div>
           </div>
           
-          {/* Додаткова інформація про тарифи */}
+
           <div className="mt-12 bg-white rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Що входить у всі тарифи?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">{t('whatsIncludedAllPlans')}</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">⚡</span>
                 </div>
-                <h4 className="font-semibold mb-2">Швидка розробка</h4>
-                <p className="text-gray-600 text-sm">Від 3 днів до 4 тижнів залежно від складності</p>
+                <h4 className="font-semibold mb-2">{t('fastDevelopmentTitle')}</h4>
+                <p className="text-gray-600 text-sm">{t('fastDevelopmentDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">📱</span>
                 </div>
-                <h4 className="font-semibold mb-2">Мобільна адаптація</h4>
-                <p className="text-gray-600 text-sm">Ідеальний вигляд на всіх пристроях</p>
+                <h4 className="font-semibold mb-2">{t('mobileAdaptationTitle')}</h4>
+                <p className="text-gray-600 text-sm">{t('mobileAdaptationDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">🔍</span>
                 </div>
-                <h4 className="font-semibold mb-2">SEO оптимізація</h4>
-                <p className="text-gray-600 text-sm">Налаштування для пошукових систем</p>
+                <h4 className="font-semibold mb-2">{t('seoOptimizationTitle')}</h4>
+                <p className="text-gray-600 text-sm">{t('seoOptimizationDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">🛠️</span>
                 </div>
-                <h4 className="font-semibold mb-2">Підтримка</h4>
-                <p className="text-gray-600 text-sm">Безкоштовні правки та технічна підтримка</p>
+                <h4 className="font-semibold mb-2">{t('supportTitle')}</h4>
+                <p className="text-gray-600 text-sm">{t('supportDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">💬</span>
                 </div>
-                <h4 className="font-semibold mb-2">Постійний зв'язок</h4>
-                <p className="text-gray-600 text-sm">Регулярні звіти про прогрес</p>
+                <h4 className="font-semibold mb-2">{t('constantContactTitle')}</h4>
+                <p className="text-gray-600 text-sm">{t('constantContactDesc')}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-2xl">🚀</span>
                 </div>
-                <h4 className="font-semibold mb-2">Деплой</h4>
-                <p className="text-gray-600 text-sm">Запуск на високошвидкісному хостингу</p>
+                <h4 className="font-semibold mb-2">{t('deployTitle')}</h4>
+                <p className="text-gray-600 text-sm">{t('deployDesc')}</p>
               </div>
             </div>
           </div>
@@ -402,12 +396,12 @@ export default function Home() {
       <section id="contact" className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Зв'яжіться зі мною</h2>
-            <p className="text-gray-600">Готовий обговорити ваш проект та почати роботу</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('contactMeTitle')}</h2>
+            <p className="text-gray-600">{t('readyToDiscussProject')}</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Контактна інформація</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">{t('contactInformationTitle')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
@@ -434,13 +428,13 @@ export default function Home() {
               <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Ім'я
+                    {t('nameLabel')}
                   </label>
                   <input
                     type="text"
                     id="name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Ваше ім'я"
+                    placeholder={t('yourName')}
                   />
                 </div>
                 <div>
@@ -456,35 +450,35 @@ export default function Home() {
                 </div>
                 <div>
                   <label htmlFor="project" className="block text-sm font-medium text-gray-700 mb-2">
-                    Тип проекту
+                    {t('projectTypeLabel')}
                   </label>
                   <select
                     id="project"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
-                    <option>MVP розробка</option>
-                    <option>SaaS додаток</option>
-                    <option>Корпоративний сайт</option>
-                    <option>Лендінг пейдж</option>
-                    <option>Інше</option>
+                    <option>{t('mvpDevelopmentOption')}</option>
+                    <option>{t('saasAppOption')}</option>
+                    <option>{t('corporateWebsiteOption')}</option>
+                    <option>{t('landingPageOption')}</option>
+                    <option>{t('otherOption')}</option>
                   </select>
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Опис проекту
+                    {t('projectDescriptionLabel')}
                   </label>
                   <textarea
                     id="message"
                     rows={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Розкажіть про ваш проект..."
+                    placeholder={t('tellAboutProject')}
                   ></textarea>
                 </div>
                 <button
                   type="submit"
                   className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
-                  Надіслати запит
+                  {t('sendMessage')}
                 </button>
               </form>
             </div>
@@ -496,10 +490,10 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2024 Мар'ян Собчук. Всі права захищені. 
+            {t('copyrightText')}
           </p>
           <p className="text-gray-400 mt-2">
-            Веб-розробник | Next.js | React | TypeScript
+            {t('webDeveloperFooter')} | Next.js | React | TypeScript
           </p>
         </div>
       </footer>
