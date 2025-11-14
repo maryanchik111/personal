@@ -307,7 +307,7 @@ export default function HomePage() {
                   <span className="text-white text-xl">🌱</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{t('basic')}</h3>
-                <div className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-2">$99</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">$99</div>
                 <p className="text-gray-600 text-sm">{t('landingOrBusinessCard')}</p>
               </div>
               <ul className="space-y-2 mb-6 text-sm">
