@@ -11,7 +11,7 @@ export default function PricingPage() {
   const tariffs = [
     {
       name: t('basic'),
-      price: '$49',
+      price: '$99',
       currency: '',
       emoji: '🌱',
       borderColor: 'border-green-200',
@@ -36,7 +36,7 @@ export default function PricingPage() {
     },
     {
       name: t('startupTariff'),
-      price: '$249',
+      price: '$499',
       currency: '',
       emoji: '🚀',
       borderColor: 'border-blue-200',
@@ -63,7 +63,7 @@ export default function PricingPage() {
     },
     {
       name: t('businessTariff'),
-      price: '$499',
+      price: '$999',
       currency: '',
       emoji: '💼',
       borderColor: 'border-indigo-500',
@@ -92,7 +92,7 @@ export default function PricingPage() {
     },
     {
       name: t('enterpriseTariff'),
-      price: '$799+',
+      price: '$1699+',
       currency: '',
       emoji: '🏢',
       borderColor: 'border-purple-200',
@@ -125,7 +125,7 @@ export default function PricingPage() {
     {
       title: t('businessWebsiteService'),
       desc: t('businessWebsiteDesc'),
-      price: '$149',
+      price: '$299',
       icon: '🏪',
       features: ['1-3 сторінки', 'Каталог товарів', 'Контакти', '1 місяць підтримки'],
       timeline: '3-5 днів',
@@ -134,7 +134,7 @@ export default function PricingPage() {
     {
       title: t('onlineStoreService'),
       desc: t('onlineStoreDesc'),
-      price: '$299',
+      price: '$599',
       icon: '🛒',
       features: ['До 50 товарів', 'Платежі (Stripe, Liqpay)', 'Управління замовленнями', '2 місяці підтримки'],
       timeline: '1-2 тижні',
@@ -143,7 +143,7 @@ export default function PricingPage() {
     {
       title: t('bookingSystemService'),
       desc: t('bookingSystemDesc'),
-      price: '$349',
+      price: '$699',
       icon: '📅',
       features: ['Календар запису', 'Email повідомлення', 'Управління клієнтами', 'Автоматизація'],
       timeline: '1-2 тижні',
@@ -152,7 +152,7 @@ export default function PricingPage() {
     {
       title: t('portfolioWebsiteService'),
       desc: t('portfolioWebsiteDesc'),
-      price: '$199',
+      price: '$399',
       icon: '🎨',
       features: ['Сучасний дизайн', 'Галереї та портфоліо', 'SEO оптимізація', '1 місяць підтримки'],
       timeline: '4-7 днів',
@@ -164,7 +164,7 @@ export default function PricingPage() {
     {
       title: t('saasAppService'),
       desc: t('saasAppDesc'),
-      price: '$649+',
+      price: '$1299+',
       icon: '⚙️',
       features: ['Повна авторизація', 'Платежі та підписка', 'API', 'Розширена аналітика'],
       timeline: '3-4 тижні',
@@ -173,7 +173,7 @@ export default function PricingPage() {
     {
       title: t('crmSystemService'),
       desc: t('crmSystemDesc'),
-      price: '$449',
+      price: '$899',
       icon: '👥',
       features: ['Управління контактами', 'Пайплайн продажів', 'Завдання та нотатки', 'Звіти'],
       timeline: '2-3 тижні',
@@ -182,7 +182,7 @@ export default function PricingPage() {
     {
       title: t('projectManagementService'),
       desc: t('projectManagementDesc'),
-      price: '$399',
+      price: '$799',
       icon: '✓',
       features: ['Управління задачами', 'Таймер часу', 'Командна співпраця', 'Звіти'],
       timeline: '2-3 тижні',
@@ -191,7 +191,7 @@ export default function PricingPage() {
     {
       title: t('analyticsToolService'),
       desc: t('analyticsToolDesc'),
-      price: '$299',
+      price: '$599',
       icon: '📊',
       features: ['Персональні дашборди', 'Real-time дані', 'Експорт звітів', 'AI аналізи'],
       timeline: '1-2 тижні',
@@ -203,7 +203,7 @@ export default function PricingPage() {
     {
       title: t('convertingLandingService'),
       desc: t('convertingLandingDesc'),
-      price: '$199',
+      price: '$399',
       icon: '💰',
       features: ['1 сторінка', 'CTA оптимізація', 'A/B тести', '1 місяць правок'],
       timeline: '3-5 днів',
@@ -212,7 +212,7 @@ export default function PricingPage() {
     {
       title: t('eventLandingService'),
       desc: t('eventLandingDesc'),
-      price: '$169',
+      price: '$349',
       icon: '🎉',
       features: ['Реєстрація', 'Email лист', 'Платіжна форма', 'QR код'],
       timeline: '2-4 дні',
@@ -221,7 +221,7 @@ export default function PricingPage() {
     {
       title: t('funnelLandingService'),
       desc: t('funnelLandingDesc'),
-      price: '$349',
+      price: '$699',
       icon: '🔀',
       features: ['3-5 сторінок', 'Автосеквенс', 'Умовна логіка', 'Аналітика'],
       timeline: '1-2 тижні',
@@ -230,18 +230,18 @@ export default function PricingPage() {
   ];
 
   const additionalServices = [
-    { title: t('siteAudit'), desc: t('siteAuditDescription'), price: '$25', icon: '🔍', time: '2 дні' },
-    { title: t('redesign'), desc: t('redesignDescription'), price: '$125', icon: '✨', time: '1 тиждень' },
-    { title: t('speedOptimization'), desc: t('speedOptimizationDescription'), price: '$45', icon: '⚡', time: '2-3 дні' },
-    { title: t('seoBoost'), desc: t('seoBoostDescription'), price: '$90', icon: '📈', time: '1 тиждень' },
-    { title: t('aiChatbot'), desc: t('aiChatbotDescription'), price: '$99', icon: '🤖', time: '3-5 днів' },
-    { title: t('securityPro'), desc: t('securityProDescription'), price: '$39', icon: '🛡️', time: 'Миттєво' },
-    { title: t('analyticsPlus'), desc: t('analyticsPlusDescription'), price: '$60', icon: '📊', time: '2 дні' },
-    { title: t('apiMagic'), desc: t('apiMagicDescription'), price: '$25', icon: '🔌', time: '3-7 днів' },
-    { title: t('contentManagementService'), desc: t('contentManagementDesc'), price: '$49/міс', icon: '📝', time: 'Щомісячно' },
-    { title: t('trainingService'), desc: t('trainingServiceDesc'), price: '$75', icon: '👨‍🏫', time: '2 години' },
-    { title: t('emailMarketingService'), desc: t('emailMarketingDesc'), price: '$99', icon: '📧', time: '3-5 днів' },
-    { title: t('smsMarketingService'), desc: t('smsMarketingDesc'), price: '$74', icon: '📱', time: '2-3 дні' },
+    { title: t('siteAudit'), desc: t('siteAuditDescription'), price: '$45', icon: '🔍', time: '2 дні' },
+    { title: t('redesign'), desc: t('redesignDescription'), price: '$250', icon: '✨', time: '1 тиждень' },
+    { title: t('speedOptimization'), desc: t('speedOptimizationDescription'), price: '$89', icon: '⚡', time: '2-3 дні' },
+    { title: t('seoBoost'), desc: t('seoBoostDescription'), price: '$180', icon: '📈', time: '1 тиждень' },
+    { title: t('aiChatbot'), desc: t('aiChatbotDescription'), price: '$199', icon: '🤖', time: '3-5 днів' },
+    { title: t('securityPro'), desc: t('securityProDescription'), price: '$79', icon: '🛡️', time: 'Миттєво' },
+    { title: t('analyticsPlus'), desc: t('analyticsPlusDescription'), price: '$120', icon: '📊', time: '2 дні' },
+    { title: t('apiMagic'), desc: t('apiMagicDescription'), price: '$50', icon: '🔌', time: '3-7 днів' },
+    { title: t('contentManagementService'), desc: t('contentManagementDesc'), price: '$99/міс', icon: '📝', time: 'Щомісячно' },
+    { title: t('trainingService'), desc: t('trainingServiceDesc'), price: '$150', icon: '👨‍🏫', time: '2 години' },
+    { title: t('emailMarketingService'), desc: t('emailMarketingDesc'), price: '$199', icon: '📧', time: '3-5 днів' },
+    { title: t('smsMarketingService'), desc: t('smsMarketingDesc'), price: '$149', icon: '📱', time: '2-3 дні' },
   ];
 
   return (
