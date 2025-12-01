@@ -336,6 +336,42 @@ export const useTranslations = () => {
       governmentProjects: 'Державні проекти',
       monthsIndividual: 'Індивідуально',
       
+      // Service Categories
+      smallBusinessSolutions: 'Рішення для малого бізнесу',
+      saasAppsCategory: 'SaaS платформи',
+      crmCategory: 'CRM системи',
+      landingPageCategory: 'Лендінг пейджі',
+      mobileAppsCategory: 'Мобільні додатки',
+      integrationServices: 'Інтеграційні послуги',
+
+      // Small Business Services
+      businessWebsiteService: 'Сайт для бізнесу',
+      businessWebsiteDesc: 'Простий але ефективний сайт з каталогом, контактами та формами для малих бізнесів',
+      onlineStoreService: 'Онлайн магазин',
+      onlineStoreDesc: 'Функціональний магазин з платежами, управлінням товарами та замовленнями',
+      bookingSystemService: 'Система бронювання',
+      bookingSystemDesc: 'Автоматизована система для запису до салонів, студій, фітнес-центрів',
+      portfolioWebsiteService: 'Портфоліо сайт',
+      portfolioWebsiteDesc: 'Сучасне портфоліо для дизайнерів, фотографів, видеографів',
+      
+      // SaaS Services
+      saasAppService: 'SaaS додаток на замовлення',
+      saasAppDesc: 'Повнофункціональна SaaS платформа з авторизацією, платежами та аналітикою',
+      crmSystemService: 'CRM система',
+      crmSystemDesc: 'Управління контактами, продажами, клієнтами та пайплайном',
+      projectManagementService: 'Управління проектами',
+      projectManagementDesc: 'Система для управління задачами, часом, командою та дедлайнами',
+      analyticsToolService: 'Аналітичний інструмент',
+      analyticsToolDesc: 'Персональний аналітичний сервіс для вашого бізнесу',
+      
+      // Landing Page Services  
+      convertingLandingService: 'Конвертуючий лендінг',
+      convertingLandingDesc: 'Лендінг з високою конверсією для продажу продуктів чи послуг',
+      eventLandingService: 'Лендінг для подій',
+      eventLandingDesc: 'Сайт для реєстрації на подію, конференцію, вебінар чи воркшоп',
+      funnelLandingService: 'Sales Funnel',
+      funnelLandingDesc: 'Багатосторінковий sales funnel для максимізації продажів',
+      
       // Additional Services
       additionalServices: 'Додаткові послуги',
       siteAudit: 'Аудит сайту',
@@ -362,6 +398,14 @@ export const useTranslations = () => {
       apiMagic: 'API Magic',
       apiMagicDescription: 'Інтеграція з CRM, платіжними системами, соц.мережами та іншими сервісами',
       forYourNeeds: 'Під ваші потреби',
+      contentManagementService: 'Управління контентом',
+      contentManagementDesc: 'Підтримка контенту сайту: оновлення текстів, зображень, цін',
+      trainingService: 'Навчання та консультація',
+      trainingServiceDesc: 'Навчання вашої команди роботі з сайтом або системою',
+      emailMarketingService: 'Email маркетинг',
+      emailMarketingDesc: 'Настройка email розсилок, automation, segmentation',
+      smsMarketingService: 'SMS маркетинг',
+      smsMarketingDesc: 'Настройка SMS сповіщень для клієнтів та розсилок',
       vipSupport: 'VIP Підтримка',
       vipSupportDescription: 'Пріоритетна підтримка, безлімітні правки, оновлення контенту',
       perMonth: '/міс',
@@ -665,6 +709,42 @@ export const useTranslations = () => {
       tellAboutProject: 'Tell us about your project...',
       sendMessage: 'Send Message',
 
+      // Service Categories
+      smallBusinessSolutions: 'Small Business Solutions',
+      saasAppsCategory: 'SaaS Platforms',
+      crmCategory: 'CRM Systems',
+      landingPageCategory: 'Landing Pages',
+      mobileAppsCategory: 'Mobile Apps',
+      integrationServices: 'Integration Services',
+
+      // Small Business Services
+      businessWebsiteService: 'Business Website',
+      businessWebsiteDesc: 'Simple but effective website with catalog, contacts and forms for small businesses',
+      onlineStoreService: 'Online Store',
+      onlineStoreDesc: 'Functional store with payments, product and order management',
+      bookingSystemService: 'Booking System',
+      bookingSystemDesc: 'Automated booking system for salons, studios, fitness centers',
+      portfolioWebsiteService: 'Portfolio Website',
+      portfolioWebsiteDesc: 'Modern portfolio for designers, photographers, videographers',
+      
+      // SaaS Services
+      saasAppService: 'Custom SaaS App',
+      saasAppDesc: 'Full-featured SaaS platform with authorization, payments and analytics',
+      crmSystemService: 'CRM System',
+      crmSystemDesc: 'Contact, sales, customer and pipeline management',
+      projectManagementService: 'Project Management',
+      projectManagementDesc: 'System for managing tasks, time, team and deadlines',
+      analyticsToolService: 'Analytics Tool',
+      analyticsToolDesc: 'Personal analytics service for your business',
+      
+      // Landing Page Services  
+      convertingLandingService: 'Converting Landing',
+      convertingLandingDesc: 'High-conversion landing page for selling products or services',
+      eventLandingService: 'Event Landing',
+      eventLandingDesc: 'Website for event registration, conference, webinar or workshop',
+      funnelLandingService: 'Sales Funnel',
+      funnelLandingDesc: 'Multi-page sales funnel for maximum sales',
+      
       // Additional Services
       additionalServices: 'Additional Services',
       siteAudit: 'Site Audit',
@@ -691,6 +771,14 @@ export const useTranslations = () => {
       apiMagic: 'API Magic',
       apiMagicDescription: 'Integration with CRM, payment systems, social networks and other services',
       forYourNeeds: 'For your needs',
+      contentManagementService: 'Content Management',
+      contentManagementDesc: 'Website content support: text updates, images, prices',
+      trainingService: 'Training & Consulting',
+      trainingServiceDesc: 'Train your team to work with website or system',
+      emailMarketingService: 'Email Marketing',
+      emailMarketingDesc: 'Email campaign setup, automation, segmentation',
+      smsMarketingService: 'SMS Marketing',
+      smsMarketingDesc: 'SMS notification setup for clients and campaigns',
       vipSupport: 'VIP Support',
       vipSupportDescription: 'Priority support, unlimited edits, content updates',
       perMonth: '/month',
