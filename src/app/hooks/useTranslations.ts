@@ -74,7 +74,7 @@ export const useTranslations = () => {
       viewMyWork: 'Переглянути роботи',
       getInTouch: 'Звязатися зі мною',
       getFreeConsultation: 'Консультація',
-      createModern: 'Створюю сучасні',
+      createModern: 'Створюю',
       modern: 'сучасні',
       websites: 'веб-сайти',
       heroDescription: 'Я створюю сучасні веб-сайти та додатки, які допомагають бізнесу рости та залучати більше клієнтів',
