@@ -21,56 +21,27 @@ export default function EnhancedButton({
   onClick,
   variant = 'primary',
   size = 'md',
-  withShine = true,
-  withRipple = true,
   className = '',
   type = 'button',
   disabled = false,
 }: EnhancedButtonProps) {
-  const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-8 py-3 text-base',
-    lg: 'px-10 py-4 text-lg',
+  const sizeMap = {
+    sm: { padding: '10px 20px', fontSize: '0.85rem' },
+    md: { padding: '14px 28px', fontSize: '0.95rem' },
+    lg: { padding: '16px 36px', fontSize: '1rem' },
   };
 
-  const variantClasses = {
-    primary:
-      'bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl',
-    secondary:
-      'bg-gradient-to-r from-gray-200 to-gray-300 text-gray-900 hover:from-gray-300 hover:to-gray-400',
-    outline:
-      'border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 hover:shadow-lg',
-  };
+  const baseClass = variant === 'outline' ? 'btn-neon-cyan' : 'btn-neon-purple';
 
-  const baseClasses = `
-    relative font-semibold rounded-lg transition-all duration-300 
-    transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed
-    ${sizeClasses[size]} ${variantClasses[variant]} ${className}
-  `;
-
-  const shineClass = withShine ? 'btn-shine' : '';
-  const rippleClass = withRipple ? 'btn-ripple' : '';
-
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    if (withRipple && (e.currentTarget as HTMLElement).classList.contains('btn-ripple')) {
-      const ripple = (e.currentTarget as HTMLElement).querySelector('::after');
-      if (ripple) {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        // Ripple effect triggered
-      }
-    }
-    onClick?.();
+  const style: React.CSSProperties = {
+    ...sizeMap[size],
+    opacity: disabled ? 0.5 : 1,
+    cursor: disabled ? 'not-allowed' : 'pointer',
   };
 
   if (href) {
     return (
-      <a
-        href={href}
-        className={`inline-flex items-center ${baseClasses} ${shineClass} ${rippleClass}`}
-        onClick={handleClick as any}
-      >
+      <a href={href} className={`${baseClass} ${className}`} style={style} onClick={onClick as any}>
         {children}
       </a>
     );
@@ -80,8 +51,9 @@ export default function EnhancedButton({
     <button
       type={type}
       disabled={disabled}
-      onClick={handleClick}
-      className={`inline-flex items-center ${baseClasses} ${shineClass} ${rippleClass}`}
+      onClick={onClick}
+      className={`${baseClass} ${className}`}
+      style={style}
     >
       {children}
     </button>

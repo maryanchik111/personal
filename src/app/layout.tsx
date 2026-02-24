@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Space_Grotesk, Syne, JetBrains_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
 
-const inter = Inter({
-  variable: "--font-inter",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -84,13 +92,13 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/icon-192.svg" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#4f46e5" />
+        <meta name="theme-color" content="#00f5ff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Мар'ян Собчук" />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
+        className={`${spaceGrotesk.variable} ${syne.variable} ${jetBrainsMono.variable} font-sans antialiased`}
       >
         <JsonLd />
         {children}
