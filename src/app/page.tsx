@@ -5,6 +5,7 @@ import MobileMenu from "./components/MobileMenu";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useTranslations } from '@/app/hooks/useTranslations';
 import { useEffect, useRef, useState } from 'react';
+import { FadeIn, AnimatedNumber } from './components/Animations';
 
 // ─── SVG Icons ────────────────────────────────────────────────────────────────
 const Icon = {
@@ -298,17 +299,19 @@ export default function HomePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 18 }}>
             {([
-              { num: '4+', label: t('completedProjects'), sub: 'За останній рік', color: '#00f5ff', icon: <Icon.Rocket /> },
-              { num: '100%', label: t('satisfiedClients2'), sub: 'Рейтинг 5/5', color: '#a855f7', icon: <Icon.Star /> },
-              { num: '<5хв', label: t('responseTime'), sub: t('usually'), color: '#00ff88', icon: <Icon.Chat /> },
-              { num: '6+', label: t('experience'), sub: t('months'), color: '#f472b6', icon: <Icon.Clock /> },
-            ] as { num: string; label: string; sub: string; color: string; icon: React.ReactNode }[]).map((s, i) => (
-              <div key={i} className="stat-card">
+              { value: 4, prefix: '', suffix: '+', label: t('completedProjects'), sub: 'За останній рік', color: '#00f5ff', icon: <Icon.Rocket /> },
+              { value: 100, prefix: '', suffix: '%', label: t('satisfiedClients2'), sub: 'Рейтинг 5/5', color: '#a855f7', icon: <Icon.Star /> },
+              { value: 5, prefix: '<', suffix: 'хв', label: t('responseTime'), sub: t('usually'), color: '#00ff88', icon: <Icon.Chat /> },
+              { value: 6, prefix: '', suffix: '+', label: t('experience'), sub: t('months'), color: '#f472b6', icon: <Icon.Clock /> },
+            ] as { value: number; prefix: string; suffix: string; label: string; sub: string; color: string; icon: React.ReactNode }[]).map((s, i) => (
+              <FadeIn key={i} delay={i * 0.15} className="stat-card">
                 <div style={{ color: s.color, marginBottom: 12, opacity: 0.7 }}>{s.icon}</div>
-                <div style={{ fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 800, color: s.color, textShadow: `0 0 30px ${s.color}60`, marginBottom: 6 }}>{s.num}</div>
+                <div style={{ fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 800, color: s.color, textShadow: `0 0 30px ${s.color}60`, marginBottom: 6 }}>
+                  <AnimatedNumber value={s.value} prefix={s.prefix} suffix={s.suffix} />
+                </div>
                 <div style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.92rem', marginBottom: 4 }}>{s.label}</div>
                 <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>{s.sub}</div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -319,7 +322,7 @@ export default function HomePage() {
         <div className="orb-purple" style={{ width: 400, height: 400, top: 0, right: -100, opacity: 0.25 }} />
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 56, alignItems: 'center' }}>
-            <div>
+            <FadeIn direction="right">
               <div style={{ marginBottom: 16 }}>
                 <span className="badge">{t('aboutMe')}</span>
               </div>
@@ -336,8 +339,8 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="glass-card-strong" style={{ padding: 36, position: 'relative', overflow: 'hidden' }}>
+            </FadeIn>
+            <FadeIn direction="left" className="glass-card-strong" style={{ padding: 36, position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, right: 0, width: 200, height: 200, background: 'radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', marginBottom: 24 }}>
                 <span className="gradient-text-warm">{t('whyChooseMeAbout')}</span>
@@ -357,7 +360,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -366,18 +369,18 @@ export default function HomePage() {
       <section id="services" style={{ padding: '100px 20px', background: 'rgba(10,10,26,0.55)', position: 'relative' }}>
         <div className="dot-grid" style={{ position: 'absolute', inset: 0, opacity: 0.25 }} />
         <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative' }}>
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
+          <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
             <span className="badge badge-purple" style={{ marginBottom: 14 }}>Services</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('myServices')}</h2>
             <p style={{ color: 'var(--text-secondary)', marginTop: 12, maxWidth: 480, margin: '12px auto 0', fontSize: '0.95rem' }}>{t('fullCycleWebDevelopment')}</p>
-          </div>
+          </FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 22 }}>
             {([
               { icon: <Icon.Rocket />, title: t('mvpDevelopment'), desc: t('mvpDevelopmentDescription'), items: [t('superFastDevelopmentOneDay'), t('basicFunctionality'), t('responsiveDesign'), t('readyForScaling')], color: '#00f5ff', bg: 'rgba(0,245,255,0.08)', border: 'rgba(0,245,255,0.2)' },
               { icon: <Icon.Briefcase />, title: t('saasApps'), desc: t('saasAppsDescription'), items: [t('userDashboards'), t('paymentIntegration'), t('database'), t('apiDevelopment')], color: '#a855f7', bg: 'rgba(168,85,247,0.08)', border: 'rgba(168,85,247,0.2)' },
               { icon: <Icon.Globe />, title: t('corporateSites'), desc: t('corporateSitesDescription'), items: [t('landingPagesServices'), t('productCatalogs'), t('cmsIntegration'), t('seoOptimization')], color: '#f472b6', bg: 'rgba(244,114,182,0.08)', border: 'rgba(244,114,182,0.2)' },
             ] as { icon: React.ReactNode; title: string; desc: string; items: string[]; color: string; bg: string; border: string }[]).map((s, i) => (
-              <div key={i} className="service-card">
+              <FadeIn key={i} delay={i * 0.15} className="service-card">
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 56, height: 56, borderRadius: 14, background: s.bg, border: `1px solid ${s.border}`, marginBottom: 22, color: s.color }}>
                   {s.icon}
                 </div>
@@ -391,7 +394,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -401,18 +404,18 @@ export default function HomePage() {
       <section id="portfolio" style={{ padding: '100px 20px', position: 'relative' }}>
         <div className="orb-cyan" style={{ width: 450, height: 450, bottom: -80, left: -80, opacity: 0.18 }} />
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
+          <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
             <span className="badge" style={{ marginBottom: 14 }}>Portfolio</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('myWorks')}</h2>
             <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem' }}>{t('portfolioExamplesSuccess')}</p>
-          </div>
+          </FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 22 }}>
             {([
               { icon: <Icon.Globe />, title: t('biblicalSchool'), desc: t('biblicalSchoolDescription'), tags: ['Next.js', 'React', 'Tailwind'], url: 'https://uebs.com.ua', accent: '#f59e0b', label: 'Education' },
               { icon: <Icon.Building />, title: t('churchSite'), desc: t('churchSiteDescription'), tags: ['Next.js', 'React', 'TypeScript'], url: 'https://slti-church.com', accent: '#3b82f6', label: 'Community' },
               { icon: <Icon.Server />, title: t('ponySalesWebsite'), desc: t('ponySalesDescription'), tags: ['React', 'Node.js', 'MongoDB'], url: 'https://mlp-gray.vercel.app', accent: '#ec4899', label: 'E-commerce' },
             ] as { icon: React.ReactNode; title: string; desc: string; tags: string[]; url: string; accent: string; label: string }[]).map((p, i) => (
-              <div key={i} className="project-card">
+              <FadeIn key={i} delay={i * 0.15} className="project-card">
                 <div style={{ height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', background: `radial-gradient(ellipse at 50% 60%, ${p.accent}20 0%, transparent 70%)` }}>
                   <div style={{ position: 'absolute', top: 14, right: 14 }}>
                     <span className="badge" style={{ background: `${p.accent}18`, borderColor: `${p.accent}45`, color: p.accent, fontSize: '0.68rem' }}>{p.label}</span>
@@ -429,7 +432,7 @@ export default function HomePage() {
                     {t('viewProject')} <Icon.ArrowRight />
                   </a>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -438,14 +441,14 @@ export default function HomePage() {
       {/* ── PRICING ── */}
       <section id="pricing" style={{ padding: '100px 20px', background: 'rgba(10,10,26,0.5)', position: 'relative' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 60 }}>
+          <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
             <span className="badge badge-green" style={{ marginBottom: 14 }}>Pricing</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('pricingPlans')}</h2>
             <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem' }}>{t('transparentPricesNoHidden')}</p>
             <Link href="/pricing" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 14, color: 'var(--accent-cyan)', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none' }}>
               {t('viewFullPricingDescription')} <Icon.ArrowRight />
             </Link>
-          </div>
+          </FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 18 }}>
             {([
               {
@@ -470,7 +473,7 @@ export default function HomePage() {
                 features: [t('unlimitedPagesText'), t('fullApiIntegrations'), t('paymentSystems'), t('analyticsReports'), t('scaling'), t('sixMonthsSupport')],
               },
             ] as { icon: React.ReactNode; name: string; price: string; desc: string; color: string; gradient: string; features: string[]; featured?: boolean }[]).map((plan, i) => (
-              <div key={i} className={`pricing-card${plan.featured ? ' featured' : ''}`} style={{ position: 'relative' }}>
+              <FadeIn key={i} delay={i * 0.1} className={`pricing-card${plan.featured ? ' featured' : ''}`} style={{ position: 'relative' }}>
                 {plan.featured && (
                   <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(135deg, #a855f7, #7c3aed)', color: '#fff', padding: '4px 16px', borderRadius: 100, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', whiteSpace: 'nowrap' }}>
                     ★ {t('popularBadge')}
@@ -495,7 +498,7 @@ export default function HomePage() {
                 <a href="#contact" style={{ display: 'block', textAlign: 'center', padding: '11px', borderRadius: 8, background: plan.gradient, color: '#000', fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none', letterSpacing: '0.02em', transition: 'all 0.3s ease', boxShadow: `0 0 20px ${plan.color}25` }}>
                   {i === 3 ? t('discuss') : t('orderNow')}
                 </a>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -505,11 +508,11 @@ export default function HomePage() {
       <section style={{ padding: '100px 20px', position: 'relative' }}>
         <div className="orb-purple" style={{ width: 380, height: 380, top: 0, right: -80, opacity: 0.25 }} />
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <FadeIn style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="badge" style={{ marginBottom: 14 }}>FAQ</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('faqTitle')}</h2>
             <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem' }}>{t('faqSubtitle')}</p>
-          </div>
+          </FadeIn>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {([
               { icon: <Icon.Rocket />, q: 'Як швидко ви можете розпочати роботу над проектом?', a: 'Зазвичай розпочинаю роботу в перший день після погодження технічного завдання та внесення передоплати.' },
@@ -519,7 +522,7 @@ export default function HomePage() {
               { icon: <Icon.Search />, q: 'Чи оптимізуєте сайт для пошукових систем?', a: 'Базове SEO входить у всі тарифи: мета-теги, структуровані дані, швидкість завантаження. Повна SEO-оптимізація як додатковий сервіс.' },
               { icon: <Icon.Chart />, q: 'Чи надаєте доступ до адміністрування сайту?', a: 'Так, передаю всі паролі та навчаю користуванню адмін-панеллю. Надаю документацію та відеоінструкції.' },
             ] as { icon: React.ReactNode; q: string; a: string }[]).map((item, i) => (
-              <div key={i} className="faq-item">
+              <FadeIn key={i} delay={i * 0.1} className="faq-item">
                 <div style={{ padding: '22px 26px', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--accent-cyan)', opacity: 0.7, marginTop: 2, flexShrink: 0 }}>{item.icon}</span>
                   <div>
@@ -527,16 +530,16 @@ export default function HomePage() {
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.75 }}>{item.a}</p>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
-          <div className="glass-card-strong" style={{ marginTop: 44, padding: '36px 28px', textAlign: 'center', borderColor: 'rgba(0,245,255,0.14)' }}>
+          <FadeIn delay={0.3} className="glass-card-strong" style={{ marginTop: 44, padding: '36px 28px', textAlign: 'center', borderColor: 'rgba(0,245,255,0.14)' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: 10 }}>{t('noAnswer')} <Icon.Question /></h3>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 22, fontSize: '0.92rem' }}>{t('telegramResponse')}</p>
             <a href="https://t.me/ms5e60" target="_blank" rel="noopener noreferrer" className="btn-neon-cyan" style={{ padding: '13px 30px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               <Icon.Telegram /> {t('writeToTelegram')}
             </a>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -544,13 +547,13 @@ export default function HomePage() {
       <section id="contact" style={{ padding: '100px 20px', background: 'rgba(10,10,26,0.55)', position: 'relative' }}>
         <div className="orb-cyan" style={{ width: 380, height: 380, top: -80, left: -80, opacity: 0.18 }} />
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <FadeIn style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="badge" style={{ marginBottom: 14 }}>Contact</span>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('contactMeTitle')}</h2>
             <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem' }}>{t('readyToDiscussProject')}</p>
-          </div>
+          </FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48, alignItems: 'start' }}>
-            <div>
+            <FadeIn direction="right">
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', marginBottom: 26 }}>{t('contactInformationTitle')}</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
                 {([
@@ -573,34 +576,36 @@ export default function HomePage() {
                 </div>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.83rem', lineHeight: 1.65 }}>Приймаю нові проєкти. Зазвичай відповідаю протягом кількох хвилин.</p>
               </div>
-            </div>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{t('nameLabel')}</label>
-                <input type="text" className="input-dark" placeholder={t('yourName')} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>Email</label>
-                <input type="email" className="input-dark" placeholder="your@email.com" />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{t('projectTypeLabel')}</label>
-                <select className="select-dark">
-                  <option>{t('mvpDevelopmentOption')}</option>
-                  <option>{t('saasAppOption')}</option>
-                  <option>{t('corporateWebsiteOption')}</option>
-                  <option>{t('landingPageOption')}</option>
-                  <option>{t('otherOption')}</option>
-                </select>
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{t('projectDescriptionLabel')}</label>
-                <textarea rows={4} className="input-dark" placeholder={t('tellAboutProject')} style={{ resize: 'vertical' }} />
-              </div>
-              <button type="submit" className="btn-neon-purple" style={{ marginTop: 4, padding: '15px', width: '100%', fontSize: '0.94rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-                <Icon.Lightning /> {t('sendMessage')}
-              </button>
-            </form>
+            </FadeIn>
+            <FadeIn direction="left" style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <form style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{t('nameLabel')}</label>
+                  <input type="text" className="input-dark" placeholder={t('yourName')} />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>Email</label>
+                  <input type="email" className="input-dark" placeholder="your@email.com" />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{t('projectTypeLabel')}</label>
+                  <select className="select-dark">
+                    <option>{t('mvpDevelopmentOption')}</option>
+                    <option>{t('saasAppOption')}</option>
+                    <option>{t('corporateWebsiteOption')}</option>
+                    <option>{t('landingPageOption')}</option>
+                    <option>{t('otherOption')}</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: 7, fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{t('projectDescriptionLabel')}</label>
+                  <textarea rows={4} className="input-dark" placeholder={t('tellAboutProject')} style={{ resize: 'vertical' }} />
+                </div>
+                <button type="submit" className="btn-neon-purple" style={{ marginTop: 4, padding: '15px', width: '100%', fontSize: '0.94rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+                  <Icon.Lightning /> {t('sendMessage')}
+                </button>
+              </form>
+            </FadeIn>
           </div>
         </div>
       </section>
