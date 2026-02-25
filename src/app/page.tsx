@@ -220,10 +220,10 @@ export default function HomePage() {
             {/* Logo */}
             <a href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.2rem' }}>
-                <span className="gradient-text">MS</span>
+                <span className="gradient-text">vr</span>
               </span>
               <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '1rem' }}>/</span>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>dev</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>agency</span>
             </a>
 
             {/* Desktop links */}
@@ -409,23 +409,25 @@ export default function HomePage() {
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('myWorks')}</h2>
             <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem' }}>{t('portfolioExamplesSuccess')}</p>
           </FadeIn>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 22 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: 22 }}>
             {([
-              { icon: <Icon.Globe />, title: t('biblicalSchool'), desc: t('biblicalSchoolDescription'), tags: ['Next.js', 'React', 'Tailwind'], url: 'https://uebs.com.ua', accent: '#f59e0b', label: 'Education' },
-              { icon: <Icon.Building />, title: t('churchSite'), desc: t('churchSiteDescription'), tags: ['Next.js', 'React', 'TypeScript'], url: 'https://slti-church.com', accent: '#3b82f6', label: 'Community' },
-              { icon: <Icon.Server />, title: t('ponySalesWebsite'), desc: t('ponySalesDescription'), tags: ['React', 'Node.js', 'MongoDB'], url: 'https://mlp-gray.vercel.app', accent: '#ec4899', label: 'E-commerce' },
+              { icon: <Icon.Globe />, title: t('biblicalSchool'), desc: t('biblicalSchoolDescription'), tags: ['Next.js', 'React', 'TypeScript'], url: 'https://uebs.com.ua', accent: '#f59e0b', label: 'Education' },
+              { icon: <Icon.Building />, title: t('churchSite'), desc: t('churchSiteDescription'), tags: ['Next.js', 'React', 'Tailwind'], url: 'https://slti-church.com', accent: '#3b82f6', label: 'Community' },
+              { icon: <Icon.Briefcase />, title: t('everlightAgency'), desc: t('everlightDescription'), tags: ['Next.js', 'TypeScript', 'Tailwind'], url: 'https://everlight.pp.ua', accent: '#00f5ff', label: 'Agency' },
+              { icon: <Icon.Scale />, title: t('advocateSite'), desc: t('advocateDescription'), tags: ['Next.js', 'React', 'CSS'], url: 'https://адвокат-мусевич.com', accent: '#d4af37', label: 'Legal' },
+              { icon: <Icon.Star />, title: t('ponySalesWebsite'), desc: t('ponySalesDescription'), tags: ['React', 'Node.js', 'MongoDB'], url: 'https://mlpcutiefamily.pp.ua', accent: '#ec4899', label: 'E-commerce' },
             ] as { icon: React.ReactNode; title: string; desc: string; tags: string[]; url: string; accent: string; label: string }[]).map((p, i) => (
-              <FadeIn key={i} delay={i * 0.15} className="project-card">
-                <div style={{ height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', background: `radial-gradient(ellipse at 50% 60%, ${p.accent}20 0%, transparent 70%)` }}>
+              <FadeIn key={i} delay={i * 0.12} className="project-card">
+                <div style={{ height: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', background: `radial-gradient(ellipse at 50% 60%, ${p.accent}20 0%, transparent 70%)` }}>
                   <div style={{ position: 'absolute', top: 14, right: 14 }}>
                     <span className="badge" style={{ background: `${p.accent}18`, borderColor: `${p.accent}45`, color: p.accent, fontSize: '0.68rem' }}>{p.label}</span>
                   </div>
                   <span style={{ color: p.accent, filter: `drop-shadow(0 0 18px ${p.accent}80)` }}>{p.icon}</span>
                 </div>
-                <div style={{ padding: 26, position: 'relative', zIndex: 1 }}>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', marginBottom: 8, color: p.accent }}>{p.title}</h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.86rem', lineHeight: 1.72, marginBottom: 16 }}>{p.desc}</p>
-                  <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 18 }}>
+                <div style={{ padding: 22, position: 'relative', zIndex: 1 }}>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', marginBottom: 8, color: p.accent }}>{p.title}</h3>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.84rem', lineHeight: 1.7, marginBottom: 14 }}>{p.desc}</p>
+                  <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>
                     {p.tags.map(tag => <span key={tag} className="tech-tag">{tag}</span>)}
                   </div>
                   <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ color: p.accent, fontSize: '0.84rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
@@ -615,7 +617,7 @@ export default function HomePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
           <div>
             <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.05rem', marginBottom: 3 }}>
-              <span className="gradient-text">Мар&apos;ян Собчук</span>
+              <span className="gradient-text">veryrary agency</span>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>{t('webDeveloperFooter')}</p>
           </div>

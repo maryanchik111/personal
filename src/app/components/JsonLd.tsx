@@ -1,10 +1,10 @@
 export default function JsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Мар'ян Собчук",
-    "jobTitle": "Веб-розробник",
-    "description": "Професійний веб-розробник з досвідом 6+ місяців. Спеціалізуюся на Next.js, React, Tailwind CSS.",
+    "@type": "Organization",
+    "name": "veryrary agency",
+    "jobTitle": "Веб-розробка",
+    "description": "Професійна веб-розробка від veryrary agency. Спеціалізуємося на Next.js, React, Tailwind CSS.",
     "image": "https://devs-plus.com/profile.jpg",
     "url": "https://devs-plus.com",
     "email": "maryan.sobchuk@gmail.com",
@@ -17,7 +17,7 @@ export default function JsonLd() {
     "knowsAbout": [
       "Next.js",
       "React",
-      "TypeScript", 
+      "TypeScript",
       "JavaScript",
       "Tailwind CSS",
       "Figma",
@@ -35,7 +35,7 @@ export default function JsonLd() {
         "priceCurrency": "USD"
       },
       {
-        "@type": "Offer", 
+        "@type": "Offer",
         "name": "SaaS додатки",
         "description": "Повнофункціональні SaaS-платформи",
         "price": "1500",
@@ -43,7 +43,7 @@ export default function JsonLd() {
       },
       {
         "@type": "Offer",
-        "name": "Корпоративні сайти", 
+        "name": "Корпоративні сайти",
         "description": "Професійні сайти для бізнесу",
         "price": "2500",
         "priceCurrency": "USD"

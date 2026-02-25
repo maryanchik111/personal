@@ -251,7 +251,7 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="text-2xl font-bold font-display bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Мар'ян Собчук
+              veryrary agency
             </Link>
             <Link href="/" className="text-gray-600 hover:text-indigo-600">
               {t('backToHomepage')}
@@ -278,51 +278,46 @@ export default function PricingPage() {
           <div className="flex flex-wrap gap-2 justify-center">
             <button
               onClick={() => setActiveCategory('tariffs')}
-              className={`px-4 py-2 rounded-lg font-semibold ${
-                activeCategory === 'tariffs'
+              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'tariffs'
                   ? 'bg-indigo-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               📦 Тарифи
             </button>
             <button
               onClick={() => setActiveCategory('smallBusiness')}
-              className={`px-4 py-2 rounded-lg font-semibold ${
-                activeCategory === 'smallBusiness'
+              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'smallBusiness'
                   ? 'bg-indigo-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               🏢 Малий бізнес
             </button>
             <button
               onClick={() => setActiveCategory('saas')}
-              className={`px-4 py-2 rounded-lg font-semibold ${
-                activeCategory === 'saas'
+              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'saas'
                   ? 'bg-indigo-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               ⚙️ SaaS
             </button>
             <button
               onClick={() => setActiveCategory('landing')}
-              className={`px-4 py-2 rounded-lg font-semibold ${
-                activeCategory === 'landing'
+              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'landing'
                   ? 'bg-indigo-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               🎯 Лендінги
             </button>
             <button
               onClick={() => setActiveCategory('additional')}
-              className={`px-4 py-2 rounded-lg font-semibold ${
-                activeCategory === 'additional'
+              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'additional'
                   ? 'bg-indigo-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                }`}
             >
               🔧 Додаткові
             </button>
@@ -333,7 +328,7 @@ export default function PricingPage() {
       {/* Content Sections */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* TARIFFS SECTION */}
           {activeCategory === 'tariffs' && (
             <div className="space-y-8">
@@ -354,7 +349,7 @@ export default function PricingPage() {
                       <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{tariff.price}</div>
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
                       <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('includesText')}</h4>

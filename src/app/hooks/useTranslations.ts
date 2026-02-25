@@ -17,18 +17,18 @@ export const useTranslations = () => {
   // Subscribe to global language changes
   useEffect(() => {
     setIsClient(true)
-    
+
     const handleLanguageChange = () => {
       setLanguage(globalLanguage)
     }
-    
+
     listeners.add(handleLanguageChange)
-    
+
     // Initialize from localStorage
     try {
       const savedLanguage = localStorage.getItem('language')
       const targetLanguage = (savedLanguage === 'en') ? 'en' : 'ua'
-      
+
       if (globalLanguage !== targetLanguage) {
         globalLanguage = targetLanguage
         setLanguage(targetLanguage)
@@ -39,7 +39,7 @@ export const useTranslations = () => {
       setLanguage('ua')
       localStorage.setItem('language', 'ua')
     }
-    
+
     return () => {
       listeners.delete(handleLanguageChange)
     }
@@ -74,7 +74,7 @@ export const useTranslations = () => {
       viewMyWork: 'Переглянути роботи',
       getInTouch: 'Звязатися зі мною',
       getFreeConsultation: 'Консультація',
-      createModern: 'Створюю сучасні',
+      createModern: 'Створюю',
       modern: 'сучасні',
       websites: 'веб-сайти',
       heroDescription: 'Я створюю сучасні веб-сайти та додатки, які допомагають бізнесу рости та залучати більше клієнтів',
@@ -158,12 +158,16 @@ export const useTranslations = () => {
       complexWebApplication: 'Складний веб-додаток',
       communityPlatform: 'Платформа спільноти',
       learningManagementSystem: 'Система управління навчанням',
-      biblicalSchool: 'Біблійна школа',
-      biblicalSchoolDescription: 'Освітня платформа для вивчення Біблії з інтерактивними курсами',
-      churchSite: 'Сайт церкви',
-      churchSiteDescription: 'Сучасний сайт церкви з управлінням подіями та спільнотою',
-      ponySalesWebsite: 'Сайт продажу поні',
-      ponySalesDescription: 'Онлайн магазин для продажу поні з каталогом, фільтрами та системою замовлень',
+      biblicalSchool: 'Українська Євангельська Біблійна Школа',
+      biblicalSchoolDescription: 'Освітня платформа для богословського навчання з розкладом занять та контактами церкви в Рівному',
+      churchSite: 'Скинія Любові та Істини',
+      churchSiteDescription: 'Сучасний сайт церкви в Рівному з розкладом богослужінь, подіями та духовними ресурсами для спільноти',
+      ponySalesWebsite: 'MLP Cutie Family — магазин фігурок',
+      ponySalesDescription: 'Нішевий інтернет-магазин для фанатів My Little Pony з каталогом оригінальних фігурок та кастомних подарункових наборів',
+      everlightAgency: 'Everlight — Digital Agency',
+      everlightDescription: 'Сайт digital-агентства повного циклу: брендинг, маркетинг, розробка та контент-менеджмент для бізнесів',
+      advocateSite: 'Адвокат Сергій Мусевич',
+      advocateDescription: 'Преміальний сайт юридичних послуг у темно-синьому та золотому стилі для адвоката в Рівному',
       duration: 'Тривалість',
       oneDay: '1 день',
 
@@ -175,7 +179,7 @@ export const useTranslations = () => {
       superFastDevelopmentOneDay: 'Надшвидка розробка (1 день)',
       basicFunctionality: 'Основний функціонал',
       readyForScaling: 'Готовність до масштабування',
-      saasApps: 'SaaS додатки', 
+      saasApps: 'SaaS додатки',
       saasAppsDescription: 'Повнофункціональні SaaS-платформи з системами авторизації, платежів та аналітики.',
       userDashboards: 'Користувацькі панелі',
       database: 'База даних',
@@ -275,7 +279,7 @@ export const useTranslations = () => {
       oneMonthFreeSupport: '1 місяць безкоштовної підтримки',
       chooseThisPlan: 'Обрати цей тариф',
       contactForDiscussion: 'Звязатись для обговорення',
-      
+
       // Pricing Page Details
       whatIncludes: 'Що входить:',
       idealForTitle: 'Ідеально для:',
@@ -283,7 +287,7 @@ export const useTranslations = () => {
       mostPopular: 'НАЙПОПУЛЯРНІШИЙ',
       businessTariff: 'Бізнес',
       enterpriseTariff: 'Ентерпрайз',
-      
+
       // Startup Tariff
       upTo5PagesDetails: 'До 5 сторінок',
       modernResponsiveDesign: 'Сучасний адаптивний дизайн',
@@ -299,7 +303,7 @@ export const useTranslations = () => {
       functionalSites: 'Функціональні сайти',
       mediumBusiness: 'Середній бізнес',
       weeks1to2: '1-2 тижні',
-      
+
       // Business Tariff
       upTo15PagesDetails: 'До 15 сторінок',
       fullAuthSystem: 'Повна система авторизації',
@@ -316,7 +320,7 @@ export const useTranslations = () => {
       learningPlatforms: 'Платформи навчання',
       socialNetworksIdeal: 'Соціальні мережі',
       weeks2to3: '2-3 тижні',
-      
+
       // Enterprise Tariff
       unlimitedPages: 'Необмежена кількість сторінок',
       fullApiIntegrationsDetails: 'Повні API інтеграції',
@@ -335,7 +339,7 @@ export const useTranslations = () => {
       bankingSystems: 'Банківські системи',
       governmentProjects: 'Державні проекти',
       monthsIndividual: 'Індивідуально',
-      
+
       // Service Categories
       smallBusinessSolutions: 'Рішення для малого бізнесу',
       saasAppsCategory: 'SaaS платформи',
@@ -353,7 +357,7 @@ export const useTranslations = () => {
       bookingSystemDesc: 'Автоматизована система для запису до салонів, студій, фітнес-центрів',
       portfolioWebsiteService: 'Портфоліо сайт',
       portfolioWebsiteDesc: 'Сучасне портфоліо для дизайнерів, фотографів, видеографів',
-      
+
       // SaaS Services
       saasAppService: 'SaaS додаток на замовлення',
       saasAppDesc: 'Повнофункціональна SaaS платформа з авторизацією, платежами та аналітикою',
@@ -363,7 +367,7 @@ export const useTranslations = () => {
       projectManagementDesc: 'Система для управління задачами, часом, командою та дедлайнами',
       analyticsToolService: 'Аналітичний інструмент',
       analyticsToolDesc: 'Персональний аналітичний сервіс для вашого бізнесу',
-      
+
       // Landing Page Services  
       convertingLandingService: 'Конвертуючий лендінг',
       convertingLandingDesc: 'Лендінг з високою конверсією для продажу продуктів чи послуг',
@@ -371,7 +375,7 @@ export const useTranslations = () => {
       eventLandingDesc: 'Сайт для реєстрації на подію, конференцію, вебінар чи воркшоп',
       funnelLandingService: 'Sales Funnel',
       funnelLandingDesc: 'Багатосторінковий sales funnel для максимізації продажів',
-      
+
       // Additional Services
       additionalServices: 'Додаткові послуги',
       siteAudit: 'Аудит сайту',
@@ -410,14 +414,14 @@ export const useTranslations = () => {
       vipSupportDescription: 'Пріоритетна підтримка, безлімітні правки, оновлення контенту',
       perMonth: '/міс',
       responseIn2Hours: 'Відповідь протягом 2 год',
-      
+
       // Special Offers
       specialOffers: 'Спеціальні пропозиції',
       specialOffersDescription: 'При замовленні основного тарифу отримуєте знижки на додаткові послуги',
       auditSeoDiscount: 'Аудит + SEO = -20%',
       redesignSpeedDiscount: 'Редизайн + Прискорення = -15%',
       any3ServicesDiscount: 'Любі 3 послуги = -25%',
-      
+
       // CTA Section
       readyToStart: 'Готові почати проект?',
       readyToStartDescription: 'Звяжіться зі мною для обговорення деталей та отримання персональної пропозиції',
@@ -425,7 +429,7 @@ export const useTranslations = () => {
       backToHome: 'Назад на головну',
 
       // Footer
-      copyrightText: 'Марйан Собчук. Всі права захищені.',
+      copyrightText: 'veryrary agency. Всі права захищені.',
       webDeveloperFooter: 'Веб-розробник',
     },
     en: {
@@ -447,7 +451,7 @@ export const useTranslations = () => {
       viewMyWork: 'View My Work',
       getInTouch: 'Get In Touch',
       getFreeConsultation: 'Consultation',
-      createModern: 'I create modern',
+      createModern: 'I create',
       modern: 'modern',
       websites: 'websites',
       heroDescription: 'I create modern websites and applications that help businesses grow and attract more clients',
@@ -531,12 +535,16 @@ export const useTranslations = () => {
       complexWebApplication: 'Complex Web Application',
       communityPlatform: 'Community Platform',
       learningManagementSystem: 'Learning Management System',
-      biblicalSchool: 'Biblical School',
-      biblicalSchoolDescription: 'Educational platform for Bible study with interactive courses',
-      churchSite: 'Church Site',
-      churchSiteDescription: 'Modern church website with event management and community',
-      ponySalesWebsite: 'Pony Sales Website',
-      ponySalesDescription: 'Online store for pony sales with catalog, filters and order system',
+      biblicalSchool: 'Ukrainian Evangelical Bible School',
+      biblicalSchoolDescription: 'E-learning platform for theological training with a class schedule and church contacts in Rivne',
+      churchSite: 'Скинія Любові та Істини (SLT) Church',
+      churchSiteDescription: 'Modern church website in Rivne featuring worship schedules, events and spiritual resources for the congregation',
+      ponySalesWebsite: 'MLP Cutie Family — Collectible Shop',
+      ponySalesDescription: 'Niche online store for My Little Pony fans featuring original figures and custom gift boxes',
+      everlightAgency: 'Everlight — Digital Agency',
+      everlightDescription: 'Full-cycle digital agency website: branding, marketing, development and content management for businesses',
+      advocateSite: 'Advocate Serhiy Musevych',
+      advocateDescription: 'Premium legal services website in dark navy & gold style for an advocate based in Rivne',
       duration: 'Duration',
       oneDay: '1 day',
 
@@ -548,7 +556,7 @@ export const useTranslations = () => {
       superFastDevelopmentOneDay: 'Super fast development (1 day)',
       basicFunctionality: 'Basic functionality',
       readyForScaling: 'Ready for scaling',
-      saasApps: 'SaaS Apps', 
+      saasApps: 'SaaS Apps',
       saasAppsDescription: 'Full-featured SaaS platforms with authorization, payment and analytics systems.',
       userDashboards: 'User Dashboards',
       database: 'Database',
@@ -596,7 +604,7 @@ export const useTranslations = () => {
       sixMonthsSupport: '6 months support',
       discuss: 'Discuss',
       whatsIncludedAllPlans: 'What\'s included in all plans?',
-      
+
       // Pricing Page
       backToHomepage: 'Back to Homepage',
       pricingServicesTitle: 'Pricing & Services',
@@ -618,7 +626,7 @@ export const useTranslations = () => {
       oneMonthFreeSupport: '1 month free support',
       chooseThisPlan: 'Choose this plan',
       contactForDiscussion: 'Contact for discussion',
-      
+
       // Pricing Page Details
       whatIncludes: 'What includes:',
       idealForTitle: 'Ideal for:',
@@ -626,7 +634,7 @@ export const useTranslations = () => {
       mostPopular: 'MOST POPULAR',
       businessTariff: 'Business',
       enterpriseTariff: 'Enterprise',
-      
+
       // Startup Tariff
       upTo5PagesDetails: 'Up to 5 pages',
       modernResponsiveDesign: 'Modern responsive design',
@@ -642,7 +650,7 @@ export const useTranslations = () => {
       functionalSites: 'Functional sites',
       mediumBusiness: 'Medium business',
       weeks1to2: '1-2 weeks',
-      
+
       // Business Tariff
       upTo15PagesDetails: 'Up to 15 pages',
       fullAuthSystem: 'Full authorization system',
@@ -659,7 +667,7 @@ export const useTranslations = () => {
       learningPlatforms: 'Learning platforms',
       socialNetworksIdeal: 'Social networks',
       weeks2to3: '2-3 weeks',
-      
+
       // Enterprise Tariff
       unlimitedPages: 'Unlimited pages',
       fullApiIntegrationsDetails: 'Full API integrations',
@@ -726,7 +734,7 @@ export const useTranslations = () => {
       bookingSystemDesc: 'Automated booking system for salons, studios, fitness centers',
       portfolioWebsiteService: 'Portfolio Website',
       portfolioWebsiteDesc: 'Modern portfolio for designers, photographers, videographers',
-      
+
       // SaaS Services
       saasAppService: 'Custom SaaS App',
       saasAppDesc: 'Full-featured SaaS platform with authorization, payments and analytics',
@@ -736,7 +744,7 @@ export const useTranslations = () => {
       projectManagementDesc: 'System for managing tasks, time, team and deadlines',
       analyticsToolService: 'Analytics Tool',
       analyticsToolDesc: 'Personal analytics service for your business',
-      
+
       // Landing Page Services  
       convertingLandingService: 'Converting Landing',
       convertingLandingDesc: 'High-conversion landing page for selling products or services',
@@ -744,7 +752,7 @@ export const useTranslations = () => {
       eventLandingDesc: 'Website for event registration, conference, webinar or workshop',
       funnelLandingService: 'Sales Funnel',
       funnelLandingDesc: 'Multi-page sales funnel for maximum sales',
-      
+
       // Additional Services
       additionalServices: 'Additional Services',
       siteAudit: 'Site Audit',
@@ -783,14 +791,14 @@ export const useTranslations = () => {
       vipSupportDescription: 'Priority support, unlimited edits, content updates',
       perMonth: '/month',
       responseIn2Hours: 'Response within 2 hours',
-      
+
       // Special Offers
       specialOffers: 'Special Offers',
       specialOffersDescription: 'When ordering main tariff you get discounts on additional services',
       auditSeoDiscount: 'Audit + SEO = -20%',
       redesignSpeedDiscount: 'Redesign + Speed = -15%',
       any3ServicesDiscount: 'Any 3 services = -25%',
-      
+
       // CTA Section
       readyToStart: 'Ready to start project?',
       readyToStartDescription: 'Contact me to discuss details and get a personalized offer',
@@ -798,7 +806,7 @@ export const useTranslations = () => {
       backToHome: 'Back to Home',
 
       // Footer
-      copyrightText: 'Maryan Sobchuk. All rights reserved.',
+      copyrightText: 'veryrary agency. All rights reserved.',
       webDeveloperFooter: 'Web Developer',
     }
   }
@@ -809,12 +817,12 @@ export const useTranslations = () => {
       const uaTranslations = translations.ua
       return uaTranslations[key as keyof typeof uaTranslations] || key
     }
-    
+
     try {
       const currentLang = (language === 'en' || language === 'ua') ? language : 'ua'
       const langTranslations = translations[currentLang as keyof typeof translations]
       const translation = langTranslations[key as keyof typeof langTranslations]
-      
+
       if (translation === undefined) {
         // Fallback to Ukrainian if current language is English
         if (currentLang === 'en') {
@@ -824,7 +832,7 @@ export const useTranslations = () => {
         }
         return key
       }
-      
+
       return translation
     } catch (error) {
       return key

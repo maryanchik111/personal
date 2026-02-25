@@ -27,12 +27,12 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Мар'ян Собчук - Веб Розробник | React & Next.js Expert | Professional Websites from $150",
-  description: "Професійна веб-розробка від Мар'яна Собчука. Створюю MVP, SaaS додатки, корпоративні сайти на Next.js, React. Швидка розробка, сучасні технології. Досвід 5+ років.",
-  keywords: "веб розробник, Next.js розробник, React розробник, фронтенд розробник, MVP розробка, SaaS розробка, Україна, Мар'ян Собчук, веб сайти, додатки, web developer, React developer, Next.js expert, Ukraine developer, professional websites, web development services",
-  authors: [{ name: "Мар'ян Собчук" }],
-  creator: "Мар'ян Собчук",
-  publisher: "Мар'ян Собчук",
+  title: "veryrary agency | Web Development | React & Next.js | Professional Websites from $150",
+  description: "Професійна веб-розробка від veryrary agency. Створюємо MVP, SaaS додатки, корпоративні сайти на Next.js, React. Швидка розробка, сучасні технології. Досвід 5+ років.",
+  keywords: "веб розробник, Next.js розробник, React розробник, фронтенд розробник, MVP розробка, SaaS розробка, Україна, veryrary agency, веб сайти, додатки, web developer, React developer, Next.js expert, Ukraine developer, professional websites, web development services",
+  authors: [{ name: "veryrary agency" }],
+  creator: "veryrary agency",
+  publisher: "veryrary agency",
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "uk_UA",
     url: "https://devs-plus.com",
-    title: "Мар'ян Собчук - Професійний Веб Розробник",
-    description: "Створюю сучасні веб-додатки та сайти. MVP, SaaS, корпоративні рішення на Next.js та React.",
-    siteName: "Мар'ян Собчук - Веб Розробник",
+    title: "veryrary agency | Professional Web Developer",
+    description: "Створюємо сучасні веб-додатки та сайти. MVP, SaaS, корпоративні рішення на Next.js та React.",
+    siteName: "veryrary agency",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Мар'ян Собчук - Веб Розробник",
+    title: "veryrary agency | Web Developer",
     description: "Професійна веб-розробка. Next.js, React, Tailwind CSS. Швидка розробка якісних рішень.",
   },
   robots: {
@@ -95,7 +95,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#00f5ff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Мар'ян Собчук" />
+        <meta name="apple-mobile-web-app-title" content="veryrary agency" />
       </head>
       <body
         className={`${spaceGrotesk.variable} ${syne.variable} ${jetBrainsMono.variable} font-sans antialiased`}
