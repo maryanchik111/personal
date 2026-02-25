@@ -299,10 +299,10 @@ export default function HomePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 18 }}>
             {([
-              { value: 4, prefix: '', suffix: '+', label: t('completedProjects'), sub: 'За останній рік', color: '#00f5ff', icon: <Icon.Rocket /> },
+              { value: 6, prefix: '', suffix: '+', label: t('completedProjects'), sub: 'Реальних клієнтів', color: '#00f5ff', icon: <Icon.Rocket /> },
               { value: 100, prefix: '', suffix: '%', label: t('satisfiedClients2'), sub: 'Рейтинг 5/5', color: '#a855f7', icon: <Icon.Star /> },
               { value: 5, prefix: '<', suffix: 'хв', label: t('responseTime'), sub: t('usually'), color: '#00ff88', icon: <Icon.Chat /> },
-              { value: 6, prefix: '', suffix: '+', label: t('experience'), sub: t('months'), color: '#f472b6', icon: <Icon.Clock /> },
+              { value: 10, prefix: '', suffix: '+', label: t('experience'), sub: 'Місяців досвіду', color: '#f472b6', icon: <Icon.Clock /> },
             ] as { value: number; prefix: string; suffix: string; label: string; sub: string; color: string; icon: React.ReactNode }[]).map((s, i) => (
               <FadeIn key={i} delay={i * 0.15} className="stat-card">
                 <div style={{ color: s.color, marginBottom: 12, opacity: 0.7 }}>{s.icon}</div>
