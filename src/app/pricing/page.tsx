@@ -11,7 +11,7 @@ export default function PricingPage() {
   const tariffs = [
     {
       name: t('basic'),
-      price: '$99',
+      price: '$150',
       currency: '',
       emoji: '🌱',
       borderColor: 'border-green-200',
@@ -36,7 +36,7 @@ export default function PricingPage() {
     },
     {
       name: t('startupTariff'),
-      price: '$499',
+      price: '$450',
       currency: '',
       emoji: '🚀',
       borderColor: 'border-blue-200',
@@ -92,7 +92,7 @@ export default function PricingPage() {
     },
     {
       name: t('enterpriseTariff'),
-      price: '$1699+',
+      price: '$1499+',
       currency: '',
       emoji: '🏢',
       borderColor: 'border-purple-200',
@@ -279,8 +279,8 @@ export default function PricingPage() {
             <button
               onClick={() => setActiveCategory('tariffs')}
               className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'tariffs'
-                  ? 'bg-indigo-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-indigo-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               📦 Тарифи
@@ -288,8 +288,8 @@ export default function PricingPage() {
             <button
               onClick={() => setActiveCategory('smallBusiness')}
               className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'smallBusiness'
-                  ? 'bg-indigo-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-indigo-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               🏢 Малий бізнес
@@ -297,8 +297,8 @@ export default function PricingPage() {
             <button
               onClick={() => setActiveCategory('saas')}
               className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'saas'
-                  ? 'bg-indigo-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-indigo-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               ⚙️ SaaS
@@ -306,8 +306,8 @@ export default function PricingPage() {
             <button
               onClick={() => setActiveCategory('landing')}
               className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'landing'
-                  ? 'bg-indigo-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-indigo-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               🎯 Лендінги
@@ -315,8 +315,8 @@ export default function PricingPage() {
             <button
               onClick={() => setActiveCategory('additional')}
               className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'additional'
-                  ? 'bg-indigo-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-indigo-600 text-white shadow-lg'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               🔧 Додаткові

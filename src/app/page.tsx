@@ -454,23 +454,23 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 18 }}>
             {([
               {
-                icon: <Icon.Leaf />, name: t('basic'), price: '$79', desc: t('landingOrBusinessCard'), color: '#00ff88',
+                icon: <Icon.Leaf />, name: t('basic'), price: '$150', desc: t('landingOrBusinessCard'), color: '#00ff88',
                 gradient: 'linear-gradient(135deg, #00ff88, #00d4aa)',
                 features: [t('pages1to3'), t('responsiveDesign'), t('basicSeoShort'), t('contactFormShort'), t('ultraFastDev1to3Days'), t('oneMonthSupport')],
               },
               {
-                icon: <Icon.Rocket />, name: t('startupTariff'), price: '$299', desc: t('mvpFunctionalSites'), color: '#00f5ff',
+                icon: <Icon.Rocket />, name: t('startupTariff'), price: '$450', desc: t('mvpFunctionalSites'), color: '#00f5ff',
                 gradient: 'linear-gradient(135deg, #00f5ff, #3b82f6)',
                 features: [t('upTo5Pages'), t('responsiveDesign'), t('fullSeoOptimization'), t('basicAuth'), t('contactForms'), t('twoMonthsSupport')],
               },
               {
-                icon: <Icon.Star />, name: t('businessPlan'), price: '$549', desc: t('saasAndEcommerce'), color: '#a855f7',
+                icon: <Icon.Star />, name: t('businessPlan'), price: '$999', desc: t('saasAndEcommerce'), color: '#a855f7',
                 gradient: 'linear-gradient(135deg, #a855f7, #7c3aed)',
                 features: [t('upTo15Pages'), t('fullAuth'), t('database'), t('adminPanel'), t('apiIntegrations'), t('threeMonthsSupport')],
                 featured: true,
               },
               {
-                icon: <Icon.Building />, name: t('enterprisePlan'), price: '$999+', desc: t('complexCorporateSolutions'), color: '#f472b6',
+                icon: <Icon.Building />, name: t('enterprisePlan'), price: '$1499+', desc: t('complexCorporateSolutions'), color: '#f472b6',
                 gradient: 'linear-gradient(135deg, #f472b6, #ec4899)',
                 features: [t('unlimitedPagesText'), t('fullApiIntegrations'), t('paymentSystems'), t('analyticsReports'), t('scaling'), t('sixMonthsSupport')],
               },
