@@ -168,6 +168,8 @@ export const useTranslations = () => {
       everlightDescription: 'Сайт digital-агентства повного циклу: брендинг, маркетинг, розробка та контент-менеджмент для бізнесів',
       advocateSite: 'Адвокат Сергій Мусевич',
       advocateDescription: 'Преміальний сайт юридичних послуг у темно-синьому та золотому стилі для адвоката в Рівному',
+      chileRivne: 'Магазин Чілі — доставка страв',
+      chileRivneDescription: 'Сучасний інтернет-магазин готових страв власного виробництва з доставкою по місту Рівне',
       duration: 'Тривалість',
       oneDay: '1 день',
 
@@ -545,6 +547,8 @@ export const useTranslations = () => {
       everlightDescription: 'Full-cycle digital agency website: branding, marketing, development and content management for businesses',
       advocateSite: 'Advocate Serhiy Musevych',
       advocateDescription: 'Premium legal services website in dark navy & gold style for an advocate based in Rivne',
+      chileRivne: 'Chile Rivne — Food Delivery',
+      chileRivneDescription: 'Modern online store for homemade prepared meals with delivery services in Rivne',
       duration: 'Duration',
       oneDay: '1 day',
 

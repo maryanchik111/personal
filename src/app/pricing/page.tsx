@@ -1,8 +1,68 @@
 'use client';
 
 import Link from "next/link";
-import { useTranslations } from "@/app/hooks/useTranslations";
-import { useState } from "react";
+import { useTranslations } from '@/app/hooks/useTranslations';
+import { useState } from 'react';
+import { FadeIn } from '../components/Animations';
+
+// ─── SVG Icons ────────────────────────────────────────────────────────────────
+const Icon = {
+  Zap: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  ),
+  Rocket: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4.5 16.5c-1.5 1.5-2 4-1 5s3.5-.5 5-2l6-6-4-4-6 6z" /><path d="M12 8s0-2 2-4 6-1 6-1-1 4-2 6-4 3-4 3" />
+    </svg>
+  ),
+  ShoppingCart: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+    </svg>
+  ),
+  Code: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  Check: () => (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  ),
+  ArrowRight: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+    </svg>
+  ),
+  MessageCircle: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+    </svg>
+  ),
+  Paintbrush: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22a7 7 0 0 1-7-7c0-2 1.5-3.5 3-3.5a1.5 1.5 0 1 0 0-3C5.5 8.5 4 7 4 5a7 7 0 0 1 14 0c0 2-1.5 3.5-3 3.5a1.5 1.5 0 1 0 0 3c1.5 0 3 1.5 3 3.5a7 7 0 0 1-7 7Z" />
+    </svg>
+  ),
+  Settings: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  ),
+  TrendingUp: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
+    </svg>
+  ),
+  Globe: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  ),
+};
 
 export default function PricingPage() {
   const { t } = useTranslations();
@@ -10,522 +70,313 @@ export default function PricingPage() {
 
   const tariffs = [
     {
-      name: t('basic'),
+      icon: <Icon.Zap />,
+      name: 'Лендінг "під ключ"',
       price: '$150',
-      currency: '',
-      emoji: '🌱',
-      borderColor: 'border-green-200',
-      bgColor: 'from-green-400 to-blue-500',
-      includes: [
-        t('pages1to3Details'),
-        t('fullResponsive'),
-        t('basicSeoOptimization'),
-        t('contactFormValidation'),
-        t('googleMapsIntegration'),
-        t('socialNetworks'),
-        t('oneMonthFreeSupport'),
+      priceNote: '~6,500 грн',
+      desc: 'Для локального бізнесу',
+      color: '#00ff88',
+      gradient: 'linear-gradient(135deg, #00ff88, #00d4aa)',
+      forWho: 'Ресторани, барбершопи, майстри',
+      features: [
+        '1 продаюча сторінка (6-8 блоків)',
+        'Форма замовлення/запису',
+        'Telegram/WhatsApp інтеграція',
+        'Google Maps + контакти',
+        '100% мобільна версія',
+        'Базове SEO (Google знайде)',
+        'Домен + хостинг (допомога)',
       ],
-      idealFor: [
-        t('businessCards'),
-        t('simpleLandings'),
-        t('personalPortfolio'),
-        t('smallBusiness'),
+      bonus: '🎁 Інструкція: як самому змінювати ціни',
+      deliveryTime: '3-5 днів',
+    },
+    {
+      icon: <Icon.Rocket />,
+      name: 'Сайт для бізнесу',
+      price: '$290',
+      priceNote: '~12,500 грн',
+      desc: 'Малий та середній бізнес',
+      color: '#00f5ff',
+      gradient: 'linear-gradient(135deg, #00f5ff, #3b82f6)',
+      forWho: 'Інтернет-магазини, сервісні компанії',
+      features: [
+        'До 5 сторінок (повний сайт)',
+        'Каталог послуг/товарів',
+        'Калькулятор вартості (якщо треба)',
+        'Месенджери (Telegram/Viber/WhatsApp)',
+        'Google Analytics (статистика)',
+        'Швидкість < 2 сек',
+        '1 місяць підтримки',
       ],
-      execution: t('days1to3'),
-      highlighted: false,
+      bonus: '🎁 3 безкоштовні правки + чек-лист лідогенерації',
+      deliveryTime: '7-10 днів',
+      featured: true,
     },
     {
-      name: t('startupTariff'),
-      price: '$450',
-      currency: '',
-      emoji: '🚀',
-      borderColor: 'border-blue-200',
-      bgColor: 'from-blue-400 to-purple-500',
-      includes: [
-        t('upTo5PagesDetails'),
-        t('modernResponsiveDesign'),
-        t('fullSeoOptimizationDetails'),
-        t('basicAuthSystem'),
-        t('multipleContactForms'),
-        t('blogOrNews'),
-        t('socialNetworksIntegration'),
-        t('googleAnalytics'),
-        t('twoMonthsFreeSupport'),
+      icon: <Icon.ShoppingCart />,
+      name: 'Інтернет-магазин',
+      price: '$550',
+      priceNote: '~24,000 грн',
+      desc: 'E-commerce стартап',
+      color: '#a855f7',
+      gradient: 'linear-gradient(135deg, #a855f7, #7c3aed)',
+      forWho: 'Онлайн-магазини, дропшипінг',
+      features: [
+        'До 50 товарів (категорії, фільтри)',
+        'Кошик + оформлення',
+        'Нова Пошта API (автоматично)',
+        'Telegram-сповіщення про замовлення',
+        'Адмінка (додаєш товари сам)',
+        'Реєстрація/логін клієнтів',
+        '2 місяці підтримки',
       ],
-      idealFor: [
-        t('mvpProjects'),
-        t('startups'),
-        t('functionalSites'),
-        t('mediumBusiness'),
+      bonus: '🎁 Допомога з запуском Google Ads',
+      deliveryTime: '14-18 днів',
+    },
+    {
+      icon: <Icon.Code />,
+      name: 'SaaS / MVP',
+      price: '$950',
+      priceNote: '~41,500 грн',
+      desc: 'Складні системи',
+      color: '#f472b6',
+      gradient: 'linear-gradient(135deg, #f472b6, #ec4899)',
+      forWho: 'Стартапи, B2B, корпорації',
+      features: [
+        'До 10 сторінок',
+        'CRM/Dashboard для клієнтів',
+        'Авторизація (Google, Facebook)',
+        'Платіжні системи (Stripe, Monobank)',
+        'База даних (Firebase/Supabase)',
+        'Адмін-панель',
+        '3 місяці підтримки',
       ],
-      execution: t('weeks1to2'),
-      highlighted: false,
-    },
-    {
-      name: t('businessTariff'),
-      price: '$999',
-      currency: '',
-      emoji: '💼',
-      borderColor: 'border-indigo-500',
-      bgColor: 'from-indigo-500 to-purple-600',
-      includes: [
-        t('upTo15PagesDetails'),
-        t('fullAuthSystem'),
-        t('databaseAndBackend'),
-        t('apiIntegrationsDetails'),
-        t('userRoles'),
-        t('emailNotifications'),
-        t('analyticsAndReports'),
-        t('mobilePWA'),
-        t('threeMonthsFreeSupport'),
-      ],
-      idealFor: [
-        t('saasAppsIdeal'),
-        t('ecommerce'),
-        t('crmSystems'),
-        t('learningPlatforms'),
-        t('socialNetworksIdeal'),
-      ],
-      execution: t('weeks2to3'),
-      highlighted: true,
-      badge: t('mostPopular'),
-    },
-    {
-      name: t('enterpriseTariff'),
-      price: '$1499+',
-      currency: '',
-      emoji: '🏢',
-      borderColor: 'border-purple-200',
-      bgColor: 'from-purple-500 to-pink-500',
-      includes: [
-        t('unlimitedPages'),
-        t('fullApiIntegrationsDetails'),
-        t('paymentSystemsDetails'),
-        t('microserviceArchitecture'),
-        t('advancedAnalytics'),
-        t('autoScaling'),
-        t('crmErpIntegration'),
-        t('multiLanguage'),
-        t('devOpsCiCd'),
-        t('sixMonthsFreeSupport'),
-      ],
-      idealFor: [
-        t('largeCorporations'),
-        t('complexPlatforms'),
-        t('internationalProjects'),
-        t('bankingSystems'),
-        t('governmentProjects'),
-      ],
-      execution: t('monthsIndividual'),
-      highlighted: false,
-    },
-  ];
-
-  const smallBusinessServices = [
-    {
-      title: t('businessWebsiteService'),
-      desc: t('businessWebsiteDesc'),
-      price: '$299',
-      icon: '🏪',
-      features: ['1-3 сторінки', 'Каталог товарів', 'Контакти', '1 місяць підтримки'],
-      timeline: '3-5 днів',
-      color: 'bg-blue-50',
-    },
-    {
-      title: t('onlineStoreService'),
-      desc: t('onlineStoreDesc'),
-      price: '$599',
-      icon: '🛒',
-      features: ['До 50 товарів', 'Платежі (Stripe, Liqpay)', 'Управління замовленнями', '2 місяці підтримки'],
-      timeline: '1-2 тижні',
-      color: 'bg-green-50',
-    },
-    {
-      title: t('bookingSystemService'),
-      desc: t('bookingSystemDesc'),
-      price: '$699',
-      icon: '📅',
-      features: ['Календар запису', 'Email повідомлення', 'Управління клієнтами', 'Автоматизація'],
-      timeline: '1-2 тижні',
-      color: 'bg-purple-50',
-    },
-    {
-      title: t('portfolioWebsiteService'),
-      desc: t('portfolioWebsiteDesc'),
-      price: '$399',
-      icon: '🎨',
-      features: ['Сучасний дизайн', 'Галереї та портфоліо', 'SEO оптимізація', '1 місяць підтримки'],
-      timeline: '4-7 днів',
-      color: 'bg-pink-50',
-    },
-  ];
-
-  const saasServices = [
-    {
-      title: t('saasAppService'),
-      desc: t('saasAppDesc'),
-      price: '$1299+',
-      icon: '⚙️',
-      features: ['Повна авторизація', 'Платежі та підписка', 'API', 'Розширена аналітика'],
-      timeline: '3-4 тижні',
-      color: 'bg-indigo-50',
-    },
-    {
-      title: t('crmSystemService'),
-      desc: t('crmSystemDesc'),
-      price: '$899',
-      icon: '👥',
-      features: ['Управління контактами', 'Пайплайн продажів', 'Завдання та нотатки', 'Звіти'],
-      timeline: '2-3 тижні',
-      color: 'bg-yellow-50',
-    },
-    {
-      title: t('projectManagementService'),
-      desc: t('projectManagementDesc'),
-      price: '$799',
-      icon: '✓',
-      features: ['Управління задачами', 'Таймер часу', 'Командна співпраця', 'Звіти'],
-      timeline: '2-3 тижні',
-      color: 'bg-cyan-50',
-    },
-    {
-      title: t('analyticsToolService'),
-      desc: t('analyticsToolDesc'),
-      price: '$599',
-      icon: '📊',
-      features: ['Персональні дашборди', 'Real-time дані', 'Експорт звітів', 'AI аналізи'],
-      timeline: '1-2 тижні',
-      color: 'bg-orange-50',
-    },
-  ];
-
-  const landingServices = [
-    {
-      title: t('convertingLandingService'),
-      desc: t('convertingLandingDesc'),
-      price: '$399',
-      icon: '💰',
-      features: ['1 сторінка', 'CTA оптимізація', 'A/B тести', '1 місяць правок'],
-      timeline: '3-5 днів',
-      color: 'bg-emerald-50',
-    },
-    {
-      title: t('eventLandingService'),
-      desc: t('eventLandingDesc'),
-      price: '$349',
-      icon: '🎉',
-      features: ['Реєстрація', 'Email лист', 'Платіжна форма', 'QR код'],
-      timeline: '2-4 дні',
-      color: 'bg-red-50',
-    },
-    {
-      title: t('funnelLandingService'),
-      desc: t('funnelLandingDesc'),
-      price: '$699',
-      icon: '🔀',
-      features: ['3-5 сторінок', 'Автосеквенс', 'Умовна логіка', 'Аналітика'],
-      timeline: '1-2 тижні',
-      color: 'bg-violet-50',
+      bonus: '🎁 Технічна документація',
+      deliveryTime: '21-30 днів',
     },
   ];
 
   const additionalServices = [
-    { title: t('siteAudit'), desc: t('siteAuditDescription'), price: '$45', icon: '🔍', time: '2 дні' },
-    { title: t('redesign'), desc: t('redesignDescription'), price: '$250', icon: '✨', time: '1 тиждень' },
-    { title: t('speedOptimization'), desc: t('speedOptimizationDescription'), price: '$89', icon: '⚡', time: '2-3 дні' },
-    { title: t('seoBoost'), desc: t('seoBoostDescription'), price: '$180', icon: '📈', time: '1 тиждень' },
-    { title: t('aiChatbot'), desc: t('aiChatbotDescription'), price: '$199', icon: '🤖', time: '3-5 днів' },
-    { title: t('securityPro'), desc: t('securityProDescription'), price: '$79', icon: '🛡️', time: 'Миттєво' },
-    { title: t('analyticsPlus'), desc: t('analyticsPlusDescription'), price: '$120', icon: '📊', time: '2 дні' },
-    { title: t('apiMagic'), desc: t('apiMagicDescription'), price: '$50', icon: '🔌', time: '3-7 днів' },
-    { title: t('contentManagementService'), desc: t('contentManagementDesc'), price: '$99/міс', icon: '📝', time: 'Щомісячно' },
-    { title: t('trainingService'), desc: t('trainingServiceDesc'), price: '$150', icon: '👨‍🏫', time: '2 години' },
-    { title: t('emailMarketingService'), desc: t('emailMarketingDesc'), price: '$199', icon: '📧', time: '3-5 днів' },
-    { title: t('smsMarketingService'), desc: t('smsMarketingDesc'), price: '$149', icon: '📱', time: '2-3 дні' },
+    {
+      icon: <Icon.MessageCircle />,
+      name: 'Telegram-бот',
+      price: '+$100',
+      desc: 'Приймання замовлень через бота',
+      color: '#00f5ff',
+    },
+    {
+      icon: <Icon.Paintbrush />,
+      name: 'Редизайн сайту',
+      price: 'від $200',
+      desc: 'Оновлення застарілого дизайну',
+      color: '#a855f7',
+    },
+    {
+      icon: <Icon.Settings />,
+      name: 'Підтримка',
+      price: '$50/міс',
+      desc: 'Дрібні правки + моніторинг',
+      color: '#00ff88',
+    },
+    {
+      icon: <Icon.TrendingUp />,
+      name: 'SEO пакет',
+      price: '+$100',
+      desc: 'Аудит + налаштування Google',
+      color: '#f472b6',
+    },
+    {
+      icon: <Icon.Globe />,
+      name: 'Багатомовність',
+      price: '+$80',
+      desc: 'Додавання додаткових мов',
+      color: '#00f5ff',
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
+    <div style={{ background: 'var(--bg-primary)', minHeight: '100vh', paddingBottom: 100 }}>
+      <div className="grid-bg" style={{ position: 'fixed', inset: 0, opacity: 0.3 }} />
+      <div className="orb-cyan" style={{ width: 600, height: 600, top: -200, left: -200, opacity: 0.4 }} />
+      <div className="orb-purple" style={{ width: 500, height: 500, bottom: 0, right: -150, opacity: 0.3 }} />
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-indigo-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold font-display bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              veryrary agency
-            </Link>
-            <Link href="/" className="text-gray-600 hover:text-indigo-600">
-              {t('backToHomepage')}
-            </Link>
-          </div>
+      <nav style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+        background: 'rgba(5,5,16,0.88)', backdropFilter: 'blur(24px)',
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
+      }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 20px', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.25rem' }}>
+              <span className="gradient-text">veryrary agency</span>
+            </span>
+          </Link>
+          <Link href="/" className="nav-link" style={{ fontSize: '0.9rem' }}>
+            {t('backToHomepage')}
+          </Link>
         </div>
       </nav>
 
-      {/* Header */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-display text-gray-900 mb-6">
-            {t('pricingServicesTitle')}
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            {t('detailedDescription')}
-          </p>
-        </div>
-      </section>
+      <main style={{ position: 'relative', zIndex: 1, paddingTop: 120, paddingLeft: 20, paddingRight: 20 }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
-      {/* Category Tabs */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-md z-40 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-2 justify-center">
-            <button
-              onClick={() => setActiveCategory('tariffs')}
-              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'tariffs'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-            >
-              📦 Тарифи
-            </button>
-            <button
-              onClick={() => setActiveCategory('smallBusiness')}
-              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'smallBusiness'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-            >
-              🏢 Малий бізнес
-            </button>
-            <button
-              onClick={() => setActiveCategory('saas')}
-              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'saas'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-            >
-              ⚙️ SaaS
-            </button>
-            <button
-              onClick={() => setActiveCategory('landing')}
-              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'landing'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-            >
-              🎯 Лендінги
-            </button>
-            <button
-              onClick={() => setActiveCategory('additional')}
-              className={`px-4 py-2 rounded-lg font-semibold ${activeCategory === 'additional'
-                ? 'bg-indigo-600 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-            >
-              🔧 Додаткові
-            </button>
-          </div>
-        </div>
-      </section>
+          {/* Header */}
+          <FadeIn style={{ textAlign: 'center', marginBottom: 80 }}>
+            <span className="badge badge-green" style={{ marginBottom: 16 }}>{t('pricingPlans')}</span>
+            <h1 className="gradient-text animate-gradient-shift" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', marginBottom: 20, lineHeight: 1.1 }}>
+              {t('pricingServicesTitle')}
+            </h1>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: 650, margin: '0 auto', lineHeight: 1.6 }}>
+              {t('detailedDescription')}
+              <br />
+              <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Набиваю кейси — поки ціни нижчі за ринок.</span>
+            </p>
+          </FadeIn>
 
-      {/* Content Sections */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-
-          {/* TARIFFS SECTION */}
-          {activeCategory === 'tariffs' && (
-            <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-center mb-12">💎 Основні тарифні плани</h2>
-              {tariffs.map((tariff, idx) => (
-                <div key={idx} className={`bg-white rounded-2xl shadow-xl p-8 border-2 ${tariff.borderColor} ${tariff.highlighted ? 'relative lg:scale-105' : ''}`}>
-                  {tariff.highlighted && (
-                    <div className="absolute -top-4 left-8 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                      {tariff.badge}
-                    </div>
-                  )}
-                  <div className="flex items-center mb-6 mt-2">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${tariff.bgColor} rounded-full flex items-center justify-center mr-6`}>
-                      <span className="text-white text-2xl">{tariff.emoji}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-3xl font-bold font-display text-gray-900">{tariff.name}</h3>
-                      <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{tariff.price}</div>
-                    </div>
+          {/* Tariffs Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, marginBottom: 100 }}>
+            {tariffs.map((plan, i) => (
+              <FadeIn
+                key={i}
+                delay={i * 0.1}
+                className={`pricing-card${plan.featured ? ' featured' : ''}`}
+                style={{
+                  position: 'relative',
+                  background: 'rgba(255,255,255,0.02)',
+                  border: plan.featured ? `2px solid ${plan.color}` : '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: 24,
+                  padding: plan.featured ? '40px 30px' : '36px 28px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'all 0.4s ease',
+                  transform: plan.featured ? 'scale(1.05)' : 'none',
+                  zIndex: plan.featured ? 2 : 1,
+                  boxShadow: plan.featured ? `0 20px 50px ${plan.color}20` : 'none',
+                }}
+              >
+                {plan.featured && (
+                  <div style={{
+                    position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
+                    background: plan.gradient, color: '#000', padding: '6px 20px', borderRadius: 100,
+                    fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.05em', whiteSpace: 'nowrap',
+                    boxShadow: `0 5px 20px ${plan.color}40`,
+                  }}>
+                    ⭐ {t('mostPopular')}
                   </div>
+                )}
 
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('includesText')}</h4>
-                      <ul className="space-y-3">
-                        {tariff.includes.map((item, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className={`${tariff.highlighted ? 'text-indigo-500' : 'text-green-500'} mr-3 mt-1`}>✓</span>
-                            <span className="text-gray-800">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                <div style={{ textAlign: 'center', marginBottom: 28 }}>
+                  <div style={{
+                    width: 56, height: 56, borderRadius: 16, background: `${plan.color}15`,
+                    border: `1.5px solid ${plan.color}35`, color: plan.color,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px',
+                  }}>
+                    {plan.icon}
+                  </div>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: 20 }}>{plan.forWho}</p>
+
+                  <div style={{ marginBottom: 4 }}>
+                    <span style={{ fontSize: '2.8rem', fontWeight: 900, background: plan.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                      {plan.price}
+                    </span>
+                  </div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: 12 }}>{plan.priceNote}</div>
+                  <p style={{ color: plan.color, fontSize: '0.82rem', fontWeight: 600 }}>⚡ {plan.deliveryTime}</p>
+                </div>
+
+                <div style={{ flexGrow: 1, marginBottom: 30 }}>
+                  <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    {plan.features.map((feature, j) => (
+                      <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                        <span style={{ color: plan.color, marginTop: 2, flexShrink: 0 }}><Icon.Check /></span>
+                        <span style={{ lineHeight: 1.4 }}>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div style={{ padding: '14px', borderRadius: 12, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', marginBottom: 24 }}>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.5, textAlign: 'center' }}>{plan.bonus}</p>
+                </div>
+
+                <a href="/#contact" className={plan.featured ? "btn-neon-purple" : "btn-neon-cyan"} style={{ width: '100%', padding: '12px', fontSize: '0.9rem', borderRadius: 12 }}>
+                  {plan.name.includes('SaaS') ? 'Обговорити' : 'Замовити зараз'}
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Additional Services */}
+          <FadeIn delay={0.4}>
+            <div style={{ textAlign: 'center', marginBottom: 50 }}>
+              <h2 style={{ fontSize: '2.2rem', marginBottom: 12 }}>{t('additionalServices')}</h2>
+              <p style={{ color: 'var(--text-secondary)' }}>Додайте ще більше потужності вашому проекту</p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, marginBottom: 100 }}>
+              {additionalServices.map((service, i) => (
+                <div key={i} className="glass-card" style={{ padding: '24px', display: 'flex', alignItems: 'center', gap: 18 }}>
+                  <div style={{
+                    width: 48, height: 48, borderRadius: 12, background: `${service.color}15`,
+                    border: `1px solid ${service.color}30`, color: service.color,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                  }}>
+                    {service.icon}
+                  </div>
+                  <div style={{ flexGrow: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                      <h4 style={{ fontSize: '1rem', fontWeight: 700 }}>{service.name}</h4>
+                      <span style={{ color: service.color, fontWeight: 800 }}>{service.price}</span>
                     </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('idealForTitle')}</h4>
-                      <ul className="space-y-2 text-gray-600 mb-6">
-                        {tariff.idealFor.map((item, i) => (
-                          <li key={i}>• {item}</li>
-                        ))}
-                      </ul>
-                      <div className={`p-4 ${tariff.highlighted ? 'bg-indigo-50' : 'bg-gray-50'} rounded-lg`}>
-                        <div className={`font-semibold ${tariff.highlighted ? 'text-indigo-800' : 'text-gray-800'}`}>{t('executionTimeTitle')}</div>
-                        <div className={`${tariff.highlighted ? 'text-indigo-700' : 'text-gray-700'}`}>{tariff.execution}</div>
-                      </div>
-                    </div>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>{service.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-          )}
+          </FadeIn>
 
-          {/* SMALL BUSINESS SECTION */}
-          {activeCategory === 'smallBusiness' && (
-            <div>
-              <h2 className="text-3xl font-bold text-center mb-12">🏢 Рішення для малого бізнесу</h2>
-              <p className="text-center text-gray-600 mb-8">Готові рішення для малих бізнесів, які хочуть отримати присутність в інтернеті</p>
-              <div className="grid md:grid-cols-2 gap-6">
-                {smallBusinessServices.map((service, idx) => (
-                  <div key={idx} className={`${service.color} rounded-2xl p-8 shadow-lg`}>
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <span className="text-4xl mr-3">{service.icon}</span>
-                        <h3 className="text-2xl font-bold text-gray-900 inline">{service.title}</h3>
-                      </div>
-                      <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{service.price}</div>
-                    </div>
-                    <p className="text-gray-700 mb-4">{service.desc}</p>
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-800 mb-2">Включає:</h4>
-                      <ul className="space-y-1 text-sm text-gray-700">
-                        {service.features.map((f, i) => (
-                          <li key={i}>✓ {f}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="text-xs text-blue-600 font-semibold">⏱️ {service.timeline}</div>
-                  </div>
-                ))}
+          {/* Guarantee */}
+          <FadeIn delay={0.6} className="glass-card-strong" style={{ padding: '60px 40px', textAlign: 'center', border: '1px solid rgba(0, 255, 136, 0.2)' }}>
+            <div style={{ fontSize: '3rem', marginBottom: 20 }}>🛡️</div>
+            <h2 style={{ fontSize: '2rem', marginBottom: 16 }}>Гарантія якості</h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: 600, margin: '0 auto 30px', lineHeight: 1.6 }}>
+              Я ціную свою репутацію, тому працюю на результат. <br />
+              <b>Якщо вам не сподобається фінальний продукт — я поверну гроші.</b>
+            </p>
+            <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent-green)', fontWeight: 600 }}>
+                <Icon.Check /> 50% передоплата
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent-green)', fontWeight: 600 }}>
+                <Icon.Check /> Офіційний договір (за бажанням)
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--accent-green)', fontWeight: 600 }}>
+                <Icon.Check /> Підтримка після запуску
               </div>
             </div>
-          )}
+          </FadeIn>
 
-          {/* SAAS SECTION */}
-          {activeCategory === 'saas' && (
-            <div>
-              <h2 className="text-3xl font-bold text-center mb-12">⚙️ SaaS платформи та системи</h2>
-              <p className="text-center text-gray-600 mb-8">Повнофункціональні системи управління для розширення вашого бізнесу</p>
-              <div className="grid md:grid-cols-2 gap-6">
-                {saasServices.map((service, idx) => (
-                  <div key={idx} className={`${service.color} rounded-2xl p-8 shadow-lg`}>
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <span className="text-4xl mr-3">{service.icon}</span>
-                        <h3 className="text-2xl font-bold text-gray-900 inline">{service.title}</h3>
-                      </div>
-                      <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{service.price}</div>
-                    </div>
-                    <p className="text-gray-700 mb-4">{service.desc}</p>
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-800 mb-2">Функції:</h4>
-                      <ul className="space-y-1 text-sm text-gray-700">
-                        {service.features.map((f, i) => (
-                          <li key={i}>✓ {f}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="text-xs text-blue-600 font-semibold">⏱️ {service.timeline}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* LANDING PAGES SECTION */}
-          {activeCategory === 'landing' && (
-            <div>
-              <h2 className="text-3xl font-bold text-center mb-12">🎯 Лендінг пейджи та Sales Funnels</h2>
-              <p className="text-center text-gray-600 mb-8">Висококонвертуючі сторінки для продажу ваших продуктів та послуг</p>
-              <div className="grid md:grid-cols-3 gap-6">
-                {landingServices.map((service, idx) => (
-                  <div key={idx} className={`${service.color} rounded-2xl p-8 shadow-lg`}>
-                    <div className="flex items-start justify-between mb-4">
-                      <span className="text-4xl">{service.icon}</span>
-                      <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{service.price}</div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-gray-700 mb-4">{service.desc}</p>
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-800 mb-2">Включає:</h4>
-                      <ul className="space-y-1 text-sm text-gray-700">
-                        {service.features.map((f, i) => (
-                          <li key={i}>✓ {f}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="text-xs text-blue-600 font-semibold">⏱️ {service.timeline}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* ADDITIONAL SERVICES SECTION */}
-          {activeCategory === 'additional' && (
-            <div>
-              <h2 className="text-3xl font-bold text-center mb-12">🔧 Додаткові послуги</h2>
-              <p className="text-center text-gray-600 mb-8">Послуги які можна додати до основного проекту або замовити окремо</p>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {additionalServices.map((service, idx) => (
-                  <div key={idx} className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-500">
-                    <div className="flex items-start justify-between mb-3">
-                      <span className="text-4xl">{service.icon}</span>
-                      <span className="text-sm text-green-600 font-semibold">{service.time}</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-sm text-gray-600 mb-4">{service.desc}</p>
-                    <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{service.price}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
-      </section>
+      </main>
 
-      {/* Special Offers */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-yellow-50 to-orange-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 border-2 border-yellow-300 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">🎁 {t('specialOffers')}</h2>
-            <p className="text-lg text-gray-600 mb-6">{t('specialOffersDescription')}</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold">💚 {t('auditSeoDiscount')}</span>
-              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold">💙 {t('redesignSpeedDiscount')}</span>
-              <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold">💜 {t('any3ServicesDiscount')}</span>
-            </div>
-          </div>
+      {/* Footer */}
+      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '50px 20px', marginTop: 100 }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            © {new Date().getFullYear()} veryrary agency. {t('copyrightText')}
+          </p>
         </div>
-      </section>
+      </footer>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">{t('readyToStart')}</h2>
-            <p className="text-xl mb-8 text-indigo-100">{t('readyToStartDescription')}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/#contact" className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-                {t('orderConsultation')}
-              </Link>
-              <Link href="/" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600">
-                {t('backToHome')}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <style jsx>{`
+        .pricing-card:hover {
+          transform: translateY(-8px) ${tariffs.find(t => t.featured) ? 'scale(1.06)' : 'scale(1.02)'} !important;
+          border-color: rgba(0, 245, 255, 0.4) !important;
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5) !important;
+        }
+      `}</style>
     </div>
   );
 }

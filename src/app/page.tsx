@@ -134,6 +134,41 @@ const Icon = {
       <line x1="12" y1="3" x2="12" y2="21" /><path d="m3 9 9-7 9 7" /><path d="M3 9h18" />
     </svg>
   ),
+  Zap: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  ),
+  ShoppingCart: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+    </svg>
+  ),
+  Code: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  MessageCircle: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+    </svg>
+  ),
+  Paintbrush: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m12 22 .71-7.12 6.58-6.58a1 1 0 1 0-1.42-1.42L11.29 13.46 4 11.29l1.41-1.41L12 22Z" />
+    </svg>
+  ),
+  Settings: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle cx="12" cy="12" r="3" />
+    </svg>
+  ),
+  TrendingUp: () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" />
+    </svg>
+  ),
 };
 
 // ─── Scroll Progress ───────────────────────────────────────────────────────────
@@ -416,6 +451,7 @@ export default function HomePage() {
               { icon: <Icon.Briefcase />, title: t('everlightAgency'), desc: t('everlightDescription'), tags: ['Next.js', 'TypeScript', 'Tailwind'], url: 'https://everlight.pp.ua', accent: '#00f5ff', label: 'Agency' },
               { icon: <Icon.Scale />, title: t('advocateSite'), desc: t('advocateDescription'), tags: ['Next.js', 'React', 'CSS'], url: 'https://адвокат-мусевич.com', accent: '#d4af37', label: 'Legal' },
               { icon: <Icon.Star />, title: t('ponySalesWebsite'), desc: t('ponySalesDescription'), tags: ['React', 'Node.js', 'MongoDB'], url: 'https://mlpcutiefamily.pp.ua', accent: '#ec4899', label: 'E-commerce' },
+              { icon: <Icon.Rocket />, title: t('chileRivne'), desc: t('chileRivneDescription'), tags: ['Next.js', 'React', 'Tailwind'], url: 'http://www.chile-rivne.pp.ua', accent: '#ff4d4d', label: 'Delivery' },
             ] as { icon: React.ReactNode; title: string; desc: string; tags: string[]; url: string; accent: string; label: string }[]).map((p, i) => (
               <FadeIn key={i} delay={i * 0.12} className="project-card">
                 <div style={{ height: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', background: `radial-gradient(ellipse at 50% 60%, ${p.accent}20 0%, transparent 70%)` }}>
@@ -440,69 +476,472 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRICING ── */}
+      {/* ── PRICING — СИЛЬНІ ТАРИФИ ── */}
       <section id="pricing" style={{ padding: '100px 20px', background: 'rgba(10,10,26,0.5)', position: 'relative' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
-            <span className="badge badge-green" style={{ marginBottom: 14 }}>Pricing</span>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>{t('pricingPlans')}</h2>
-            <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem' }}>{t('transparentPricesNoHidden')}</p>
-            <Link href="/pricing" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 14, color: 'var(--accent-cyan)', fontSize: '0.88rem', fontWeight: 600, textDecoration: 'none' }}>
-              {t('viewFullPricingDescription')} <Icon.ArrowRight />
-            </Link>
+            <span className="badge badge-green" style={{ marginBottom: 14 }}>Тарифи</span>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontFamily: 'var(--font-display)' }}>
+              Чесні ціни без прихованих платежів
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', marginTop: 12, fontSize: '0.95rem', maxWidth: 600, margin: '12px auto 0' }}>
+              Набиваю кейси — тому ціни нижчі за ринок. Поки є місця 🔥
+            </p>
           </FadeIn>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 18 }}>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
             {([
               {
-                icon: <Icon.Leaf />, name: t('basic'), price: '$150', desc: t('landingOrBusinessCard'), color: '#00ff88',
+                icon: <Icon.Zap />,
+                name: 'Лендінг "під ключ"',
+                price: '$150',
+                priceNote: '~6,500 грн',
+                desc: 'Для локального бізнесу',
+                color: '#00ff88',
                 gradient: 'linear-gradient(135deg, #00ff88, #00d4aa)',
-                features: [t('pages1to3'), t('responsiveDesign'), t('basicSeoShort'), t('contactFormShort'), t('ultraFastDev1to3Days'), t('oneMonthSupport')],
+                forWho: 'Ресторани, барбершопи, майстри',
+                features: [
+                  '1 продаюча сторінка (6-8 блоків)',
+                  'Форма замовлення/запису',
+                  'Telegram/WhatsApp інтеграція',
+                  'Google Maps + контакти',
+                  '100% мобільна версія',
+                  'Базове SEO (Google знайде)',
+                  'Домен + хостинг (допомога)',
+                ],
+                bonus: '🎁 Інструкція: як самому змінювати ціни',
+                deliveryTime: '3-5 днів',
               },
               {
-                icon: <Icon.Rocket />, name: t('startupTariff'), price: '$450', desc: t('mvpFunctionalSites'), color: '#00f5ff',
+                icon: <Icon.Rocket />,
+                name: 'Сайт для бізнесу',
+                price: '$290',
+                priceNote: '~12,500 грн',
+                desc: 'Малий та середній бізнес',
+                color: '#00f5ff',
                 gradient: 'linear-gradient(135deg, #00f5ff, #3b82f6)',
-                features: [t('upTo5Pages'), t('responsiveDesign'), t('fullSeoOptimization'), t('basicAuth'), t('contactForms'), t('twoMonthsSupport')],
-              },
-              {
-                icon: <Icon.Star />, name: t('businessPlan'), price: '$999', desc: t('saasAndEcommerce'), color: '#a855f7',
-                gradient: 'linear-gradient(135deg, #a855f7, #7c3aed)',
-                features: [t('upTo15Pages'), t('fullAuth'), t('database'), t('adminPanel'), t('apiIntegrations'), t('threeMonthsSupport')],
+                forWho: 'Інтернет-магазини, сервісні компанії',
+                features: [
+                  'До 5 сторінок (повний сайт)',
+                  'Каталог послуг/товарів',
+                  'Калькулятор вартості (якщо треба)',
+                  'Месенджери (Telegram/Viber/WhatsApp)',
+                  'Google Analytics (статистика)',
+                  'Швидкість < 2 сек',
+                  '1 місяць підтримки',
+                ],
+                bonus: '🎁 3 безкоштовні правки + чек-лист лідогенерації',
+                deliveryTime: '7-10 днів',
                 featured: true,
               },
               {
-                icon: <Icon.Building />, name: t('enterprisePlan'), price: '$1499+', desc: t('complexCorporateSolutions'), color: '#f472b6',
-                gradient: 'linear-gradient(135deg, #f472b6, #ec4899)',
-                features: [t('unlimitedPagesText'), t('fullApiIntegrations'), t('paymentSystems'), t('analyticsReports'), t('scaling'), t('sixMonthsSupport')],
+                icon: <Icon.ShoppingCart />,
+                name: 'Інтернет-магазин',
+                price: '$550',
+                priceNote: '~24,000 грн',
+                desc: 'E-commerce стартап',
+                color: '#a855f7',
+                gradient: 'linear-gradient(135deg, #a855f7, #7c3aed)',
+                forWho: 'Онлайн-магазини, дропшипінг',
+                features: [
+                  'До 50 товарів (категорії, фільтри)',
+                  'Кошик + оформлення',
+                  'Нова Пошта API (автоматично)',
+                  'Telegram-сповіщення про замовлення',
+                  'Адмінка (додаєш товари сам)',
+                  'Реєстрація/логін клієнтів',
+                  '2 місяці підтримки',
+                ],
+                bonus: '🎁 Допомога з запуском Google Ads',
+                deliveryTime: '14-18 днів',
               },
-            ] as { icon: React.ReactNode; name: string; price: string; desc: string; color: string; gradient: string; features: string[]; featured?: boolean }[]).map((plan, i) => (
-              <FadeIn key={i} delay={i * 0.1} className={`pricing-card${plan.featured ? ' featured' : ''}`} style={{ position: 'relative' }}>
+              {
+                icon: <Icon.Code />,
+                name: 'SaaS / MVP',
+                price: '$950',
+                priceNote: '~41,500 грн',
+                desc: 'Складні системи',
+                color: '#f472b6',
+                gradient: 'linear-gradient(135deg, #f472b6, #ec4899)',
+                forWho: 'Стартапи, B2B, корпорації',
+                features: [
+                  'До 10 сторінок',
+                  'CRM/Dashboard для клієнтів',
+                  'Авторизація (Google, Facebook)',
+                  'Платіжні системи (Stripe, Monobank)',
+                  'База даних (Firebase/Supabase)',
+                  'Адмін-панель',
+                  '3 місяці підтримки',
+                ],
+                bonus: '🎁 Технічна документація',
+                deliveryTime: '21-30 днів',
+              },
+            ] as {
+              icon: React.ReactNode;
+              name: string;
+              price: string;
+              priceNote: string;
+              desc: string;
+              color: string;
+              gradient: string;
+              forWho: string;
+              features: string[];
+              bonus: string;
+              deliveryTime: string;
+              featured?: boolean;
+            }[]).map((plan, i) => (
+              <FadeIn
+                key={i}
+                delay={i * 0.1}
+                className={`pricing-card${plan.featured ? ' featured' : ''}`}
+                style={{
+                  position: 'relative',
+                  transform: plan.featured ? 'scale(1.05)' : 'scale(1)',
+                }}
+              >
                 {plan.featured && (
-                  <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(135deg, #a855f7, #7c3aed)', color: '#fff', padding: '4px 16px', borderRadius: 100, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', whiteSpace: 'nowrap' }}>
-                    ★ {t('popularBadge')}
+                  <div style={{
+                    position: 'absolute',
+                    top: -14,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'linear-gradient(135deg, #00f5ff, #3b82f6)',
+                    color: '#000',
+                    padding: '5px 18px',
+                    borderRadius: 100,
+                    fontSize: '0.7rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.08em',
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0 4px 15px rgba(0, 245, 255, 0.4)',
+                  }}>
+                    ⭐ ПОПУЛЯРНИЙ
                   </div>
                 )}
-                <div style={{ textAlign: 'center', marginBottom: 24, paddingTop: plan.featured ? 12 : 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 12, background: `${plan.color}15`, border: `1px solid ${plan.color}35`, color: plan.color, margin: '0 auto 10px' }}>
+
+                <div style={{ textAlign: 'center', marginBottom: 20, paddingTop: plan.featured ? 14 : 0 }}>
+                  {/* Icon */}
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 52,
+                    height: 52,
+                    borderRadius: 14,
+                    background: `${plan.color}15`,
+                    border: `2px solid ${plan.color}35`,
+                    color: plan.color,
+                    margin: '0 auto 12px',
+                  }}>
                     {plan.icon}
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', marginBottom: 5 }}>{plan.name}</h3>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, fontFamily: 'var(--font-display)', background: plan.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: 4 }}>{plan.price}</div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>{plan.desc}</p>
+
+                  {/* Plan Name */}
+                  <h3 style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.15rem',
+                    marginBottom: 4,
+                    fontWeight: 700,
+                  }}>
+                    {plan.name}
+                  </h3>
+
+                  {/* For Who */}
+                  <p style={{
+                    color: 'var(--text-muted)',
+                    fontSize: '0.75rem',
+                    marginBottom: 12,
+                  }}>
+                    {plan.forWho}
+                  </p>
+
+                  {/* Price */}
+                  <div style={{
+                    fontSize: '2.2rem',
+                    fontWeight: 900,
+                    fontFamily: 'var(--font-display)',
+                    background: plan.gradient,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    lineHeight: 1,
+                    marginBottom: 2,
+                  }}>
+                    {plan.price}
+                  </div>
+                  <div style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--text-muted)',
+                    marginBottom: 8,
+                  }}>
+                    {plan.priceNote}
+                  </div>
+
+                  {/* Description */}
+                  <p style={{
+                    color: 'var(--text-secondary)',
+                    fontSize: '0.82rem',
+                    fontWeight: 500,
+                  }}>
+                    {plan.desc}
+                  </p>
                 </div>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 24 }}>
+
+                {/* Delivery Time Badge */}
+                <div style={{
+                  textAlign: 'center',
+                  marginBottom: 18,
+                  padding: '6px 12px',
+                  background: `${plan.color}10`,
+                  border: `1px solid ${plan.color}25`,
+                  borderRadius: 8,
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: plan.color,
+                }}>
+                  ⚡ {plan.deliveryTime}
+                </div>
+
+                {/* Features */}
+                <ul style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 8,
+                  marginBottom: 18,
+                  paddingLeft: 0,
+                  listStyle: 'none',
+                }}>
                   {plan.features.map((f, j) => (
-                    <li key={j} className="check-item" style={{ fontSize: '0.8rem' }}>
-                      <span className="check-icon" style={{ background: `${plan.color}18`, borderColor: `${plan.color}35`, color: plan.color }}><Icon.Check /></span>
-                      {f}
+                    <li key={j} style={{
+                      fontSize: '0.8rem',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: 8,
+                      color: 'var(--text-secondary)',
+                    }}>
+                      <span style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 18,
+                        height: 18,
+                        borderRadius: 4,
+                        background: `${plan.color}18`,
+                        border: `1px solid ${plan.color}35`,
+                        color: plan.color,
+                        fontSize: '0.7rem',
+                        flexShrink: 0,
+                        marginTop: 2,
+                      }}>
+                        <Icon.Check />
+                      </span>
+                      <span style={{ lineHeight: 1.4 }}>{f}</span>
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" style={{ display: 'block', textAlign: 'center', padding: '11px', borderRadius: 8, background: plan.gradient, color: '#000', fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none', letterSpacing: '0.02em', transition: 'all 0.3s ease', boxShadow: `0 0 20px ${plan.color}25` }}>
-                  {i === 3 ? t('discuss') : t('orderNow')}
+
+                {/* Bonus */}
+                <div style={{
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: 8,
+                  padding: '10px 12px',
+                  marginBottom: 20,
+                  fontSize: '0.78rem',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.5,
+                }}>
+                  {plan.bonus}
+                </div>
+
+                {/* CTA Button */}
+                <a
+                  href="#contact"
+                  style={{
+                    display: 'block',
+                    textAlign: 'center',
+                    padding: '13px',
+                    borderRadius: 10,
+                    background: plan.gradient,
+                    color: '#000',
+                    fontWeight: 800,
+                    fontSize: '0.88rem',
+                    textDecoration: 'none',
+                    letterSpacing: '0.03em',
+                    transition: 'all 0.3s ease',
+                    boxShadow: `0 0 25px ${plan.color}30`,
+                    textTransform: 'uppercase',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = `0 5px 35px ${plan.color}50`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = `0 0 25px ${plan.color}30`;
+                  }}
+                >
+                  {i === 3 ? 'Обговорити проект' : 'Замовити зараз'}
                 </a>
               </FadeIn>
             ))}
           </div>
+
+          {/* Додаткові послуги */}
+          <FadeIn delay={0.4} style={{ marginTop: 80 }}>
+            <div style={{
+              textAlign: 'center',
+              marginBottom: 40,
+            }}>
+              <h3 style={{
+                fontSize: 'clamp(1.4rem, 2.5vw, 2rem)',
+                fontFamily: 'var(--font-display)',
+                marginBottom: 8,
+              }}>
+                Додаткові послуги
+              </h3>
+              <p style={{
+                color: 'var(--text-secondary)',
+                fontSize: '0.9rem',
+              }}>
+                Розширте можливості вашого сайту
+              </p>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: 18,
+            }}>
+              {([
+                {
+                  icon: <Icon.MessageCircle />,
+                  name: 'Telegram-бот',
+                  price: '+$100',
+                  desc: 'Приймання замовлень через бота',
+                  color: '#00f5ff',
+                },
+                {
+                  icon: <Icon.Paintbrush />,
+                  name: 'Редизайн сайту',
+                  price: 'від $200',
+                  desc: 'Оновлення застарілого дизайну',
+                  color: '#a855f7',
+                },
+                {
+                  icon: <Icon.Settings />,
+                  name: 'Підтримка',
+                  price: '$50/міс',
+                  desc: 'Дрібні правки + моніторинг',
+                  color: '#00ff88',
+                },
+                {
+                  icon: <Icon.TrendingUp />,
+                  name: 'SEO пакет',
+                  price: '+$100',
+                  desc: 'Аудит + налаштування Google',
+                  color: '#f472b6',
+                },
+              ] as {
+                icon: React.ReactNode;
+                name: string;
+                price: string;
+                desc: string;
+                color: string;
+              }[]).map((addon, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.02)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: 12,
+                    padding: '20px',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                    e.currentTarget.style.borderColor = `${addon.color}50`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.02)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  }}
+                >
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: 44,
+                    height: 44,
+                    borderRadius: 10,
+                    background: `${addon.color}15`,
+                    border: `1px solid ${addon.color}30`,
+                    color: addon.color,
+                    marginBottom: 12,
+                  }}>
+                    {addon.icon}
+                  </div>
+                  <h4 style={{
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    marginBottom: 4,
+                  }}>
+                    {addon.name}
+                  </h4>
+                  <div style={{
+                    fontSize: '1.3rem',
+                    fontWeight: 800,
+                    color: addon.color,
+                    marginBottom: 6,
+                  }}>
+                    {addon.price}
+                  </div>
+                  <p style={{
+                    fontSize: '0.8rem',
+                    color: 'var(--text-muted)',
+                    lineHeight: 1.4,
+                  }}>
+                    {addon.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+
+          {/* Money-back guarantee */}
+          <FadeIn delay={0.5} style={{ marginTop: 60, textAlign: 'center' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 245, 255, 0.1))',
+              border: '2px solid rgba(0, 255, 136, 0.2)',
+              borderRadius: 16,
+              padding: '30px 20px',
+              maxWidth: 700,
+              margin: '0 auto',
+            }}>
+              <div style={{
+                fontSize: '2rem',
+                marginBottom: 12,
+              }}>
+                ✨
+              </div>
+              <h3 style={{
+                fontSize: '1.3rem',
+                fontWeight: 700,
+                marginBottom: 8,
+              }}>
+                Гарантія якості
+              </h3>
+              <p style={{
+                color: 'var(--text-secondary)',
+                fontSize: '0.9rem',
+                lineHeight: 1.6,
+              }}>
+                Якщо не сподобається результат — повертаю гроші.
+                <br />
+                Передоплата 50% — решта після здачі проекту.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -538,7 +977,7 @@ export default function HomePage() {
           <FadeIn delay={0.3} className="glass-card-strong" style={{ marginTop: 44, padding: '36px 28px', textAlign: 'center', borderColor: 'rgba(0,245,255,0.14)' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: 10 }}>{t('noAnswer')} <Icon.Question /></h3>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 22, fontSize: '0.92rem' }}>{t('telegramResponse')}</p>
-            <a href="https://t.me/ms5e60" target="_blank" rel="noopener noreferrer" className="btn-neon-cyan" style={{ padding: '13px 30px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <a href="https://t.me/veryrary" target="_blank" rel="noopener noreferrer" className="btn-neon-cyan" style={{ padding: '13px 30px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               <Icon.Telegram /> {t('writeToTelegram')}
             </a>
           </FadeIn>
@@ -560,7 +999,7 @@ export default function HomePage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
                 {([
                   { icon: <Icon.Mail />, label: 'Email', val: 'maryanlikesyou@gmail.com', href: 'mailto:maryanlikesyou@gmail.com' },
-                  { icon: <Icon.Telegram />, label: 'Telegram', val: '@ms5e60', href: 'https://t.me/ms5e60' },
+                  { icon: <Icon.Telegram />, label: 'Telegram', val: '@veryrary', href: 'https://t.me/veryrary' },
                 ] as { icon: React.ReactNode; label: string; val: string; href: string }[]).map((c, i) => (
                   <a key={i} href={c.href} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none' }}>
                     <div className="contact-icon-box">{c.icon}</div>
