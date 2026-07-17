@@ -209,7 +209,7 @@ export default function PricingPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 20px', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.25rem' }}>
-              <span className="gradient-text">veryrary agency</span>
+              <span className="gradient-text">Maryan Sobchuk</span>
             </span>
           </Link>
           <Link href="/" className="nav-link" style={{ fontSize: '0.9rem' }}>
@@ -365,7 +365,7 @@ export default function PricingPage() {
       <footer style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '50px 20px', marginTop: 100 }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-            © {new Date().getFullYear()} veryrary agency. {t('copyrightText')}
+            © {new Date().getFullYear()} Maryan Sobchuk. {t('copyrightText')}
           </p>
         </div>
       </footer>

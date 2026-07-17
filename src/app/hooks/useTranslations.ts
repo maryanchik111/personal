@@ -431,7 +431,7 @@ export const useTranslations = () => {
       backToHome: 'Назад на головну',
 
       // Footer
-      copyrightText: 'veryrary agency. Всі права захищені.',
+      copyrightText: 'Maryan Sobchuk. Всі права захищені.',
       webDeveloperFooter: 'Веб-розробник',
     },
     en: {
@@ -810,7 +810,7 @@ export const useTranslations = () => {
       backToHome: 'Back to Home',
 
       // Footer
-      copyrightText: 'veryrary agency. All rights reserved.',
+      copyrightText: 'Maryan Sobchuk. All rights reserved.',
       webDeveloperFooter: 'Web Developer',
     }
   }

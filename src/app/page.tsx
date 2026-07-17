@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import MobileMenu from "./components/MobileMenu";
-import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useTranslations } from '@/app/hooks/useTranslations';
 import { useEffect, useRef, useState } from 'react';
 import { FadeIn, AnimatedNumber } from './components/Animations';
@@ -255,10 +254,10 @@ export default function HomePage() {
             {/* Logo */}
             <a href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.2rem' }}>
-                <span className="gradient-text">vr</span>
+                <span className="gradient-text">Maryan</span>
               </span>
-              <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '1rem' }}>/</span>
-              <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>agency</span>
+              <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '1rem' }}></span>
+              <span style={{ color: 'var(--text-muted)', fontSize: '1rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>Sobchuk</span>
             </a>
 
             {/* Desktop links */}
@@ -270,7 +269,6 @@ export default function HomePage() {
 
             {/* Desktop right */}
             <div className="hidden md:flex" style={{ alignItems: 'center', gap: 14, flexShrink: 0 }}>
-              <LanguageSwitcher />
               <a href="#contact" className="btn-neon-purple" style={{ padding: '9px 18px', fontSize: '0.82rem' }}>
                 {t('getFreeConsultation')}
               </a>
@@ -307,11 +305,11 @@ export default function HomePage() {
           </p>
 
           <div className="animate-fadeInUp delay-300" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#contact" className="btn-neon-purple" style={{ fontSize: '0.96rem', padding: '15px 32px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <Icon.Lightning /> {t('getFreeConsultation')}
+            <a href="#services" className="btn-neon-purple" style={{ fontSize: '0.96rem', padding: '15px 32px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <Icon.Building /> Потрібен сайт для бізнесу
             </a>
-            <a href="/pricing" className="btn-neon-cyan" style={{ fontSize: '0.96rem', padding: '15px 32px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              {t('viewPricing')} <Icon.ArrowRight />
+            <a href="#services" className="btn-neon-cyan" style={{ fontSize: '0.96rem', padding: '15px 32px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              Будую SaaS / MVP-продукт <Icon.Rocket />
             </a>
           </div>
 
@@ -334,18 +332,19 @@ export default function HomePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 18 }}>
             {([
-              { value: 6, prefix: '', suffix: '+', label: t('completedProjects'), sub: 'Реальних клієнтів', color: '#00f5ff', icon: <Icon.Rocket /> },
-              { value: 100, prefix: '', suffix: '%', label: t('satisfiedClients2'), sub: 'Рейтинг 5/5', color: '#a855f7', icon: <Icon.Star /> },
-              { value: 5, prefix: '<', suffix: 'хв', label: t('responseTime'), sub: t('usually'), color: '#00ff88', icon: <Icon.Chat /> },
-              { value: 10, prefix: '', suffix: '+', label: t('experience'), sub: 'Місяців досвіду', color: '#f472b6', icon: <Icon.Clock /> },
-            ] as { value: number; prefix: string; suffix: string; label: string; sub: string; color: string; icon: React.ReactNode }[]).map((s, i) => (
+              { value: 6, prefix: '', suffix: '+', label: t('completedProjects'), sub: 'Реальних клієнтів', details: 'Серед них: lanasvilta.pp.ua, jabchek-photostudio.pp.ua', color: '#00f5ff', icon: <Icon.Rocket /> },
+              { value: 100, prefix: '', suffix: '%', label: t('satisfiedClients2'), sub: 'Рейтинг 5/5', details: 'Всі клієнти задоволені результатом', color: '#a855f7', icon: <Icon.Star /> },
+              { value: 1, prefix: '', suffix: '', label: 'ERP Система', sub: 'Для школи Starland (Рівне)', details: 'Складний SaaS проект в розробці', color: '#00ff88', icon: <Icon.Database /> },
+              { value: 10, prefix: '', suffix: '+', label: t('experience'), sub: 'Місяців досвіду', details: 'Безперервної розробки', color: '#f472b6', icon: <Icon.Clock /> },
+            ] as { value: number; prefix: string; suffix: string; label: string; sub: string; details: string; color: string; icon: React.ReactNode }[]).map((s, i) => (
               <FadeIn key={i} delay={i * 0.15} className="stat-card">
                 <div style={{ color: s.color, marginBottom: 12, opacity: 0.7 }}>{s.icon}</div>
                 <div style={{ fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 800, color: s.color, textShadow: `0 0 30px ${s.color}60`, marginBottom: 6 }}>
                   <AnimatedNumber value={s.value} prefix={s.prefix} suffix={s.suffix} />
                 </div>
                 <div style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.92rem', marginBottom: 4 }}>{s.label}</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>{s.sub}</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: 4 }}>{s.sub}</div>
+                <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4 }}>{s.details}</div>
               </FadeIn>
             ))}
           </div>
@@ -411,15 +410,16 @@ export default function HomePage() {
           </FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 22 }}>
             {([
-              { icon: <Icon.Rocket />, title: t('mvpDevelopment'), desc: t('mvpDevelopmentDescription'), items: [t('superFastDevelopmentOneDay'), t('basicFunctionality'), t('responsiveDesign'), t('readyForScaling')], color: '#00f5ff', bg: 'rgba(0,245,255,0.08)', border: 'rgba(0,245,255,0.2)' },
-              { icon: <Icon.Briefcase />, title: t('saasApps'), desc: t('saasAppsDescription'), items: [t('userDashboards'), t('paymentIntegration'), t('database'), t('apiDevelopment')], color: '#a855f7', bg: 'rgba(168,85,247,0.08)', border: 'rgba(168,85,247,0.2)' },
-              { icon: <Icon.Globe />, title: t('corporateSites'), desc: t('corporateSitesDescription'), items: [t('landingPagesServices'), t('productCatalogs'), t('cmsIntegration'), t('seoOptimization')], color: '#f472b6', bg: 'rgba(244,114,182,0.08)', border: 'rgba(244,114,182,0.2)' },
-            ] as { icon: React.ReactNode; title: string; desc: string; items: string[]; color: string; bg: string; border: string }[]).map((s, i) => (
+              { icon: <Icon.Rocket />, title: t('mvpDevelopment'), desc: t('mvpDevelopmentDescription'), audience: 'Для стартапів та фаундерів', items: [t('superFastDevelopmentOneDay'), t('basicFunctionality'), t('responsiveDesign'), t('readyForScaling')], color: '#00f5ff', bg: 'rgba(0,245,255,0.08)', border: 'rgba(0,245,255,0.2)' },
+              { icon: <Icon.Briefcase />, title: t('saasApps'), desc: t('saasAppsDescription'), audience: 'Для B2B та масштабування', items: [t('userDashboards'), t('paymentIntegration'), t('database'), t('apiDevelopment')], color: '#a855f7', bg: 'rgba(168,85,247,0.08)', border: 'rgba(168,85,247,0.2)' },
+              { icon: <Icon.Globe />, title: t('corporateSites'), desc: t('corporateSitesDescription'), audience: 'Для локального бізнесу', items: [t('landingPagesServices'), t('productCatalogs'), t('cmsIntegration'), t('seoOptimization')], color: '#f472b6', bg: 'rgba(244,114,182,0.08)', border: 'rgba(244,114,182,0.2)' },
+            ] as { icon: React.ReactNode; title: string; desc: string; audience: string; items: string[]; color: string; bg: string; border: string }[]).map((s, i) => (
               <FadeIn key={i} delay={i * 0.15} className="service-card">
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 56, height: 56, borderRadius: 14, background: s.bg, border: `1px solid ${s.border}`, marginBottom: 22, color: s.color }}>
                   {s.icon}
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', marginBottom: 10, color: s.color }}>{s.title}</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', marginBottom: 6, color: s.color }}>{s.title}</h3>
+                <div style={{ fontSize: '0.82rem', color: s.color, fontWeight: 600, marginBottom: 10, opacity: 0.9 }}>{s.audience}</div>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.75, marginBottom: 18 }} dangerouslySetInnerHTML={{ __html: s.desc }} />
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {s.items.map((item, j) => (
@@ -446,12 +446,12 @@ export default function HomePage() {
           </FadeIn>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: 22 }}>
             {([
-              { icon: <Icon.Globe />, title: t('biblicalSchool'), desc: t('biblicalSchoolDescription'), tags: ['Next.js', 'React', 'TypeScript'], url: 'https://uebs.com.ua', accent: '#f59e0b', label: 'Education' },
-              { icon: <Icon.Building />, title: t('churchSite'), desc: t('churchSiteDescription'), tags: ['Next.js', 'React', 'Tailwind'], url: 'https://slti-church.com', accent: '#3b82f6', label: 'Community' },
-              { icon: <Icon.Briefcase />, title: t('everlightAgency'), desc: t('everlightDescription'), tags: ['Next.js', 'TypeScript', 'Tailwind'], url: 'https://everlight.pp.ua', accent: '#00f5ff', label: 'Agency' },
-              { icon: <Icon.Scale />, title: t('advocateSite'), desc: t('advocateDescription'), tags: ['Next.js', 'React', 'CSS'], url: 'https://адвокат-мусевич.com', accent: '#d4af37', label: 'Legal' },
-              { icon: <Icon.Star />, title: t('ponySalesWebsite'), desc: t('ponySalesDescription'), tags: ['React', 'Node.js', 'MongoDB'], url: 'https://mlpcutiefamily.pp.ua', accent: '#ec4899', label: 'E-commerce' },
-              { icon: <Icon.Rocket />, title: t('chileRivne'), desc: t('chileRivneDescription'), tags: ['Next.js', 'React', 'Tailwind'], url: 'http://www.chile-rivne.pp.ua', accent: '#ff4d4d', label: 'Delivery' },
+              { icon: <Icon.Globe />, title: t('biblicalSchool'), desc: t('biblicalSchoolDescription'), tags: ['Локальний бізнес', 'Next.js', 'React'], url: 'https://uebs.com.ua', accent: '#f59e0b', label: 'Education' },
+              { icon: <Icon.Building />, title: t('churchSite'), desc: t('churchSiteDescription'), tags: ['Локальний бізнес', 'Next.js', 'Tailwind'], url: 'https://slti-church.com', accent: '#3b82f6', label: 'Community' },
+              { icon: <Icon.Briefcase />, title: t('everlightAgency'), desc: t('everlightDescription'), tags: ['Локальний бізнес', 'Next.js', 'TypeScript'], url: 'https://everlight.pp.ua', accent: '#00f5ff', label: 'Agency' },
+              { icon: <Icon.Scale />, title: t('advocateSite'), desc: t('advocateDescription'), tags: ['Локальний бізнес', 'Next.js', 'React'], url: 'https://адвокат-мусевич.com', accent: '#d4af37', label: 'Legal' },
+              { icon: <Icon.Star />, title: t('ponySalesWebsite'), desc: t('ponySalesDescription'), tags: ['E-commerce', 'React', 'Node.js'], url: 'https://mlpcutiefamily.pp.ua', accent: '#ec4899', label: 'E-commerce' },
+              { icon: <Icon.Rocket />, title: t('chileRivne'), desc: t('chileRivneDescription'), tags: ['Локальний бізнес', 'Next.js', 'React'], url: 'http://www.chile-rivne.pp.ua', accent: '#ff4d4d', label: 'Delivery' },
             ] as { icon: React.ReactNode; title: string; desc: string; tags: string[]; url: string; accent: string; label: string }[]).map((p, i) => (
               <FadeIn key={i} delay={i * 0.12} className="project-card">
                 <div style={{ height: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', background: `radial-gradient(ellipse at 50% 60%, ${p.accent}20 0%, transparent 70%)` }}>
@@ -977,8 +977,8 @@ export default function HomePage() {
           <FadeIn delay={0.3} className="glass-card-strong" style={{ marginTop: 44, padding: '36px 28px', textAlign: 'center', borderColor: 'rgba(0,245,255,0.14)' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: 10 }}>{t('noAnswer')} <Icon.Question /></h3>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 22, fontSize: '0.92rem' }}>{t('telegramResponse')}</p>
-            <a href="https://t.me/veryrary" target="_blank" rel="noopener noreferrer" className="btn-neon-cyan" style={{ padding: '13px 30px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-              <Icon.Telegram /> {t('writeToTelegram')}
+            <a href="https://t.me/maryansobchuk" target="_blank" rel="noopener noreferrer" className="btn-neon-cyan" style={{ padding: '13px 30px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+              <Icon.Telegram /> {t('messageInTelegram')}
             </a>
           </FadeIn>
         </div>
@@ -999,7 +999,7 @@ export default function HomePage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
                 {([
                   { icon: <Icon.Mail />, label: 'Email', val: 'maryanlikesyou@gmail.com', href: 'mailto:maryanlikesyou@gmail.com' },
-                  { icon: <Icon.Telegram />, label: 'Telegram', val: '@veryrary', href: 'https://t.me/veryrary' },
+                  { icon: <Icon.Telegram />, label: 'Telegram', val: '@maryansobchuk', href: 'https://t.me/maryansobchuk' },
                 ] as { icon: React.ReactNode; label: string; val: string; href: string }[]).map((c, i) => (
                   <a key={i} href={c.href} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none' }}>
                     <div className="contact-icon-box">{c.icon}</div>
@@ -1056,7 +1056,7 @@ export default function HomePage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
           <div>
             <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.05rem', marginBottom: 3 }}>
-              <span className="gradient-text">veryrary agency</span>
+              <span className="gradient-text">Maryan Sobchuk</span>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>{t('webDeveloperFooter')}</p>
           </div>

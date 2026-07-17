@@ -2,9 +2,9 @@ export default function JsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "veryrary agency",
+    "name": "Maryan Sobchuk",
     "jobTitle": "Веб-розробка",
-    "description": "Професійна веб-розробка від veryrary agency. Спеціалізуємося на Next.js, React, Tailwind CSS.",
+    "description": "Професійна веб-розробка від Maryan Sobchuk. Спеціалізуємося на Next.js, React, Tailwind CSS.",
     "image": "https://devs-plus.com/profile.jpg",
     "url": "https://devs-plus.com",
     "email": "maryan.sobchuk@gmail.com",

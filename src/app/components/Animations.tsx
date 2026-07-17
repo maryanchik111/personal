@@ -38,6 +38,8 @@ export const FadeIn = ({
     );
 };
 
+import { animate } from 'framer-motion';
+
 export const AnimatedNumber = ({
     value,
     prefix = "",
@@ -49,23 +51,23 @@ export const AnimatedNumber = ({
     suffix?: string;
     className?: string;
 }) => {
-    const ref = useRef(null);
+    const ref = useRef<HTMLSpanElement>(null);
     const inView = useInView(ref, { once: true, margin: "-50px" });
 
-    const springValue = useSpring(0, {
-        bounce: 0,
-        duration: 2000,
-    });
-
     useEffect(() => {
-        if (inView) {
-            springValue.set(value);
+        if (inView && ref.current) {
+            const controls = animate(0, value, {
+                duration: 2,
+                ease: "easeOut",
+                onUpdate(current) {
+                    if (ref.current) {
+                        ref.current.textContent = `${prefix}${Math.floor(current)}${suffix}`;
+                    }
+                }
+            });
+            return controls.stop;
         }
-    }, [inView, springValue, value]);
+    }, [inView, value, prefix, suffix]);
 
-    const display = useTransform(springValue, (current) => {
-        return `${prefix}${Math.floor(current)}${suffix}`;
-    });
-
-    return <motion.span ref={ref} className={className}>{display}</motion.span>;
+    return <span ref={ref} className={className}>{prefix}0{suffix}</span>;
 };
